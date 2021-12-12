@@ -26,7 +26,6 @@ div.navbar > ul > li > a:hover {
     color: white;
 }
 
-div.navbar > ul > li > a.active {
-    color: white;
-    background-color: green;
+button {
+    color: black;
 }
