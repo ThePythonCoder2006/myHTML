@@ -3,3 +3,30 @@
     width:100;
     text-align: center;
 }
+
+div.navbar > ul{
+    background-color: darkgray;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100;
+    position: fixed;
+    text-align: center;
+}
+
+div.navbar > ul > li > a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 8px 16px;
+}
+
+div.navbar > ul > li > a:hover {
+    background-color: dimgray;
+    color: white;
+}
+
+div.navbar > ul > li > a.active {
+    color: white;
+    background-color: green;
+}
