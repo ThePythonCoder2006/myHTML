@@ -1,11 +1,7 @@
 .align-center {
-    width: 200px;
-    text-align: center;
     margin: auto;
-}
-
-div.navbar {
-    z-index: -1;
+    width: 200;
+    text-align: center;
 }
 
 div.navbar > ul{
@@ -19,7 +15,7 @@ div.navbar > ul{
     text-align: center;
     top: 0;
     left: 0;
-    padding-top: 100;
+    padding-top: 20;
 }
 
 div.navbar > ul > li:last-child{
@@ -44,10 +40,4 @@ div.navbar > ul > li > a:hover {
 div.navbar > ul > li > a.active {
     background-color: green;
     color: white;
-}
-
-div.navbar > img {
-    width: 90px;
-    margin-left: 5px;
-    z-index: 5;
 }
