@@ -41,6 +41,7 @@ div.navbar > ul > li > a:hover {
     color: white;
 }
 
+<<<<<<< HEAD
 div.navbar > ul > li > a.active {
     background-color: green;
     color: white;
@@ -50,4 +51,8 @@ div.navbar > img {
     width: 90px;
     margin-left: 5px;
     z-index: 5;
+=======
+button {
+    color: black;
+>>>>>>> 64d5f47d5440cb42810e1a74c18d320a0d90fb82
 }
