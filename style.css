@@ -38,12 +38,10 @@ div.navbar > ul > li > a {
 
 div.navbar > ul > li > a:hover {
     background-color: dimgray;
-    color: white;
 }
 
 div.navbar > ul > li > a.active {
     background-color: green;
-    color: white;
 }
 
 div.navbar > img {
