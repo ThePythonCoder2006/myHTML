@@ -12,6 +12,7 @@ div.navbar > ul{
     width: 100;
     position: fixed;
     text-align: center;
+    top: 0;
 }
 
 div.navbar > ul > li > a {
@@ -21,12 +22,14 @@ div.navbar > ul > li > a {
     padding: 8px 16px;
 }
 
+/*
 div.navbar > ul > li > a:hover {
     background-color: dimgray;
     color: white;
 }
+*/
 
-div.navbar > ul > li > a.active {
-    color: white;
-    background-color: green;
+p {
+    font-size: 60;
+    padding: 50;
 }

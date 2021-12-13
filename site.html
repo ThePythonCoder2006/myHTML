@@ -10,12 +10,38 @@
             <p>this is centered</p>
         </div>
         <div class=navbar>
-            <ul>
-                <li><a class=active href=#link>thing 1</a></li>
-                <li><a href=#link>thing 1</a></li>
-                <li><a href=#link>thing 1</a></li>
-                <li><a href=#link>thing 1</a></li>
+            <ul id=navbar>
+                <li><a onclick="change_colors(this)" href=#link>thing 1</a></li>
+                <li><a onclick="change_colors(this)" href=#link>thing 1</a></li>
+                <li><a onclick="change_colors(this)" href=#link>thing 1</a></li>
+                <li><a onclick="change_colors(this)" href=#link>thing 1</a></li>
             </ul>
         </div>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <p>Some text</p>
+        <script>
+            function change_colors(ele){
+                console.log(ele)
+                const lis = document.getElementById("navbar").getElementsByTagName("li");
+                for (let i = 0; i < lis.length; i++){
+                    lis[i].removeAttribute("style")
+                    lis[i].style.backgroundColor = "#a9a9a9";
+                    console.log(lis[i])
+                }
+                ele.style.backgroundColor = "#00ff00";
+            }
+        </script>
     </body>
 </html>
