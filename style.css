@@ -116,4 +116,5 @@ button.close {
     float: right;
     border-color: black;
     border-width: 1px;
+    margin-top: 20;
 }
