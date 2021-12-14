@@ -16,7 +16,21 @@
             </ul>
         </div>
         <div class=content>
-            <h3>Peut-être</h3>
+            <button id=dark class=theme onclick="darktheme()">Mode sombre</button><button id=light class=theme onclick="lighttheme()">Mode clair</button>
+            <p>Some text</p>
         </div>
+        <script>
+            function darktheme(){
+                const content = document.getElementsByClassName("content")[0].style;
+                content.backgroundColor = "gray";
+                content.color = "white";
+            }
+
+            function lighttheme(){
+                const content = document.getElementsByClassName("content")[0].style;
+                content.backgroundColor = "beige";
+                content.color = "black";
+            }
+        </script>
     </body>
 </html>
