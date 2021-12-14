@@ -12,19 +12,54 @@
                 <li><a href=#link>thing 2</a></li>
                 <li><a href=#link>thing 3</a></li>
                 <li><a href=#link>thing 4</a></li>
-                <li><a href=#link>thing 5</a></li>
+                <li><a href=#link>paramètres</a></li>
             </ul>
         </div>
-        <div class=content>
-            <button class=theme onclick="darktheme()">Mode sombre</button><button class=theme onclick="lighttheme()">Mode clair</button>
+        <div class="content color">
+            <p>Some text</p>
+        </div>
+        <div class="themepopup color">
+            <button class=close onclick="close_popup()">x</button>
+            <h3>Quel mode de couleur souhaitez vous utiliser ?</h3>
+            <button id=dark class=theme onclick="darktheme()">Mode sombre</button><button id=light class=theme onclick="lighttheme()">Mode clair</button>
         </div>
         <script>
             function darktheme(){
-                document.getElementsByClassName("content")[0].style.backgroundColor = "dimgray"
+                const dark = document.getElementById("dark").style;
+                dark.boxShadow = "5px 5px 5px #232323";
+                dark.borderColor = "white";
+                const light = document.getElementById("light").style;
+                light.boxShadow = "5px 5px 5px #232323";
+                light.borderColor = "white";
+                const content = document.getElementsByClassName("color");
+                for (let i = 0; i < content.length; i++){
+                    let modif = content[i].style
+                    modif.backgroundColor = "#36393f";
+                    modif.color = "white";
+                    modif.boxShadow = "10px 10px 8px #232323";
+                    modif.borderColor = "white";
+                }
             }
 
             function lighttheme(){
-                document.getElementsByClassName("content")[0].style.backgroundColor = "beige"
+                const dark = document.getElementById("dark").style;
+                dark.boxShadow = "5px 5px 5px dimgray";
+                dark.borderColor = "black";
+                const light = document.getElementById("light").style;
+                light.boxShadow = "5px 5px 5px dimgray";
+                light.borderColor = "black";
+                const content = document.getElementsByClassName("color");
+                for (let i = 0; i < content.length; i++){
+                    let modif = content[i].style
+                    modif.backgroundColor = "beige";
+                    modif.color = "black";
+                    modif.boxShadow = "10px 10px 8px dimgray";
+                    modif.borderColor = "black";
+                }
+            }
+
+            function close_popup(){
+                document.getElementsByClassName("themepopup")[0].style.display = "none";
             }
         </script>
     </body>

@@ -41,7 +41,8 @@ div.navbar > ul > li > a:hover {
 }
 
 div.navbar > ul > li > a.active {
-    background-color: green;
+    background-color: #14d50a;
+    color: white;
 }
 
 div.navbar > img {
@@ -62,4 +63,57 @@ div.content {
     width: calc(100% - 100px - 10px);
     height: 100%;
     background-color: beige;
+}
+
+button.theme {
+    padding: 10;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px dimgray;
+    cursor: pointer;
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 1.5px;
+    width: 130px;
+}
+
+button.theme:last-child {
+    margin-left: 70;
+}
+
+#dark {
+    background-color: #36393f;
+    color: white;
+}
+
+#light {
+    background-color: beige;
+}
+
+div.themepopup {
+    position: fixed;
+    top: 127;
+    height: 38.333;
+    z-index: 5000;
+    left: 33.5%;
+    background-color: beige;
+    padding-top: 20;
+    padding-bottom: 100;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10px;
+    padding-left: 50;
+    padding-right: 50;
+    box-shadow: 10px 10px 8px dimgray;
+}
+
+button.close {
+    background-color: red;
+    color: black;
+    border-style: solid;
+    float: right;
+    border-color: black;
+    border-width: 1px;
+    margin-top: 20;
 }
