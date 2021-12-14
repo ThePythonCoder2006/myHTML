@@ -15,21 +15,35 @@
                 <li><a href=#link>thing 5</a></li>
             </ul>
         </div>
-        <div class=content>
-            <button id=dark class=theme onclick="darktheme()">Mode sombre</button><button id=light class=theme onclick="lighttheme()">Mode clair</button>
+        <div class="content color">
             <p>Some text</p>
+        </div>
+        <div class="themepopup color">
+            <div>
+                <button class=close onclick="close_popup()">x</button>
+                <h3>Quel mode de couleur souhaitez vous utiliser ?</h3>
+                <button id=dark class=theme onclick="darktheme()">Mode sombre</button><button id=light class=theme onclick="lighttheme()">Mode clair</button>
+            </div>
         </div>
         <script>
             function darktheme(){
-                const content = document.getElementsByClassName("content")[0].style;
-                content.backgroundColor = "gray";
-                content.color = "white";
+                const content = document.getElementsByClassName("color");
+                for (let i = 0; i < content.length; i++){
+                    content[i].style.backgroundColor = "#36393f";
+                    content[i].style.color = "white";
+                }
             }
 
             function lighttheme(){
-                const content = document.getElementsByClassName("content")[0].style;
-                content.backgroundColor = "beige";
-                content.color = "black";
+                const content = document.getElementsByClassName("color");
+                for (let i = 0; i < content.length; i++){
+                    content[i].style.backgroundColor = "beige";
+                    content[i].style.color = "black";
+                }
+            }
+
+            function close_popup(){
+                document.getElementsByClassName("themepopup")[0].style.display = "none";
             }
         </script>
     </body>

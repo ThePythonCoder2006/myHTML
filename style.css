@@ -42,7 +42,7 @@ div.navbar > ul > li > a:hover {
 }
 
 div.navbar > ul > li > a.active {
-    background-color: green;
+    background-color: #14d50a;
     color: white;
 }
 
@@ -66,20 +66,20 @@ div.content {
     background-color: beige;
 }
 
-button.theme:first-child {
-    margin-left: 10%;
-}
-
 button.theme {
     padding: 10;
     border-radius: 5px;
     box-shadow: 5px 5px 5px dimgray;
-    margin-left: 50;
     cursor: pointer;
     text-align: center;
     border-style: solid;
     border-color: black;
     border-width: 1.5px;
+    width: 130px;
+}
+
+button.theme:first-child {
+    margin-right: 20;
 }
 
 #dark {
@@ -89,4 +89,28 @@ button.theme {
 
 #light {
     background-color: beige;
+}
+
+div.themepopup {
+    position: fixed;
+    top: 127;
+    height: 38.333;
+    z-index: 5000;
+    left: 33.5%;
+    background-color: beige;
+    padding-top: 20;
+    padding-bottom: 100;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10px;
+    padding-left: 50;
+    padding-right: 50;
+    box-shadow: 10px 10px 8px #2f2f2f;
+}
+
+button.close {
+    background-color: red;
+    color: black;
+    border: none;
 }
