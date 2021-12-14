@@ -27,18 +27,36 @@
         </div>
         <script>
             function darktheme(){
+                const dark = document.getElementById("dark").style;
+                dark.boxShadow = "5px 5px 5px #232323";
+                dark.borderColor = "white";
+                const light = document.getElementById("light").style;
+                light.boxShadow = "5px 5px 5px #232323";
+                light.borderColor = "white";
                 const content = document.getElementsByClassName("color");
                 for (let i = 0; i < content.length; i++){
-                    content[i].style.backgroundColor = "#36393f";
-                    content[i].style.color = "white";
+                    let modif = content[i].style
+                    modif.backgroundColor = "#36393f";
+                    modif.color = "white";
+                    modif.boxShadow = "10px 10px 8px #232323";
+                    modif.borderColor = "white";
                 }
             }
 
             function lighttheme(){
+                const dark = document.getElementById("dark").style;
+                dark.boxShadow = "5px 5px 5px dimgray";
+                dark.borderColor = "black";
+                const light = document.getElementById("light").style;
+                light.boxShadow = "5px 5px 5px dimgray";
+                light.borderColor = "black";
                 const content = document.getElementsByClassName("color");
                 for (let i = 0; i < content.length; i++){
-                    content[i].style.backgroundColor = "beige";
-                    content[i].style.color = "black";
+                    let modif = content[i].style
+                    modif.backgroundColor = "beige";
+                    modif.color = "black";
+                    modif.boxShadow = "10px 10px 8px dimgray";
+                    modif.borderColor = "black";
                 }
             }
 
