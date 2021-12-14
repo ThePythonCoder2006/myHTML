@@ -32,7 +32,7 @@ div.navbar > ul > li:last-child{
 div.navbar > ul > li > a {
     display: block;
     text-decoration: none;
-    color: black;
+    color: #000;
     padding: 8px 16px;
 }
 
