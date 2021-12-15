@@ -12,7 +12,7 @@
                 <li><a href=#link>thing 2</a></li>
                 <li><a href=#link>thing 3</a></li>
                 <li><a href=#link>thing 4</a></li>
-                <li><a href=#link>paramètres</a></li>
+                <li><a href=settings.html>paramètres</a></li>
             </ul>
         </div>
         <div class="content color">
@@ -26,6 +26,8 @@
         </div>
         <script>
             function darktheme(){
+                document.cookie = "theme=dark";
+                console.log(document.cookie);
                 const dark = document.getElementById("dark").style;
                 dark.boxShadow = "5px 5px 5px #232323";
                 dark.borderColor = "white";
@@ -61,6 +63,14 @@
 
             function close_popup(){
                 document.getElementsByClassName("themepopup")[0].style.display = "none";
+            }
+        </script>
+        <script>
+            console.log(document.cookie);
+            if (document.cookie == "theme=dark"){
+                darktheme();
+            } else {
+                lighttheme();
             }
         </script>
     </body>
