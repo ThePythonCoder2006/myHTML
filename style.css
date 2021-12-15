@@ -62,7 +62,7 @@ div.content {
     margin-left: 100;
     width: calc(100% - 100px - 10px);
     height: 100%;
-    background-color: beige;
+    background-color: #F5F5DC;
 }
 
 button.theme {
@@ -87,7 +87,7 @@ button.theme:last-child {
 }
 
 #light {
-    background-color: beige;
+    background-color: #F5F5DC;
 }
 
 div.themepopup {
@@ -96,7 +96,7 @@ div.themepopup {
     height: 38.333;
     z-index: 5000;
     left: 33.5%;
-    background-color: beige;
+    background-color: #F5F5DC;
     padding-top: 20;
     padding-bottom: 100;
     border-style: solid;
