@@ -4,6 +4,7 @@
     margin: auto;
 }
 
+/*navbar*/
 div.navbar {
     z-index: 4;
 }
@@ -54,6 +55,7 @@ div.navbar > img {
     top: 5;
 }
 
+/*theme and change of theme with button*/
 div.content {
     position: absolute;
     top: 0;
