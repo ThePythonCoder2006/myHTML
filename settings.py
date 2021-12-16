@@ -1,0 +1,1 @@
+with f as open

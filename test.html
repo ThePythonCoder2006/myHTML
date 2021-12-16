@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <button onclick="writefile()">Show cookies</button>
+
+        <button onclick="clearOutputCookies()">
+          Clear
+        </button>
+
+        <div>
+          <code id="cookies"></code>
+        </div>
+        <script>
+            function writefile(){
+                const fs = require('fs')
+
+                const content = 'Some content!'
+
+                fs.writeFile('test.txt', content, err => {
+                  if (err) {
+                    console.error(err)
+                    return
+                  }
+                  //file written successfully
+                })
+            }
+        </script>
+    </body>
+</html>
