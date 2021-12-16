@@ -108,6 +108,7 @@ div.themepopup {
     padding-left: 50;
     padding-right: 50;
     box-shadow: 10px 10px 8px dimgray;
+    border-color: inherit;
 }
 
 button.close {
@@ -118,4 +119,18 @@ button.close {
     border-color: black;
     border-width: 1px;
     margin-top: 20;
+}
+
+h1.title {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+}
+
+#partie {
+    display: none;
+}
+
+#intro {
+    display: block;
 }

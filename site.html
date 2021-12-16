@@ -1,8 +1,5 @@
 <html>
     <head>
-        <?php
-        setcookie("theme", "light", time() + (86400 * 30), "/")
-        ?>
         <title>Le site de SNT</title>
         <link href="style.css" rel=stylesheet>
         <link href=icon.png rel=icon>
@@ -11,16 +8,20 @@
         <div class=navbar>
             <img src=icon_rect.png>
             <ul>
-                <li><a class=active href=#txt>thing 1</a></li>
-                <li><a href=#link>thing 2</a></li>
-                <li><a href=#link>thing 3</a></li>
-                <li><a href=#link>thing 4</a></li>
-                <li><a href=settings.html>paramètres</a></li>
+                <li><a onclick=home() class=active href=#>Accueil</a></li>
+                <li><a onclick=intro() href=#>Introduction</a></li>
+                <li><a href=#>thing 3</a></li>
+                <li><a href=#>thing 4</a></li>
+                <li><a href=#>paramètres</a></li>
             </ul>
         </div>
         <div class="content color">
-            <p>Some text</p>
-            <p id=txt>Some text 2</p>
+            <div id=home>
+                <h1 class=title>Bienvenue Cher.e visiteur</h1>
+            </div>
+            <div id=intro>
+                <p>2e partie</p>
+            </div>
         </div>
         <div class="themepopup color">
             <button class=close onclick="close_popup()">x</button>
@@ -67,6 +68,19 @@
             function close_popup(){
                 document.getElementsByClassName("themepopup")[0].style.display = "none";
             }
+
+            function home(){
+                const contentChild = document.getElementsByClassName("content")[0].children
+                for (let i = 0;i < contentChild.length; i++){
+                    console.log(contentChild[i].id)
+                    if (contentChild[i].id != "home"){
+                        contentChild[i].style.display = "none"
+                    }
+                }
+                document.getElementById("home").style.display = "block"
+            }
+            darktheme()
+            close_popup()
         </script>
     </body>
 </html>
