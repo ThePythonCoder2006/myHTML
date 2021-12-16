@@ -127,10 +127,10 @@ h1.title {
     text-decoration-color: currentColor;
 }
 
-#partie {
-    display: none;
+#home {
+    display: block;
 }
 
 #intro {
-    display: block;
+    display: none;
 }
