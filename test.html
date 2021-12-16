@@ -1,28 +1,19 @@
+<?php
+$cookie_name = "user";
+$cookie_value = "John Doe";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+?>
 <html>
-    <body>
-        <button onclick="writefile()">Show cookies</button>
+<body>
 
-        <button onclick="clearOutputCookies()">
-          Clear
-        </button>
+<?php
+if(!isset($_COOKIE[$cookie_name])) {
+  echo "Cookie named '" . $cookie_name . "' is not set!";
+} else {
+  echo "Cookie '" . $cookie_name . "' is set!<br>";
+  echo "Value is: " . $_COOKIE[$cookie_name];
+}
+?>
 
-        <div>
-          <code id="cookies"></code>
-        </div>
-        <script>
-            function writefile(){
-                const fs = require('fs')
-
-                const content = 'Some content!'
-
-                fs.writeFile('test.txt', content, err => {
-                  if (err) {
-                    console.error(err)
-                    return
-                  }
-                  //file written successfully
-                })
-            }
-        </script>
-    </body>
+</body>
 </html>
