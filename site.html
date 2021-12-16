@@ -1,7 +1,3 @@
-<?php
-    setcookie("theme", "light", time() + (86400 * 30), "/")
-?>
-
 <html>
     <head>
         <title>Le site de SNT</title>
@@ -9,15 +5,6 @@
         <link href=icon.png rel=icon>
     </head>
     <body>
-        <?php
-            if(!isset($_COOKIE["theme"])) {
-              echo "Cookie named '" . "theme" . "' is not set!";
-            } else {
-              echo "Cookie '" . "theme" . "' is set!<br>";
-              echo "Value is: " . $_COOKIE["theme"];
-            }
-        ?>
-
         <div class=navbar>
             <img src=icon_rect.png>
             <ul id=menu>
