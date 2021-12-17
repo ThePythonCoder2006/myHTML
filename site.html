@@ -8,8 +8,8 @@
         <div class=navbar>
             <img src=icon_rect.png>
             <ul id=menu>
-                <li><a onclick=home();make_active(this) class=active href=#>Accueil</a></li>
-                <li><a onclick=intro();make_active(this) href=#>Introduction</a></li>
+                <li><a onclick="show_content('home');make_active(this)" class=active href=#>Accueil</a></li>
+                <li><a onclick="show_content('intro');make_active(this)" href=#>Introduction</a></li>
                 <li><a onclick=make_active(this) href=#>thing 3</a></li>
                 <li><a onclick=make_active(this) href=#>thing 4</a></li>
                 <li><a onclick=make_active(this) href=#>paramètres</a></li>
@@ -83,14 +83,9 @@
                 }
             }
 
-            function home(){
+            function show_content(id){
                 hide_content()
-                document.getElementById("home").style.display = "block";
-            }
-
-            function intro(){
-                hide_content()
-                document.getElementById("intro").style.display = "block";
+                document.getElementById(id).style.display = "block"
             }
 
             darktheme()
