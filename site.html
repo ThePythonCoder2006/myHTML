@@ -24,9 +24,10 @@
                 <h1 class=title>Introduction: Qu'est ce que pi</h1>
                 <h3>Définition :</h3>
                 <p>La définition la plus simple de pi est la suivante :</p>
-                <video width="400" controls>
+                <video width="400" id=rickRoll loop>
                     <source src="Rick Astley - Never Gonna Give You Up (Official Music Video).mp4" type="video/mp4">
                   </video>
+                  <button type="button" onclick="playRickRoll();">lancer le meme</button><button type="button" onclick="stopRickRoll();">arrèter ce meme</button>
             </div>
             <div id=settings>
                 <div class=changetheme>
@@ -98,6 +99,14 @@
             function show_content(id){
                 hide_content()
                 document.getElementById(id).style.display = "block"
+            }
+
+            function playRickRoll(){
+                document.getElementById("rickRoll").play();
+            }
+
+            function stopRickRoll(){
+                document.getElementById("rickRoll").pause()
             }
 
             darktheme()
