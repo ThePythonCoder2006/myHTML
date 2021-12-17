@@ -10,17 +10,27 @@
             <ul id=menu>
                 <li><a onclick="show_content('home');make_active(this)" class=active href=#>Accueil</a></li>
                 <li><a onclick="show_content('intro');make_active(this)" href=#>Introduction</a></li>
-                <li><a onclick=make_active(this) href=#>thing 3</a></li>
-                <li><a onclick=make_active(this) href=#>thing 4</a></li>
-                <li><a onclick=make_active(this) href=#>paramètres</a></li>
+                <li><a onclick="show_content('home');make_active(this)" href=#>thing 3</a></li>
+                <li><a onclick="show_content('home');make_active(this)" href=#>thing 4</a></li>
+                <li><a onclick="show_content('settings');make_active(this)" href=#>paramètres</a></li>
             </ul>
         </div>
         <div class="content color">
             <div id=home>
-                <h1 class=title>Bienvenue Cher.e visiteur</h1>
+                <h1 class=title>Bienvenue Cher visiteur</h1>
+                <p>Ceci est un simple site internet sur le nombre pi</p>
             </div>
             <div id=intro>
-                <p>2e partie</p>
+                <h1 class=title>Introduction: Qu'est ce que pi</h1>
+                <h3>Définition :</h3>
+                <p>La définition la plus simple de pi est la suivante :</p>
+                <iframe src="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" title="rickroll"></iframe>
+            </div>
+            <div id=settings>
+                <div class=changetheme>
+                    <h3>Quel mode de couleur souhaitez vous utiliser ?</h3>
+                    <button id=dark class=theme onclick="darktheme()">Mode sombre</button><button id=light class=theme onclick="lighttheme()">Mode clair</button>
+                </div>
             </div>
         </div>
         <div class="themepopup color">

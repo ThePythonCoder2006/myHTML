@@ -134,3 +134,12 @@ h1.title {
 #intro {
     display: none;
 }
+
+#settings {
+    display: none;
+}
+
+.changetheme {
+    display: block;
+    margin-left: 300;
+}
