@@ -134,17 +134,14 @@ h1.title {
 
 #home {
     display: block;
-    height: 100%;
 }
 
 #intro {
     display: none;
-    height: 100%;
 }
 
 #settings {
     display: none;
-    height: 100%;
 }
 
 .changetheme {
