@@ -1,3 +1,7 @@
+body {
+    margin-left: 0;
+}
+
 .align-center {
     width: 200px;
     text-align: center;
@@ -59,10 +63,10 @@ div.navbar > img {
 div.content {
     position: absolute;
     top: 0;
-    left: 0;
     padding-left: 40;
     margin-left: 100;
-    width: calc(100% - 100px - 10px);
+    margin-top: 0;
+    width: calc(100% - 100px - 40px);
     height: 100%;
     background-color: #F5F5DC;
 }
@@ -130,14 +134,17 @@ h1.title {
 
 #home {
     display: block;
+    height: 100%;
 }
 
 #intro {
     display: none;
+    height: 100%;
 }
 
 #settings {
     display: none;
+    height: 100%;
 }
 
 .changetheme {
