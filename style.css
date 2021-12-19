@@ -167,3 +167,8 @@ p.source {
     background-color: inherit;
     padding-left: 40;
 }
+
+#couverture {
+    position: absolute;
+    right: 40;
+}
