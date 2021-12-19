@@ -103,7 +103,7 @@ div.themepopup {
     height: auto;
     width: 630;
     z-index: 5000;
-    left: 25%;
+    left: calc(50% - (630px / 2));
     background-color: #F5F5DC;
     padding-top: 20;
     padding-bottom: 20;
