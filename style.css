@@ -151,6 +151,8 @@ h1.title {
 
 p {
     font-size: 25;
+    margin-top: 5;
+    margin-bottom: 5;
 }
 
 span {
@@ -175,10 +177,15 @@ p.source {
 #couverture {
     position: absolute;
     right: 20;
-    top: 40;
+    top: 80;
 }
 
 #Jean-Paul_Delahaye {
     width: calc(100% - 40px - 10px - 204px);
     text-align: justify;
+}
+
+h3 {
+    font-size: 30;
+    margin-bottom: 10;
 }
