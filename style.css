@@ -153,6 +153,10 @@ p {
     font-size: 25;
 }
 
+span {
+    font-size: 25;
+}
+
 .source {
     font-size: 12;
     text-decoration: none;
@@ -171,4 +175,5 @@ p.source {
 #couverture {
     position: absolute;
     right: 40;
+    top: 40;
 }
