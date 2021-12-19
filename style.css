@@ -81,9 +81,10 @@ button.theme {
     border-color: black;
     border-width: 1.5px;
     width: 130px;
+    margin-left: 40;
 }
 
-button.theme:last-child {
+button.theme#light {
     margin-left: 70;
 }
 
