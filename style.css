@@ -19,7 +19,7 @@ div.navbar > ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 100;
+    width: 150;
     height: 100%;
     position: fixed;
     text-align: center;
@@ -29,7 +29,7 @@ div.navbar > ul{
 }
 
 div.navbar > ul > li:last-child{
-    width: 100;
+    width: 150;
     height: 34;
     position: fixed;
     bottom: 0;
@@ -64,7 +64,7 @@ div.navbar > img {
 div.content {
     position: absolute;
     top: 0;
-    left: 100;
+    left: 150;
     top: 0;
     bottom: 0;
     right: 0;
@@ -243,4 +243,9 @@ h3 {
 #theoremeThales {
     margin-left: calc(100% - 350px) ;
     margin-top: -75;
+}
+
+#quadrature_du_cercle {
+    padding-left: 40;
+    display: none;
 }
