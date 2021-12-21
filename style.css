@@ -218,7 +218,13 @@ h3 {
 
 @media screen and (max-width: 1130px) {
     #theoremeThales {
-        margin-top: 100;
+        margin-top: 120;
+    }
+}
+
+@media screen and (max-width: 855px) {
+    #theoremeThales {
+        margin-top: 250;
     }
 }
 
