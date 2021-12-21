@@ -152,11 +152,11 @@ h1.title {
 }
 
 p {
-    font-size: 25;
+    font-size: 22;
 }
 
 span {
-    font-size: 25;
+    font-size: 22;
 }
 
 .source {
@@ -196,14 +196,14 @@ h3 {
     top: 160;
 }
 
-@media screen and (max-width: 1505px) {
+@media screen and (max-width: 1450px) {
     #imgPiunrolled {
         width: 500px;
         margin-right: -10;
     }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1220px) {
     #imgPiunrolled {
         width: 360px;
         margin-right: -15;
@@ -220,4 +220,27 @@ h3 {
     position: absolute;
     right: 40;
     margin-top: -20;
+}
+
+#explicationtheoremethales {
+    display: none;
+    border-color:rgb(133, 133, 133);
+    border-style: solid;
+    padding-left: 20;
+    padding-right: 20;
+    padding-bottom: 20;
+    border-radius: 2;
+}
+
+#buttonThales {
+    display: inline-block;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 22;
+}
+
+#theoremeThales {
+    margin-left: calc(100% - 350px) ;
+    margin-top: -75;
 }
