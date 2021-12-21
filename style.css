@@ -215,3 +215,14 @@ h3 {
         width: calc(100% - 360px - 5px - 5px);
     }
 }
+
+@media screen and (max-width: 1130px) {
+    #theoremeThales {
+        margin-top: 100;
+    }
+}
+
+#constancePi {
+    position: absolute;
+    right: 40;
+}
