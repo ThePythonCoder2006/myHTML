@@ -140,6 +140,7 @@ h1.title {
 
 #intro {
     display: none;
+    padding-bottom: 20;
 }
 
 #settings {
