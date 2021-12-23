@@ -9,6 +9,10 @@ body {
     margin: auto;
 }
 
+html {
+    background-color: #36393f;
+}
+
 /*navbar*/
 div.navbar {
     z-index: 4;
@@ -55,7 +59,7 @@ div.navbar > img {
     position: fixed;
     width: 90px;
     margin-left: 5px;
-    z-index: 5;
+    z-index: 2;
     left: 0;
     top: 5;
 }
@@ -173,6 +177,7 @@ p.source {
 .background {
     background-color: inherit;
     padding-left: 40;
+    z-index: 4;
 }
 
 #couverture {
@@ -248,5 +253,9 @@ h3 {
 
 #quadrature_du_cercle {
     padding-left: 40;
+    display: none;
+}
+
+#calculPi {
     display: none;
 }
