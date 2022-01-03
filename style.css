@@ -194,6 +194,7 @@ p.source {
 h3 {
     font-size: 30;
     margin-bottom: 10;
+    text-decoration: underline;
 }
 
 #Pi-unrolled {
