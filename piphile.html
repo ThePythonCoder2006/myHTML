@@ -67,7 +67,7 @@
                 <p>`r_1` et `r_2` respectivement le rayon de `cc "C"_1` et `cc "C"_2`</p>
                 <p>`l_1` et `l_2` respectivement la longueur des côtés des polygones régulier insrcits à `cc "C"_1` et `cc "C"_2` et `n` le nombre de côté de ces dit polygones et `cc "P"_(p1)` et `cc "P"_(p2)` le périmètre de ces dit polygones. `cc "P"_(p1) = n xx l_1` et `cc "P"_(p2) = n xx l_2`</p>
                 <p>`cc "P"_1` et `cc "P"_2` respectivement le périmètre de `cc "C"_1` et `cc "C"_2`.</p>
-                <p>Quand n tend vers l'infini, `cc "P"_(p1)` et `cc "P"_(p2)` tendent respectivement  vers `cc "C"_1` et `cc "C"_2`:</p>
+                <p>Quand n tend vers l'infini, `cc "P"_(p1)` et `cc "P"_(p2)` tendent respectivement  vers `cc "P"_1` et `cc "P"_2`:</p>
                 <p>`cc "P"_1 = lim_(n->oo) cc "P"_(p1)` et &nbsp&nbsp&nbsp&nbsp `cc "P"_2 = lim_(n->oo) cc "P"_(p2)`</p>
                 <img src="preuve constance pi.png" height="400" id="constancePi">
                 <p>d'après le théorème de Thalès :</p>
@@ -77,21 +77,24 @@
                 <p>`<=> (r_1)/(l_1) = (r_2)/(l_2)`</p>
                 <p>`<=> (r_1)/(n xx l_1) = (r_2)/(n xx l_2)`</p>
                 <p>`<=> (r_1)/(cc "P"_(p1)) = (r_2)/(cc "P"_(p2))`</p>
-                <p>`<=> lim_(n->oo) ((r_1)/(cc "P"_(p1))) = lim_(n->oo) ((r_2)/(cc "P"_(p2))) = (r_1)/(cc "P"_1) = (r_2)/(cc "P"_2) = 2pi`</p>
+                <p>`<=> lim_(n->oo) ((r_1)/(cc "P"_(p1))) = lim_(n->oo) ((r_2)/(cc "P"_(p2)))`</p>
+                <p>`<=> (r_1)/(cc "P"_1) = (r_2)/(cc "P"_2) = 2pi`</p>
                 <p>donc &#960 est le même pour tout les cercle en géométrie euclidienne</p>
             </div>
             <div id=quadrature_du_cercle class=background>
                 <h3>La quadrature du cercle</h3>
                 <p>La quadrature du cercle est un problème vieux de l'Antiquité dont l'objectif ets de construire, en un nombre d'opération fini avec uniquement une règle non-graduée et un compas, un carré ayant la même surface qu'un cercle, ce qui revient à construire `sqrt(pi)`&nbsp à la règle et au compas.</p>
-                <p>Un autre problème est celui de la rectificatio ndu cercle, qui est de construire un segment dont la longueur est égal au périmètre d'un cercle, ce qui revient à construire `pi` à la règle et au compas.</p>
-                <p>Puisqu'il est possible de multiplier des longueurs et d'extraire des racines carrés, les 2 problèmes sont équivalent.</p>
-                <p>l'imposibilité de ce problème sera prouvé en 1882</p>
+                <p>Un autre problème est celui de la rectification du cercle, qui est de construire un segment dont la longueur est égal au périmètre d'un cercle, ce qui revient à construire `pi` à la règle et au compas.</p>
+                <p>Puisqu'il est possible de multiplier des longueurs et d'extraire des racines carrés, les 2 problèmes sont équivalent. L'imposibilité de ces problèmes sera prouvé en 1882</p>
+
             </div>
             <div id=calculPi class=background>
-                <p>`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(13591409 + 545140134k))/((3k!)(k!)^(3)640320^(3k + 3//2)))^-1`</p>
-                <p>`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(212175710912sqrt(61) + 1657145277365 + k(13773980892672sqrt(61) + 107578229802750)))/((3k)!(k!)^(3)(5280(236674 + 30303sqrt(61)))^(3k + 3//2)))^-1`</p>
-                <p>`pi = 1/(sqrt(-(-214772995063512240-96049403338648032*51//2-1296*51//2(10985234579463550323713318473 + 4912746253692362754607395912*51//2)1//2)^3))(sum_(n=0)^oo((6n)!((63365028312971999585426220+28337702140800842046825600*51//2 + 384*51//2(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*51//2)1//2
-                    7849910453496627210289749000+3510586678260932028965606400 + 2515968*31101) + n(7849910453496627210289749000+3510586678260932028965606400 + 2515968*31101//2(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235*51//2)1//2)))/((3n)!(n!)^(3)(-214772995063512240-96049403338648032*51//2-1296*51//2(10985234579463550323713318473 + 4912746253692362754607395912*51//2)1//2)^(3n)))^-1`</p>
+                <p>`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(13591409 + 545140134k))/((3k!)(k!)^(3)640320^(3k + 3/2)))^-1`</p>
+                <p>`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(212175710912sqrt(61) + 1657145277365 + k(13773980892672sqrt(61) + 107578229802750)))/((3k)!(k!)^(3)(5280(236674 + 30303sqrt(61)))^(3k + 3/2)))^-1`</p>
+                <p>`pi = 1/(sqrt(-(C)^3))(sum_(n=0)^oo((6n)!(A + nB))/((3n)!(n!)^(3)(C)^(3n)))^(-1)`</p>
+                <span style="font-size: 14;">`A=63365028312971999585426220+28337702140800842046825600*51/2 + 384*51/2(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*51/2)1/2`</span>
+                <span style="font-size: 14;">`B=7849910453496627210289749000+3510586678260932028965606400 + 2515968*31101/2(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235*51/2)1/2`</span>
+                <span style="font-size: 14;">`C=-214772995063512240-96049403338648032*51/2-1296*51/2(10985234579463550323713318473 + 4912746253692362754607395912*51/2)1/2`</span>
                 <!--A=63365028312971999585426220+28337702140800842046825600*51/2 + 384*51/2(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*51/2)1/2
 B=7849910453496627210289749000+3510586678260932028965606400 + 2515968*31101/2(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235*51/2)1/2
 C=-214772995063512240-96049403338648032*51/2-1296*51/2(10985234579463550323713318473 + 4912746253692362754607395912*51/2)1/2-->

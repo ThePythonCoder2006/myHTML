@@ -10,7 +10,7 @@ body {
 }
 
 html {
-    background-color: #36393f;
+    scroll-behavior: smooth;
 }
 
 /*navbar*/
