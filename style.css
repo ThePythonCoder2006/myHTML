@@ -267,4 +267,5 @@ h3 {
     overflow-x: auto;
     margin-right: 20;
     overflow-y:unset;
+    margin: 0;
 }
