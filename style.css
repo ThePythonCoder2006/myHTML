@@ -261,3 +261,10 @@ h3 {
     display: none;
     padding-bottom: 20;
 }
+
+.longtxt {
+    font-size: 17;
+    overflow-x: auto;
+    margin-right: 20;
+    overflow-y:unset;
+}
