@@ -194,6 +194,16 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2(1098523457946355032371331
             function theoremeThales(){
                 document.getElementById("explicationtheoremethales").style.display = "inline-block";
             }
+
+            function factorial(nat) {
+               let p = BigInt(1)
+               let i = BigInt(nat)
+
+               while (1 < i--) p *= i
+
+               return p
+            }
+            
             darktheme()
             close_popup()
         </script>
