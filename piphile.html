@@ -99,10 +99,13 @@
                 <p>Dans cette partie, je vais présenter des formule plus ou moins actulles pour le calcule de &#960 </p>
                 <p>`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(13591409 + 545140134k))/((3k!)(k!)^(3)640320^(3k + 3/2)))^-1`</p>
                 <p style="overflow: auto;">`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(212175710912sqrt(61) + 1657145277365 + k(13773980892672sqrt(61) + 107578229802750)))/((3k)!(k!)^(3)(5280(236674 + 30303sqrt(61)))^(3k + 3/2)))^-1`</p>
-                <p>`pi = 1/(sqrt(-(C)^3))(sum_(n=0)^oo((6n)!(A + nB))/((3n)!(n!)^(3)(C)^(3n)))^(-1)` avec:</p>
-                <p class=longtxt>`A = 63365028312971999585426220 + 28337702140800842046825600xx51//2`</p><p class=longtxt style="margin-bottom: 40;">`+ 384xx51//2sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040 sqrt5)`</p>
-                <p class=longtxt>`B = 7849910453496627210289749000+3510586678260932028965606400`&nbsp</p><p class=longtxt  style="margin-bottom: 40;">` + 2515968sqrt3110sqrt(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235 sqrt5)`</p>
-                <p class=longtxt>`C=-214772995063512240-96049403338648032sqrt5`&nbsp</p><p class=longtxt style="margin-bottom: 40;">`-1296sqrt5sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt5)`</p>
+                <div id=50dec>
+                    <p>`pi = 1/(sqrt(-(C)^3))(sum_(n=0)^oo((6n)!(A + nB))/((3n)!(n!)^(3)(C)^(3n)))^(-1)` avec:</p>
+                    <p class=longtxt>`A = 63365028312971999585426220 + 28337702140800842046825600xx51//2`</p><p class=longtxt style="margin-bottom: 40;">`+ 384xx51//2sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040 sqrt5)`</p>
+                    <p class=longtxt>`B = 7849910453496627210289749000+3510586678260932028965606400`&nbsp</p><p class=longtxt  style="margin-bottom: 40;">` + 2515968sqrt3110sqrt(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235 sqrt5)`</p>
+                    <p class=longtxt>`C=-214772995063512240-96049403338648032sqrt5`&nbsp</p><p class=longtxt style="margin-bottom: 40;">`-1296sqrt5sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt5)`</p>
+                    <button type="button" onclick="test(self)">Tester</button>
+                </div>
                 <video width="400" id=rickRoll loop>
                     <source src="Rick Astley - Never Gonna Give You Up (Official Music Video).mp4" type="video/mp4">
                 </video>
@@ -195,7 +198,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2(1098523457946355032371331
                 document.getElementById("explicationtheoremethales").style.display = "inline-block";
             }
 
-            function factorial(nat) {
+            function sfactorial(nat) {
                let p = BigInt(1)
                let i = BigInt(nat)
 
@@ -203,7 +206,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2(1098523457946355032371331
 
                return p
             }
-            
+
             darktheme()
             close_popup()
         </script>
