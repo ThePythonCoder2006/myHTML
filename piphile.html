@@ -110,7 +110,7 @@
                     <p class=longtxt style="margin-bottom: 40;">`-1296sqrt5sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt5)`</p>
                     <button type="button" onclick="test50dec();">Tester</button>
                     <div style="display: none;" id=test50dec>
-                        <p id=pi50dec>ok</p>
+                        <p id=pi50dec style="float: left;">ok</p>
                     </div>
                 </div>
                 <br>
@@ -136,23 +136,27 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             <small>Ne vous inquiétez pas vous pourrez toujours changer cela dans les paramètre</small>
         </div>
         <script>
-            BigNumber.set({ DECIMAL_PLACES: 1000 })
+            BigNumber.set({ DECIMAL_PLACES: 100 })
             function test50dec(){
                 document.getElementById("test50dec").style.display = "block";
-                //C=-214772995063512240 - 96049403338648032sqrt5 - 1296sqrt5sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt5)
+                
                 const sqrt5 = BigNumber('5').sqrt();
                 const f51halfs = BigNumber('51').div(BigNumber('2'));
                 const A = BigNumber('63365028312971999585426220').plus(BigNumber('28337702140800842046825600').times(BigNumber('51').div(BigNumber('2')))).plus(BigNumber('384').times(f51halfs).times(BigNumber('10891728551171178200467436212395209160385656017').plus(BigNumber('4870929086578810225077338534541688721351255040').times(sqrt5))).sqrt());
 
                 const B = BigNumber('7849910453496627210289749000').plus(BigNumber('3510586678260932028965606400')).plus(BigNumber('2515968').times(BigNumber('3110').sqrt().times(BigNumber('6260208323789001636993322654444020882161').plus(BigNumber('2799650273060444296577206890718825190235').times(sqrt5))).sqrt()));
 
+                //C=-214772995063512240 - 96049403338648032sqrt5 - 1296sqrt5sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt5)
                 const C1 = BigNumber('-214772995063512240').minus(BigNumber('96049403338648032').times(sqrt5));//-
-                const C2 = BigNumber('-1296').times(sqrt5)//x
-                const C3 = BigNumber('10985234579463550323713318473').plus(BigNumber('4912746253692362754607395912').times(sqrt5)).sqrt();
-                const C = C1.plus(C2.times(C3))
+                const C2 = BigNumber('1296').times(sqrt5)//x
+                let C3 = BigNumber('10985234579463550323713318473').plus(BigNumber('4912746253692362754607395912').times(sqrt5));
+                C3 = C3.sqrt();
+                const C = C1.minus(C2.times(C3))
 
                 document.getElementById("test50dec").innerHTML = C;
                 console.log(C.toString());
+                console.log(C3.toString())
+                console.log(C3.sqrt().toString())
             }
 
             function darktheme(){
