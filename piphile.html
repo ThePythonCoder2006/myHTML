@@ -21,7 +21,8 @@
             </script>
             <script type="text/javascript" id="MathJax-script" async
               src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
-            </script>
+        </script>
+        <script src='bignumber.js'></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -134,26 +135,16 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2(1098523457946355032371331
             <button id=dark class=theme onclick="darktheme()">Mode sombre</button><button id=light class=theme onclick="lighttheme()">Mode clair</button><br>
             <small>Ne vous inquiétez pas vous pourrez toujours changer cela dans les paramètre</small>
         </div>
-        <script type="module">
-            import { create, all } from 'mathjs'
-
-            // create a mathjs instance
-            const math = create(all)
-                    
-            math.config({
-              number: 'BigNumber',      // Default type of number:
-                                        // 'number' (default), 'BigNumber', or 'Fraction'
-              precision: 64             // Number of significant digits for BigNumbers
-            })
-
-            // use math
-            math.evaluate('0.1 + 0.2')  // BigNumber, 0.3
-        </script>
         <script>
+            BigNumber.set({ DECIMAL_PLACES: 1000 })
             function test50dec(){
                 document.getElementById("test50dec").style.display = "block";
-                let pi = 1/3;
-                console.log(pi);
+                //B = 7849910453496627210289749000 + 3510586678260932028965606400
+                //+ 2515968sqrt3110sqrt(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235 sqrt5)
+                const A = BigNumber('63365028312971999585426220').plus(BigNumber('28337702140800842046825600').times(BigNumber('51').div(BigNumber('2')))).plus(BigNumber('384').times(BigNumber('51').div(BigNumber('2'))).times(BigNumber('10891728551171178200467436212395209160385656017').plus(BigNumber('4870929086578810225077338534541688721351255040').times(BigNumber('5').sqrt()))).sqrt());
+                const B = BigNumber('7849910453496627210289749000').plus(BigNumber('3510586678260932028965606400'));
+                document.getElementById("test50dec").innerHTML = A;
+                console.log(A.toString());
             }
 
             function darktheme(){
