@@ -148,15 +148,21 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
 
                 //C=-214772995063512240 - 96049403338648032sqrt5 - 1296sqrt5sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt5)
                 const C1 = BigNumber('-214772995063512240').minus(BigNumber('96049403338648032').times(sqrt5));//-
-                const C2 = BigNumber('1296').times(sqrt5)//x
+                const C2 = BigNumber('1296').times(sqrt5);//x
                 let C3 = BigNumber('10985234579463550323713318473').plus(BigNumber('4912746253692362754607395912').times(sqrt5));
                 C3 = C3.sqrt();
-                const C = C1.minus(C2.times(C3))
+                const C = C1.minus(C2.times(C3));
 
-                document.getElementById("test50dec").innerHTML = C;
-                console.log(C.toString());
-                console.log(C3.toString())
-                console.log(C3.sqrt().toString())
+                const D = BigNumber('1').div(C.pow(3).negated().sqrt());
+
+                let E = A.div(C.pow('3'))
+                E = E.pow(-1)
+
+                document.getElementById("test50dec").innerHTML = D.times(E);
+
+                console.log(D.toString());
+                console.log(E.toString());
+                console.log(A.toString());
             }
 
             function darktheme(){
