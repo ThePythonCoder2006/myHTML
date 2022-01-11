@@ -102,12 +102,12 @@
                 <p style="overflow: auto;">`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(212175710912sqrt(61) + 1657145277365 + k(13773980892672sqrt(61) + 107578229802750)))/((3k)!(k!)^(3)(5280(236674 + 30303sqrt(61)))^(3k + 3/2)))^-1`</p>
                 <div id=50dec>
                     <p>`pi = 1/(sqrt(-(C)^3))(sum_(n=0)^oo((6n)!(A + nB))/((3n)!(n!)^(3)(C)^(3n)))^(-1)` avec:</p>
-                    <p class=longtxt>`A = 63365028312971999585426220 + 28337702140800842046825600xx51//2`</p>
-                    <p class=longtxt style="margin-bottom: 40;">`+ 384xx51//2sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040 sqrt5)`</p>
-                    <p class=longtxt>`B = 7849910453496627210289749000+3510586678260932028965606400`&nbsp</p>
-                    <p class=longtxt  style="margin-bottom: 40;">` + 2515968sqrt3110sqrt(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235 sqrt5)`</p>
-                    <p class=longtxt>`C=-214772995063512240-96049403338648032sqrt5`&nbsp</p>
-                    <p class=longtxt style="margin-bottom: 40;">`-1296sqrt5sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt5)`</p>
+                    <p class=longtxt>`A = 63365028312971999585426220 + 28337702140800842046825600sqrt(5)`&nbsp</p>
+                    <p class=longtxt style="margin-bottom: 40;">`+ 384sqrt(5)sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040sqrt(5))`</p>
+                    <p class=longtxt>`B = 7849910453496627210289749000 + 3510586678260932028965606400sqrt5`&nbsp</p>
+                    <p class=longtxt  style="margin-bottom: 40;">` + 2515968sqrt(3110)sqrt(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235 sqrt5)`</p>
+                    <p class=longtxt>`C=-214772995063512240-96049403338648032sqrt(5)`&nbsp</p>
+                    <p class=longtxt style="margin-bottom: 40;">`-1296sqrt(5)sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt(5))`</p>
                     <button type="button" onclick="test50dec();">Tester</button>
                     <div style="display: none;" id=test50dec>
                         <p id=pi50dec style="float: left;">ok</p>
@@ -118,8 +118,8 @@
                     <source src="Rick Astley - Never Gonna Give You Up (Official Music Video).mp4" type="video/mp4">
                 </video>
                 <button type="button" onclick="playRickRoll();">lancer le meme</button><button type="button" onclick="stopRickRoll();">arrèter ce meme</button>
-                <!--A=63365028312971999585426220+28337702140800842046825600*51/2 + 384*51/2(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*51/2)1/2
-B=7849910453496627210289749000+3510586678260932028965606400 + 2515968*31101/2(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235*51/2)1/2
+                <!--A=63365028312971999585426220+28337702140800842046825600*sqrt5 + 384*sqrt5sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*sqrt5)
+B=7849910453496627210289749000+3510586678260932028965606400sqrt5 + 2515968*31101/2(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235*51/2)1/2
 C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323713318473 + 4912746253692362754607395912*51/2)-->
             </div>
             <div id=settings class=background>
@@ -141,22 +141,22 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 document.getElementById("test50dec").style.display = "block";
                 
                 const sqrt5 = BigNumber('5').sqrt();
-                const f51halfs = BigNumber('51').div(BigNumber('2'));
-                const A = BigNumber('63365028312971999585426220').plus(BigNumber('28337702140800842046825600').times(BigNumber('51').div(BigNumber('2')))).plus(BigNumber('384').times(f51halfs).times(BigNumber('10891728551171178200467436212395209160385656017').plus(BigNumber('4870929086578810225077338534541688721351255040').times(sqrt5))).sqrt());
+                //A=63365028312971999585426220 + 28337702140800842046825600*sqrt5 + 384sqrt5sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*sqrt5)
+                const A1 = BigNumber('63365028312971999585426220').plus(BigNumber('28337702140800842046825600').times(sqrt5));//+
+                const A2 = BigNumber('384').times(sqrt5);//x
+                const A3 = BigNumber('10891728551171178200467436212395209160385656017').plus(BigNumber('4870929086578810225077338534541688721351255040').times(sqrt5));
+                const A = BigNumber(A2.times(A3)).sqrt();
+                console.log(A2.times(A3).sqrt());
 
                 const B = BigNumber('7849910453496627210289749000').plus(BigNumber('3510586678260932028965606400')).plus(BigNumber('2515968').times(BigNumber('3110').sqrt().times(BigNumber('6260208323789001636993322654444020882161').plus(BigNumber('2799650273060444296577206890718825190235').times(sqrt5))).sqrt()));
 
                 //C=-214772995063512240 - 96049403338648032sqrt5 - 1296sqrt5sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt5)
                 const C1 = BigNumber('-214772995063512240').minus(BigNumber('96049403338648032').times(sqrt5));//-
                 const C2 = BigNumber('1296').times(sqrt5)//x
-                let C3 = BigNumber('10985234579463550323713318473').plus(BigNumber('4912746253692362754607395912').times(sqrt5));
-                C3 = C3.sqrt();
+                const C3 = BigNumber(BigNumber('10985234579463550323713318473').plus(BigNumber('4912746253692362754607395912').times(sqrt5))).sqrt();
                 const C = C1.minus(C2.times(C3))
 
-                document.getElementById("test50dec").innerHTML = C;
-                console.log(C.toString());
-                console.log(C3.toString())
-                console.log(C3.sqrt().toString())
+                document.getElementById("test50dec").innerHTML = A;
             }
 
             function darktheme(){
