@@ -269,3 +269,6 @@ h3 {
     margin: 0;
     margin-bottom: 10;
 }
+.ok {
+    color: red;
+}
