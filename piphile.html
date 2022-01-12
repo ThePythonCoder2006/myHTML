@@ -142,6 +142,8 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             BigNumber.set({ DECIMAL_PLACES: 1000 })
             function test50dec(){
                 document.getElementById("test50dec").style.display = "block";
+
+                let iter = BigNumber('3');
                 
                 const sqrt5 = BigNumber('5').sqrt();
                 //A=63365028312971999585426220 + 28337702140800842046825600*sqrt5 + 384sqrt5sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*sqrt5)
@@ -171,8 +173,14 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 const D4 = D3.sqrt();
                 const D = D1.div(D4);
 
-                const E1 = A;
-
+                let E = 0
+                for (let n = 0; n <= iter; n++){
+                    const Enum = fact(BigNumber('6').times(n)).times(A.plus(B.times(n)));
+                    const Eden = fact(BigNumber('3').times(n).times(fact(n).pow(3)).times(C.pow(BigNumber('3').times(n))));
+                    E += Enum.div(Eden);
+                    console.log(E.toString())
+                }
+                
                 const calcpi = BigNumber(D.times(E)).pow('-1').toString();
 
                 let temp = "";
@@ -185,13 +193,11 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 for (let i = 0; i < calcpi.length; i++){
                     dec = calcpi[i];
 
-                    console.log(calcpi)
-
                     if (dec == pi[i]){
                         front = front + dec;
                         back = back.slice(1)
                     }else{
-                        temp = "<span style='font-weight: bold;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
                         break
                     }
                 }
@@ -269,11 +275,14 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 document.getElementById("explicationtheoremethales").style.display = "inline-block";
             }
 
-            function sfactorial(nat) {
-               let p = BigInt(1)
-               let i = BigInt(nat)
+            function fact(nat) {
+               let p = BigNumber('1')
+               let i = BigNumber(nat)
                         
-               while (1 < i--) p *= i
+               while (1 < i){
+                    p = p.times(i)
+                    i = i.minus('1')
+               }
                         
                return p
             }
