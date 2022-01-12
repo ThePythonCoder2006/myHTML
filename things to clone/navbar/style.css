@@ -41,3 +41,9 @@ div.navbar > ul > li > a.active {
     background-color: green;
     color: white;
 }
+
+#test50dec {
+    border-style: solid;
+    border-color: red;
+    border-width: 2;
+}
