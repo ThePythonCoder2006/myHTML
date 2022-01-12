@@ -272,3 +272,12 @@ h3 {
 .ok {
     color: red;
 }
+
+#test50dec {
+    display: none;
+    border-style: solid;
+    border-width: 2;
+    border-color: gray;
+    margin-top: 10;
+    overflow: auto;
+}
