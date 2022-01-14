@@ -280,4 +280,10 @@ h3 {
     border-color: gray;
     margin-top: 10;
     overflow: auto;
+    padding-left: 10;
+}
+
+#buttonTest50dec {
+    background-color: #2a2a2a;
+    color: inherit;
 }
