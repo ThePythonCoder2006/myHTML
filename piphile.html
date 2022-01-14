@@ -176,7 +176,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 let E = BigNumber('0');
                 for (let n = 0; n <= iter; n++){
                     const Enum = fact(BigNumber('6').times(n)).times(A.plus(B.times(n)));
-                    const Eden = fact(BigNumber('3').times(n).times(fact(n).pow(3)).times(C.pow(BigNumber('3').times(n))));
+                    const Eden = fact(BigNumber('3').times(n)).times(fact(n).pow(3)).times(C.pow(BigNumber('3').times(n)));
                     E = E.plus(Enum.div(Eden));
                     console.log(E.toString())
                 }
