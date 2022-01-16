@@ -99,22 +99,30 @@
             </div>
             <div id=calculPi class=background>
                 <p>Dans cette partie, je vais présenter des formule plus ou moins actulles pour le calcule de &#960 </p>
-                <p>`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(13591409 + 545140134k))/((3k!)(k!)^(3)640320^(3k + 3/2)))^-1`</p>
-                <p style="overflow: auto;">`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(212175710912sqrt(61) + 1657145277365 + k(13773980892672sqrt(61) + 107578229802750)))/((3k)!(k!)^(3)(5280(236674 + 30303sqrt(61)))^(3k + 3/2)))^-1`</p>
-                <div id=50dec>
-                    <p>`pi = sqrt(-(C)^3)(sum_(n=0)^oo((6n)!(A + nB))/((3n)!(n!)^(3)(C)^(3n)))^(-1)` avec:</p>
+                <div id=sum14dec>
+                    <p>`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(13591409 + 545140134k))/((3k!)(k!)^(3)640320^(3k + 3/2)))^-1`</p>
+                </div>
+
+                <div id=sum25dec>
+                    <p style="overflow: auto;">`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(212175710912sqrt(61) + 1657145277365 + k(13773980892672sqrt(61) + 107578229802750)))/((3k)!(k!)^(3)(5280(236674 + 30303sqrt(61)))^(3k + 3/2)))^-1`</p>
+                </div>
+
+                <div id=sum50dec>
+                    <p>`pi = (1/(sqrt(-(C)^3))sum_(n=0)^oo((6n)!(A + nB))/((3n)!(n!)^(3)(C)^(3n)))^(-1)` avec:</p>
                     <p class=longtxt>`A = 63365028312971999585426220 + 28337702140800842046825600sqrt(5)`&nbsp</p>
                     <p class=longtxt style="margin-bottom: 40;">`+ 384sqrt(5)sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040sqrt(5))`</p>
                     <p class=longtxt>`B = 7849910453496627210289749000 + 3510586678260932028965606400sqrt5`&nbsp</p>
                     <p class=longtxt  style="margin-bottom: 40;">` + 2515968sqrt(3110)sqrt(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235 sqrt5)`</p>
                     <p class=longtxt>`C=-214772995063512240-96049403338648032sqrt(5)`&nbsp</p>
                     <p class=longtxt style="margin-bottom: 40;">`-1296sqrt(5)sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt(5))`</p>
+
                     <button type="button" onclick="init();" id=buttonTest50dec>Tester</button>
                     <div id=test50dec>
-                        <span>nombre d'iteration : </span><span id=iter50dec></span><button type="button" onclick="test50dec()[1](1)">plus d'iteration</button>
+                        <span>nombre d'iteration : </span><span id=iter50dec>15</span><button style="margin-left: 15;" type="button" onclick="plusIterate();">plus d'iteration</button>
                         <p id=pi50dec style="float: left;">bug</p>
                         <p class=pi>3.1415926535897932384626</p>
                    </div>
+
                 </div>
                 <br>
                 <video width="400" id=rickRoll loop>
@@ -160,7 +168,9 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 }
             }
 
+            //------------------------------------------------------------
             //50 decimale / iteration sum
+            //------------------------------------------------------------
             const A = BigNumber(vA)
             const B = BigNumber(vB)
             const C = BigNumber(vC)
@@ -174,7 +184,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
 
             const memoized50dec = memoize(calc50dec);
 
-            function show(value){
+            function show(value, iter){
                 document.getElementById("test50dec").style.display = "block";
                 let dec = 0;
                 let front = "";
@@ -196,12 +206,13 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 for (let i = 0; i < pis.length; i++){
                     pis[i].innerHTML = pi;
                 }
+                document.getElementById('iter50dec').innerHTML = iter;
             }
 
             //initilyse the value of the sum
             function init(){
                 const calcpi = BigNumber(D.times(memoized50dec(0))).pow('-1').toPrecision(1002);
-                show(calcpi);
+                show(calcpi, 1);
             }
 
             function iterate(iter){
@@ -210,12 +221,20 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 for (let n = 0; n <= iter; n++){
                     S = S.plus(memoized50dec(n))
                 }
-                const pi50 = BigNumber(D.times(A)).pow('-1').toPrecision(1002);
-                show(pi50)
+                const pi50 = BigNumber(D.times(S)).pow('-1').toPrecision(1002);
+                show(pi50, iter + 1)
             }
 
+            const memoisedIterate = memoize(iterate);
+
+            function plusIterate(){
+                const memoisedIterate = BigNumber(document.getElementById('iter50dec').innerHTML).plus(1);
+                iterate(iter);
+            }
             
-            
+            //------------------------------------------------------------
+            //show functions
+            //------------------------------------------------------------
             function darktheme(){
                 const dark = document.getElementById("dark").style;
                 dark.boxShadow = "5px 5px 5px #232323";

@@ -281,9 +281,13 @@ h3 {
     margin-top: 10;
     overflow: auto;
     padding-left: 10;
+    padding: 10;
 }
 
 #buttonTest50dec {
-    background-color: #2a2a2a;
+    background-color: inherit;
     color: inherit;
+    width: 100;
+    height: 40;
+    font-size: 20;
 }
