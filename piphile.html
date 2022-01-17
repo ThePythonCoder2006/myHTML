@@ -116,7 +116,7 @@
                     <p class=longtxt>`C=-214772995063512240-96049403338648032sqrt(5)`&nbsp</p>
                     <p class=longtxt style="margin-bottom: 40;">`-1296sqrt(5)sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt(5))`</p>
 
-                    <button type="button" onclick="init();" id=buttonTest50dec>Tester</button>
+                    <button type="button" onclick="iterate(1);" id=buttonTest50dec>Tester</button>
                     <div id=test50dec>
                         <span>nombre d'iteration : </span><span id=iter50dec>15</span><button style="margin-left: 15;" type="button" onclick="plusIterate();">plus d'iteration</button>
                         <p id=pi50dec style="float: left;">bug</p>
@@ -156,15 +156,29 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 return (...args) => {
                     let n = args[0];  // just taking one argument here
                     if (n in cache) {
-                        console.log('Fetching from cache');
+                        console.log('func Fetching from cache');
+                        
                         return cache[n];
                     }
                     else {
-                        console.log('Calculating result');
+                        console.log('func Calculating result');
+                        console.log("func", cache);
                         let result = fn(n);
                         cache[n] = result;
                         return result;
                     }
+                }
+            }
+
+            const memoize2 = (callback) => {
+                let memo = {}
+                return (...args) => {
+                    if (memo[args]) {
+                         return memo[args] 
+                    } else { 
+                        memo[args] = callback(args) 
+                        return memo[args] 
+                    } 
                 }
             }
 
@@ -183,6 +197,25 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             }
 
             const memoized50dec = memoize(calc50dec);
+
+            const memoizedSum50dec = (n) => {
+                let cache = {};
+                if (cache[n]){
+                    console.log('cache');
+                    return cache[n];
+                }else{
+                    console.log('calculated')
+                    console.log(cache);
+                    let result = 0;
+                    if (n <= 0){
+                        result = A;
+                    }else{
+                        result = memoized50dec(n).plus(memoizedSum50dec(n-1));
+                    }
+                    cache[n] = result;
+                    return cache[n]
+                }
+            }
 
             function show(value, iter){
                 document.getElementById("test50dec").style.display = "block";
@@ -209,26 +242,15 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 document.getElementById('iter50dec').innerHTML = iter;
             }
 
-            //initilyse the value of the sum
-            function init(){
-                const calcpi = BigNumber(D.times(memoized50dec(0))).pow('-1').toPrecision(1002);
-                show(calcpi, 1);
-            }
-
             function iterate(iter){
                 iter -= 1;
-                let S = BigNumber('0');
-                for (let n = 0; n <= iter; n++){
-                    S = S.plus(memoized50dec(n))
-                }
+                const S = memoizedSum50dec(iter)
                 const pi50 = BigNumber(D.times(S)).pow('-1').toPrecision(1002);
                 show(pi50, iter + 1)
             }
 
-            const memoisedIterate = memoize(iterate);
-
             function plusIterate(){
-                const memoisedIterate = BigNumber(document.getElementById('iter50dec').innerHTML).plus(1);
+                const iter = BigNumber(document.getElementById('iter50dec').innerHTML).plus(1);
                 iterate(iter);
             }
             
