@@ -116,7 +116,7 @@
                     <p class=longtxt>`C=-214772995063512240-96049403338648032sqrt(5)`&nbsp</p>
                     <p class=longtxt style="margin-bottom: 40;">`-1296sqrt(5)sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt(5))`</p>
 
-                    <button type="button" onclick="iterate(1);" id=buttonTest50dec>Tester</button>
+                    <button type="button" onclick="iterate(0);" id=buttonTest50dec>Tester</button>
                     <div id=test50dec>
                         <span>nombre d'iteration : </span><span id=iter50dec>15</span><button style="margin-left: 15;" type="button" onclick="plusIterate();">plus d'iteration</button>
                         <p id=pi50dec style="float: left;">bug</p>
@@ -244,15 +244,14 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 document.getElementById('iter50dec').innerHTML = iter;
             }
 
-            function iterate(iter){
-                iter -= 1;
-                const S = memoizedSum50dec(iter)
+            function iterate(n){
+                const S = memoizedSum50dec(n)
                 const pi50 = BigNumber(D.times(S)).pow('-1').toPrecision(1002);
-                show(pi50, iter + 1)
+                show(pi50, n + 1)
             }
 
             function plusIterate(){
-                const iter = BigNumber(document.getElementById('iter50dec').innerHTML).plus(1);
+                const iter = parseInt(document.getElementById('iter50dec').innerHTML);
                 iterate(iter);
             }
             
