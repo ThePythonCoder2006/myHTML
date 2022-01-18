@@ -100,11 +100,15 @@
             <div id=calculPi class=background>
                 <p>Dans cette partie, je vais présenter des formule plus ou moins actulles pour le calcule de &#960 </p>
                 <div id=sum14dec>
-                    <p>`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(13591409 + 545140134k))/((3k!)(k!)^(3)640320^(3k + 3/2)))^-1`</p>
+                    <p>`pi = (12sum_(n = 0)^oo((-1)^n(6n)!(13591409 + 545140134n))/((3n!)(n!)^(3)640320^(3n + 3/2)))^-1`</p>
                 </div>
 
                 <div id=sum25dec>
-                    <p style="overflow: auto;">`pi = (12sum_(k = 0)^oo((-1)^k(6k)!(212175710912sqrt(61) + 1657145277365 + k(13773980892672sqrt(61) + 107578229802750)))/((3k)!(k!)^(3)(5280(236674 + 30303sqrt(61)))^(3k + 3/2)))^-1`</p>
+                    <p style="overflow: auto;">`pi = (12sum_(n = 0)^oo((-1)^n(6n)!(212175710912sqrt(61) + 1657145277365 + n(13773980892672sqrt(61) + 107578229802750)))/((3n)!(n!)^(3)(5280(236674 + 30303sqrt(61)))^(3n + 3/2)))^-1`</p>
+
+                    <div id=test25dec>
+                        <span>nombre d'iteration : </span><span id=iter25dec></span><button style="margin-left: 15;" type="button"></button>
+                    </div>
                 </div>
 
                 <div id=sum50dec>
@@ -118,7 +122,7 @@
 
                     <button type="button" onclick="iterate(0);" id=buttonTest50dec>Tester</button>
                     <div id=test50dec>
-                        <span>nombre d'iteration : </span><span id=iter50dec>15</span><button style="margin-left: 15;" type="button" onclick="plusIterate();">plus d'iteration</button>
+                        <span>nombre d'iteration : </span><span id=iter50dec>15</span><button style="margin-left: 15;" type="button" onclick="plusIterate50dec();">plus d'iteration</button>
                         <p id=pi50dec style="float: left;">bug</p>
                         <p class=pi>3.1415926535897932384626</p>
                    </div>
@@ -169,9 +173,17 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                     }
                 }
             }
+            //------------------------------------------------------------
+            //25 decimals / iteration sum
+            //------------------------------------------------------------
+            function calc25dec(n){
+                const Snum = BigNumber('-1').pow(n).times(fact(BigNumber('6').times(n)));
+                const Sden = 0;
+                return Snum.div(Sden);
+            }
 
             //------------------------------------------------------------
-            //50 decimale / iteration sum
+            //50 decimals / iteration sum
             //------------------------------------------------------------
             const A = BigNumber(vA)
             const B = BigNumber(vB)
@@ -236,7 +248,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 show(pi50, n + 1)
             }
 
-            function plusIterate(){
+            function plusIterate50dec(){
                 const iter = parseInt(document.getElementById('iter50dec').innerHTML);
                 iterate(iter);
             }
