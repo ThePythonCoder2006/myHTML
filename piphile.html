@@ -170,18 +170,6 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 }
             }
 
-            const memoize2 = (callback) => {
-                let memo = {}
-                return (...args) => {
-                    if (memo[args]) {
-                         return memo[args] 
-                    } else { 
-                        memo[args] = callback(args) 
-                        return memo[args] 
-                    } 
-                }
-            }
-
             //------------------------------------------------------------
             //50 decimale / iteration sum
             //------------------------------------------------------------
@@ -196,8 +184,6 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 return Snum.div(Sden);
             }
 
-            const memoized50dec = memoize(calc50dec);
-
             var memoizedSum50dec = (function() {
                 let cache = {};
                 return function(n) {
@@ -211,7 +197,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         if (n <= 0){
                             result = A;
                         }else{
-                            result = memoized50dec(n).plus(memoizedSum50dec(n-1));
+                            result = calc50dec(n).plus(memoizedSum50dec(n-1));
                         }
                         cache[n] = result;
                         return cache[n]
