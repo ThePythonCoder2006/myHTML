@@ -176,9 +176,10 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             //------------------------------------------------------------
             //25 decimals / iteration sum
             //------------------------------------------------------------
+            const sqrt61 = BigNumber('61').sqrt()
             function calc25dec(n){
-                const Snum = BigNumber('-1').pow(n).times(fact(BigNumber('6').times(n)));
-                const Sden = 0;
+                const Snum = BigNumber('-1').pow(n).times(fact(BigNumber('6').times(n))).times(BigNumber('212175710912').times(sqrt61).plus(BigNumber('1657145277365')));
+                const Sden = 1;
                 return Snum.div(Sden);
             }
 
