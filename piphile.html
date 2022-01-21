@@ -327,17 +327,28 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 document.getElementById("explicationtheoremethales").style.display = "inline-block";
             }
 
-            function fact(nat) {
-               let p = BigNumber('1')
-               let i = BigNumber(nat)
-                        
-               while (1 < i){
-                    p = p.times(i)
-                    i = i.minus('1')
-               }
-                        
-               return p
-            }
+            const fact = (function(){
+                let cache = {0: new BigNumber("1"), 1: new BigNumber("1")};
+                return function(n){
+                    if (cache[n]){
+                        console.log(cache)
+                        return cache[n];
+                    } else {
+                        let result = cache[n - 1]
+                        console.log(result);
+                        for (let i = 0; i <= n; i++){
+                            result = result.times(i);
+                            cache[n] = result;
+                            console.log(result);
+                        }
+                        return result;
+                    }
+                }
+            })()
+            var cache = 100;
+            // Due to memoization, following line will cache first 100 elements.
+            fact(cache);
+
             darktheme()
             close_popup()
         </script>
