@@ -325,6 +325,15 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 document.getElementById("explicationtheoremethales").style.display = "inline-block";
             }
 
+            function runtime(func, arg){
+                var startTime = performance.now();
+                func(arg);
+                var endTime = performance.now();
+                time = (endTime - startTime).toString();
+                console.log("it took " + time + " ms");
+                return time;
+            }
+
             const fact = (function(){
                 var f = [BigNumber("1"), BigNumber("1")];
                 var i = 2;
@@ -338,20 +347,14 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                     return result;
                 }
             })()
-            var cache = 10000;
+            var cache = 1000;
             // Due to memoization, following line will cache first 100 elements.
-            var startTime = performance.now();
-            fact(cache);
-            var endTime = performance.now();
-            console.log("it took " + (endTime - startTime).toString() + " ms")
+            runtime(fact, cache);
 
-            var startTime = performance.now();
-            fact(cache);
-            var endTime = performance.now();
-            console.log("it took " + (endTime - startTime).toString() + " ms")
+           runtime(fact, cache);
 
-            darktheme()
-            close_popup()
+            darktheme();
+            close_popup();
         </script>
     </body>
 </html>
