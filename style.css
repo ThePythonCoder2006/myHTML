@@ -292,3 +292,76 @@ h3 {
     height: 40;
     font-size: 20;
 }
+
+/* Conteneur principal */
+.overlay-image {
+    position: relative;
+    width: 45%;
+    margin: auto;
+    /*height: 100%;*//*le texte prend l'emplacement sur la 2ème img, sinon 1ere*/
+}
+   
+   /* Image originale */
+   .overlay-image .image {
+    display: block;
+    width: 100%;
+}
+   
+   /* Texte original */
+   .overlay-image .text {
+    color: #fff;
+    font-size: 30px;
+    line-height: 1.5em;
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+/********* Hover image et texte *******/
+
+/* Overlay */
+.overlay-image .hover {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+}
+   
+/* Apparition overlay sur passage souris */
+.overlay-image:hover .hover {
+    opacity: 1;
+}
+
+/*
+.overlay-image:hover .hover .text {
+    top: 100;
+}
+*/
+
+/********* Hover background et texte uniquement *******/
+
+.overlay-image .normal {
+    transition: .5s ease;
+}
+
+.overlay-image:hover .normal {
+    opacity: 0;
+}
+
+.overlay-image .hover {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.overlay-image:hover .hover {
+    background-color: transparent;
+}
+
+#txt_couverture {
+    color: black;
+}
