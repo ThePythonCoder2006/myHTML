@@ -241,7 +241,8 @@ h3 {
 #buttonThales {
     display: inline-block;
     color: inherit;
-    background-color: transparent;
+    background-color: goldenrod;
+    border-style: none;
     cursor: pointer;
     font-size: 22;
 }
@@ -274,6 +275,18 @@ h3 {
 
 #test50dec {
     display: none;
+    border-style: solid;
+    border-width: 2;
+    border-color: gray;
+    margin-top: 10;
+    overflow: auto;
+    padding-left: 10;
+    padding: 10;
+    margin-right: 20;
+}
+
+#test25dec {
+    display : none;
     border-style: solid;
     border-width: 2;
     border-color: gray;

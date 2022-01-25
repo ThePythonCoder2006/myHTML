@@ -44,7 +44,7 @@
                     <p>Ceci est un simple site internet dédié au nombre pi.</p><br>
                     <p>J'utiliserais tout au long de ce site le symbole "π" ou "pi" de manière indiférente.</p>
                     <p>Je dois remercier très chaleureusement Jean-Paul delahaye pour son livre : "Le fascinant nombre &#960" qui a été pour moi a la fois une ressource comme une inspiration pour ce projet. Beaucoup de démonstarations et d'illustrations proviennent de cette ouvrage.</p>
-                    <p>Vous verrez tout au long de ce site, des bouton<button type="button" class=testbutton style="margin-left: 10;">Tester</button></p>
+                    <p>Vous verrez tout au long de ce site, des bouton<button type="button" class=testbutton style="margin-left: 10;">Tester</button>, ils lanceront des calculs qui correspondent à la somme, la manipulation de nombres, etc... Ces calculs seront effectué directement sur votre machine, depuis voter navigateur internet, cela veut donc dire que, spécialement sur des machines plsu lentes, il pourrait y avoir un long temps de altence durant lequel, tout le site serait incapable de répondre et votre navigateur pourrait planter, il pourrait y avoir des ralentissement dans tout votre système. Je vous prierais donc de faire attention à ce que vosu cliquer et d'être conscient de ce que vous faites, et d'être patient.</p>
                 </div>
                 <div class="overlay-image">
                     <div class="normal">
@@ -117,8 +117,11 @@
                 <div id=sum25dec>
                     <p style="overflow: auto;">`pi = (12sum_(n = 0)^oo((-1)^n(6n)!(212175710912sqrt(61) + 1657145277365 + n(13773980892672sqrt(61) + 107578229802750)))/((3n)!(n!)^(3)(5280(236674 + 30303sqrt(61)))^(3n + 3/2)))^-1`</p>
 
+                    <button type="button" onclick="iterate25dec(0);" class=testbutton>Tester</button>
                     <div id=test25dec>
-                        <span>nombre d'iteration : </span><span id=iter25dec>erreur</span><button style="margin-left: 15;" type="button"></button>
+                        <span>nombre d'iteration : </span><span id=iter25dec>erreur</span><button style="margin-left: 15;" type="button" class=iterbutton onclick="plusIterate25dec();">plus d'iterations</button>
+                        <p id=pi25dec>bug</p>
+                        <p class=pi>3.1415926535897932384626</p>
                     </div>
                 </div>
 
@@ -133,8 +136,8 @@
 
                     <button type="button" onclick="iterate50dec(0);" class=testbutton>Tester</button>
                     <div id=test50dec>
-                        <span>nombre d'iteration : </span><span id=iter50dec>15</span><button style="margin-left: 15;" type="button" onclick="plusIterate50dec();" class="iterbutton">plus d'iteration</button>
-                        <p id=pi50dec style="float: left;">bug</p>
+                        <span>nombre d'iteration : </span><span id=iter50dec>15</span><button style="margin-left: 15;" type="button" onclick="plusIterate50dec();" class="iterbutton">plus d'iterations</button>
+                        <p id=pi50dec>bug</p>
                         <p class=pi>3.1415926535897932384626</p>
                    </div>
 
@@ -190,11 +193,64 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 const C = BigNumber('5280').times(BigNumber('236674').plus(BigNumber('30303').times(sqrt61)))
                 return function (n){
                     const Snum = BigNumber('-1').pow(n).times(fact(BigNumber('6').times(n))).times(A.plus(B.times(n)));
-                    const Sden = fact(BigNumber('3').times(n)).times(fact(n).pow(3)).times(C.pow(BigNumber('3').times(n).plus(BigNumber('3').div(2))));
+                    const Cpow = C.pow(BigNumber('3').times(n).plus(BigNumber('6').div(2))).sqrt()
+                    const Sden = fact(BigNumber('3').times(n)).times(fact(n).pow(3)).times(Cpow);
                     return Snum.div(Sden);
                 }
             })()
-            
+
+            const memoizedSum25dec = (function() {
+                let cache = {};
+                return function(n) {
+                    if (cache[n]) {
+                        return cache[n];
+                    } else {
+                        let result = 0
+                        if (n <= 0){
+                            result = calc25dec(0);
+                        } else {
+                            result = calc25dec(n).plus(memoizedSum25dec(n - 1));
+                        }
+                        return cache[n] = result;
+                    }
+                }
+            })()
+
+            function show25dec(value, iter){
+                document.getElementById("test25dec").style.display = "block";
+                let dec = 0;
+                let front = "";
+                let back = value;
+                console.log(value)
+
+                for (let i = 0; i < value.length; i++){
+                    dec = value[i];
+
+                    if (dec == pi[i]){
+                        front = front + dec;
+                        back = back.slice(1);
+                    }else{
+                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                        break
+                    }
+                }
+                document.getElementById("pi25dec").innerHTML = temp;
+                document.getElementById('iter25dec').innerHTML = iter;
+            }
+
+            const iterate25dec = (function() {
+                const D = BigNumber('12').pow(-1);
+                return function(n) {
+                    const S = memoizedSum25dec(n);
+                    const pi25 = D.times(S.pow(-1)).toPrecision(1002);
+                    show25dec(pi25, n + 1)
+                }
+            })()
+
+            function plusIterate25dec(){
+                const iter = parseInt(document.getElementById('iter25dec').innerHTML);
+                iterate25dec(iter);
+            }
 
             //------------------------------------------------------------
             //50 decimals / iteration sum
@@ -214,7 +270,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             }
             })();
 
-            var memoizedSum50dec = (function() {
+            const memoizedSum50dec = (function() {
                 let cache = {};
                 return function(n) {
                     if (cache[n]){
@@ -224,7 +280,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         if (n <= 0){
                             result = calc50dec(0);
                         }else{
-                            result = calc50dec(n).plus(memoizedSum50dec(n-1));
+                            result = calc50dec(n).plus(memoizedSum50dec(n - 1));
                         }
                         cache[n] = result;
                         return cache[n]
@@ -250,10 +306,6 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                     }
                 }
                 document.getElementById("pi50dec").innerHTML = temp;
-                const pis = document.getElementsByClassName('pi');
-                for (let i = 0; i < pis.length; i++){
-                    pis[i].innerHTML = pi;
-                }
                 document.getElementById('iter50dec').innerHTML = iter;
             }
 
@@ -274,6 +326,12 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             //------------------------------------------------------------
             //show functions
             //------------------------------------------------------------
+
+            const pis = document.getElementsByClassName('pi');
+            for (let i = 0; i < pis.length; i++){
+                pis[i].innerHTML = pi;
+            }
+
             function darktheme(){
                 const dark = document.getElementById("dark").style;
                 dark.boxShadow = "5px 5px 5px #232323";
