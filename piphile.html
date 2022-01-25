@@ -184,11 +184,17 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             //25 decimals / iteration sum
             //------------------------------------------------------------
             const sqrt61 = BigNumber('61').sqrt()
-            function calc25dec(n){
-                const Snum = BigNumber('-1').pow(n).times(fact(BigNumber('6').times(n))).times(BigNumber('212175710912').times(sqrt61).plus(BigNumber('1657145277365'))).plus(BigNumber(n).times(BigNumber('1377398092672').times(sqrt61).plus('107578229802750')));
-                const Sden = 1;
-                return Snum.div(Sden);
-            }
+            const calc25dec = (function() {
+                const A = BigNumber('212175710912').times(sqrt61).plus(BigNumber('1657145277365'));
+                const B = BigNumber('1377398092672').times(sqrt61).plus('107578229802750')
+                const C = BigNumber('5280').times(BigNumber('236674').plus(BigNumber('30303').times(sqrt61)))
+                return function (n){
+                    const Snum = BigNumber('-1').pow(n).times(fact(BigNumber('6').times(n))).times(A.plus(B.times(n)));
+                    const Sden = fact(BigNumber('3').times(n)).times(fact(n).pow(3)).times(C.pow(BigNumber('3').times(n).plus(BigNumber('3').div(2))));
+                    return Snum.div(Sden);
+                }
+            })()
+            
 
             //------------------------------------------------------------
             //50 decimals / iteration sum
@@ -254,7 +260,6 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             const iterate50dec = (function() {
                 const D = BigNumber(vD)
                 return function(n) {
-                    console.log(n)
                     const S = memoizedSum50dec(n)
                     const pi50 = BigNumber(D.times(S)).pow('-1').toPrecision(1002);
                     show50dec(pi50, n + 1)
