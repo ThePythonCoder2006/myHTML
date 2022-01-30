@@ -187,16 +187,19 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             //------------------------------------------------------------
             //25 decimals / iteration sum
             //------------------------------------------------------------
-            const sqrt61 = BigNumber('61').sqrt()
             const calc25dec = (function() {
+                const sqrt61 = BigNumber('61').sqrt()
                 const A = BigNumber('212175710912').times(sqrt61).plus(BigNumber('1657145277365'));
-                const B = BigNumber('13773980892672').times(sqrt61).plus('107578229802750')
-                const C = BigNumber('5280').times(BigNumber('236674').plus(BigNumber('30303').times(sqrt61)))
+                const B1 = BigNumber('13773980892672').times(sqrt61);
+                const B = B1.plus('107578229802750');
+    
+                const C1 = BigNumber(5280 * 236674).plus(sqrt61.times(BigNumber(5280*30303)));
+                const C = C1.pow(3);
                 
                 return function (n){
-                    const Snum = BigNumber('-1').pow(n).times(fact(BigNumber('6').times(n))).times(A.plus(B.times(n)));
-                    const Cpow = C.pow(BigNumber('3').times(n).plus(BigNumber('6').div(2))).sqrt()
-                    const Sden = fact(BigNumber('3').times(n)).times(fact(n).pow(3)).times(Cpow);
+                    const Snum = BigNumber('-1').pow(n).times(fact(6 * n)).times(A.plus(B.times(n)));
+                    const Cpow = C.pow(2 * n + 1).sqrt();
+                    const Sden = fact(3 * n).times(fact(n).pow(3)).times(Cpow);
                     return Snum.div(Sden);
                 }
             })()
@@ -223,7 +226,6 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 let dec = 0;
                 let front = "";
                 let back = value;
-                console.log(value)
 
                 for (let i = 0; i < value.length; i++){
                     dec = value[i];
@@ -284,8 +286,8 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         }else{
                             result = calc50dec(n).plus(memoizedSum50dec(n - 1));
                         }
-                        cache[n] = result;
-                        return cache[n]
+                        return cache[n] = result;
+                        
                     }
                 }
             })();
