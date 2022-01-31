@@ -273,40 +273,58 @@ h3 {
     color: red;
 }
 
+#sum14dec {
+    border-style: solid;
+    border-color: inherit;
+    margin: 20;
+    padding: 10;
+}
+
 #test14dec {
     display : none;
     border-style: solid;
-    border-width: 2;
-    border-color: gray;
+    border-width: 3;
+    border-color: rgb(88, 88, 88);
     margin-top: 10;
     overflow: auto;
     padding-left: 10;
     padding: 10;
-    margin-right: 20;
+}
+
+#sum25dec {
+    border-style: solid;
+    border-color: inherit;
+    margin: 20;
+    padding: 10;
 }
 
 #test25dec {
     display : none;
     border-style: solid;
-    border-width: 2;
-    border-color: gray;
+    border-width: 3;
+    border-color: rgb(88, 88, 88);
     margin-top: 10;
     overflow: auto;
     padding-left: 10;
     padding: 10;
-    margin-right: 20;
+}
+
+#sum50dec {
+    border-style: solid;
+    border-color: inherit;
+    margin: 20;
+    padding: 10;
 }
 
 #test50dec {
     display: none;
     border-style: solid;
-    border-width: 2;
-    border-color: gray;
+    border-width: 3;
+    border-color: rgb(88, 88, 88);
     margin-top: 10;
     overflow: auto;
     padding-left: 10;
     padding: 10;
-    margin-right: 20;
 }
 
 .testbutton {
