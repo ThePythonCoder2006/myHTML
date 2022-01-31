@@ -113,6 +113,12 @@
                 <p>Dans cette partie, je vais présenter des formule plus ou moins actulles pour le calcule de &#960 </p>
                 <div id=sum14dec>
                     <p>`pi = (12sum_(n = 0)^oo((-1)^n(6n)!(13591409 + 545140134n))/((3n!)(n!)^(3)640320^(3n + 3/2)))^-1`</p>
+                    <button type="button" onclick="iterate14dec(0);" class=testbutton>Tester</button>
+                    <div id=test14dec>
+                        <span>nombre d'iteration : </span><span id=iter14dec>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate14dec();" class="iterbutton">plus d'iterations</button>
+                        <p id=pi14dec>bug</p>
+                        <p class=pi>3.1415926535897932384626</p>
+                   </div>
                 </div>
 
                 <div id=sum25dec>
@@ -137,7 +143,7 @@
 
                     <button type="button" onclick="iterate50dec(0);" class=testbutton>Tester</button>
                     <div id=test50dec>
-                        <span>nombre d'iteration : </span><span id=iter50dec>15</span><button style="margin-left: 15;" type="button" onclick="plusIterate50dec();" class="iterbutton">plus d'iterations</button>
+                        <span>nombre d'iteration : </span><span id=iter50dec>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate50dec();" class="iterbutton">plus d'iterations</button>
                         <p id=pi50dec>bug</p>
                         <p class=pi>3.1415926535897932384626</p>
                    </div>
@@ -184,6 +190,75 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                     }
                 }
             }
+            
+            //------------------------------------------------------------
+            //14 decimals / iteration sum
+            //------------------------------------------------------------
+            const calc14dec = (function() {
+                const A = BigNumber('13591409');
+                const B = BigNumber('545140134');
+                const C = BigNumber('640320').pow(3);
+                
+                return function (n){
+                    const Snum = BigNumber('-1').pow(n).times(fact(6 * n)).times(A.plus(B.times(n)));
+                    const Cpow = C.pow(2 * n + 1).sqrt();
+                    const Sden = fact(3 * n).times(fact(n).pow(3)).times(Cpow);
+                    return Snum.div(Sden);
+                }
+            })()
+
+            const memoizedSum14dec = (function() {
+                let cache = {};
+                return function(n) {
+                    if (cache[n]) {
+                        return cache[n];
+                    } else {
+                        let result = 0
+                        if (n <= 0){
+                            result = calc14dec(0);
+                        } else {
+                            result = calc14dec(n).plus(memoizedSum14dec(n - 1));
+                        }
+                        return cache[n] = result;
+                    }
+                }
+            })()
+
+            function show14dec(value, iter){
+                document.getElementById("test14dec").style.display = "block";
+                let dec = 0;
+                let front = "";
+                let back = value;
+
+                for (let i = 0; i < value.length; i++){
+                    dec = value[i];
+
+                    if (dec == pi[i]){
+                        front = front + dec;
+                        back = back.slice(1);
+                    }else{
+                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(145, 0, 0, 0.5);'>" + back + "</span>";
+                        break
+                    }
+                }
+                document.getElementById("pi14dec").innerHTML = temp;
+                document.getElementById('iter14dec').innerHTML = iter;
+            }
+
+            const iterate14dec = (function() {
+                const D = BigNumber('12').pow(-1);
+                return function(n) {
+                    const S = memoizedSum14dec(n);
+                    const pi14 = D.times(S.pow(-1)).toPrecision(1002);
+                    show14dec(pi14, n + 1)
+                }
+            })()
+
+            function plusIterate14dec(){
+                const iter = parseInt(document.getElementById('iter14dec').innerHTML);
+                iterate14dec(iter);
+            }
+
             //------------------------------------------------------------
             //25 decimals / iteration sum
             //------------------------------------------------------------
@@ -430,9 +505,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             })()
             var cache = 1000;
             // Due to memoization, following line will cache first 1000 elements.
-            runtime(fact, cache);
-
-            runtime(fact, cache);
+            fact(cache)
 
             darktheme();
             close_popup();
