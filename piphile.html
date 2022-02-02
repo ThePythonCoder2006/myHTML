@@ -171,9 +171,9 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 <div id=firstquad class=formulebox>
                     <p>`a_0 = sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_0 = 0`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`a_(n+1) = sqrt(a_n)/2+1/(2sqrt(a_n))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_(n+1) = (sqrt(a_n)(1 + b_n))/(a_n + b_n)`</p>
                     <p>`p_0 = 2 + sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`p_(n+1) = p_n b_(n+1) (1 + a_(n+1))/(1 + b_(n+1))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lim_(n->oo) p_n = pi`</p>
-                    <button type="button" onclick=";" class=testbutton>Tester</button>
+                    <button type="button" onclick="calc1quad(1);" class=testbutton>Tester</button>
                     <div id=test1quad class=testbox>
-                        <span>nombre d' "iteration" : </span><span id=iter1quad>1</span><button style="margin-left: 15;" type="button" onclick=";" class="iterbutton">plus d' "iterations"</button>
+                        <span>nombre d' "iteration" : </span><span id=iter1quad>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate1quad();" class="iterbutton">plus d' "iterations"</button>
                         <p id=pi1quad>bug</p>
                         <p class=pi>3.1415926535897932384626</p>
                     </div>
@@ -489,7 +489,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
 
             function plusIterate50dec(){
                 const iter = parseInt(document.getElementById('iter50dec').innerHTML);
-                iterate50dec(iter);
+                iterate50dec(iter + 1);
             }
 
             //------------------------------------------------------------
@@ -505,6 +505,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 return function (n){
                     if (n >= 0){
                         if (cache[n]){
+                            show1quad(cache[n][2].toPrecision(1002), n)
                             return cache[n];
                         } else {
                             c = calc1quad(n - 1);
@@ -512,38 +513,20 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                             const bn = c[1];
                             const pn = c[2];
 
-                            console.log(an == a0 && bn == b0 && pn == p0)
-
                             const an1 = an.sqrt().div(2).plus(BigNumber('1').div(an.sqrt().times(2)))
-                            const bn1 = bn.sqrt().times(bn.plus(1)).div(an + bn);
-                            const pn1 = pn.times(bn1).times(an1.plus(1).div(bn1.plus(1)))
+                            const bn1 = an.sqrt().times(bn.plus(1)).div(an.plus(bn));
+                            const pn1 = pn.times(bn1).times(an1.plus(1).div(bn1.plus(1)));
                             cache[n] = [an1, bn1, pn1];
-                            console.log(pn1.toString())
+                            show1quad(pn1.toPrecision(1002), n)
                             return cache[n];
                         }
                     }
                 }
             })()
 
-            //const memoizedSum8dec = (function() {
-            //    let cache = {};
-            //    return function(n) {
-            //        if (cache[n]) {
-            //            return cache[n];
-            //        } else {
-            //            let result = 0
-            //            if (n <= 0){
-            //                result = calc8dec(0);
-            //            } else {
-            //                result = calc8dec(n).plus(memoizedSum8dec(n - 1));
-            //            }
-            //            return cache[n] = result;
-            //        }
-            //    }
-            //})()
-
             function show1quad(value, iter){
-                document.getElementById("test8dec").style.display = "block";
+                document.getElementById("test1quad").style.display = "block";
+                console.log(value)
                 let dec = 0;
                 let front = "";
                 let back = value;
@@ -559,23 +542,14 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         break
                     }
                 }
-                document.getElementById("pi8dec").innerHTML = temp;
-                document.getElementById('iter8dec').innerHTML = iter;
+                document.getElementById("pi1quad").innerHTML = temp;
+                document.getElementById('iter1quad').innerHTML = iter;
             }
 
-            const iterate1quad = (function() {
-                const sqrt2 = BigNumber('2').sqrt();
-                const D = sqrt2.times(2).div('9801').pow(-1);
-                return function(n) {
-                    const S = memoizedSum8dec(n);
-                    const pi8 = D.times(S.pow(-1)).toPrecision(1002);
-                    show8dec(pi8, n + 1)
-                }
-            })()
-
             function plusIterate1quad(){
-                const iter = parseInt(document.getElementById('iter8dec').innerHTML);
-                iterate8dec(iter);
+                const iter = parseInt(document.getElementById('iter1quad').innerHTML);
+                console.log(iter + 1)
+                calc1quad(iter + 1);
             }
             
             //------------------------------------------------------------
