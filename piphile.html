@@ -169,8 +169,8 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 <a href="http://www.cecm.sfu.ca/organics/papers/borwein/paper/html/local/omlink9/html/node1.html" target=_blank style="font-size: 22; color: inherit;">plus de formules de ce type et forme général</a>
                 <h3>2/ Formules quadratiques</h3>
                 <div id=firstquad class=formulebox>
-                    <p>`a_0 = sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_0 = 0`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`a_(n+1) = sqrt(a_n)/2+1/(2sqrt(a_n))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_(n+1) = (sqrt(a_n)(1 + b_n))/(a_n + b_n)`</p>
-                    <p>`p_0 = 2 + sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`p_(n+1) = p_n b_(n+1) (1 + a_(n+1))/(1 + b_(n+1))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lim_(n->oo) p_n = pi`</p>
+                    <p>`a_0 = sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_0 = 0`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`a_n = sqrt(a_(n-1))/2+1/(2sqrt(a_(n-1)))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_n = (sqrt(a_(n-1))(1 + b_(n-1)))/(a_(n-1) + b_(n-1))`</p>
+                    <p>`p_0 = 2 + sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`p_n = p_(n-1) b_n (1 + a_n)/(1 + b_n)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lim_(n->oo) p_n = pi`</p>
                     <button type="button" onclick="calc1quad(1);" class=testbutton>Tester</button>
                     <div id=test1quad class=testbox>
                         <span>nombre d' "iteration" : </span><span id=iter1quad>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate1quad();" class="iterbutton">plus d' "iterations"</button>
@@ -509,15 +509,15 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                             return cache[n];
                         } else {
                             c = calc1quad(n - 1);
-                            const an = c[0];
-                            const bn = c[1];
-                            const pn = c[2];
+                            const an1 = c[0];
+                            const bn1 = c[1];
+                            const pn1 = c[2];
 
-                            const an1 = an.sqrt().div(2).plus(Decimal('1').div(an.sqrt().times(2)))
-                            const bn1 = an.sqrt().times(bn.plus(1)).div(an.plus(bn));
-                            const pn1 = pn.times(bn1).times(an1.plus(1).div(bn1.plus(1)));
-                            cache[n] = [an1, bn1, pn1];
-                            show1quad(pn1.toString(1002), n)
+                            const an = an1.sqrt().div(2).plus(Decimal('1').div(an1.sqrt().times(2)))
+                            const bn = an1.sqrt().times(bn1.plus(1)).div(an1.plus(bn1));
+                            const pn = pn1.times(bn).times(an.plus(1).div(bn.plus(1)));
+                            cache[n] = [an, bn, pn];
+                            show1quad(pn.toString(1002), n)
                             return cache[n];
                         }
                     }
