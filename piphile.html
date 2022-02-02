@@ -113,40 +113,41 @@
                 <h1 class=title>Le calcul de &#960</h1>
                 <p>Dans cette partie, je vais présenter des formule plus ou moins actulles pour le calcule de &#960 </p>
                 <h3>1/ Formules à convevergence linéaire</h3>
-                <div id=sum8dec>
+                <div id=sum8dec class=formulebox>
+                    <p>Cette formule par le mathématicien Indien Srinivasa Ramanujanest la première de son genre, elle furent une révolution dans le calcul de &#960. Là où les précedentes avaient une convergente terrible, de moins en moins de décimales par iteration, et seulement 1 ou 2 au maximum, celle ci est donne environ 8 décimales exacte supplémentaires à chaque iteration</p>
                     <p>`pi = ((2sqrt(2))/9801sum_(n=0)^oo((4n)!(1103 + 26390n))/((n!)^4 396^(4n)))^-1`</p>
                     <button type="button" onclick="iterate8dec(0);" class=testbutton>Tester</button>
-                    <div id=test8dec>
+                    <div id=test8dec class=testbox>
                         <span>nombre d'iteration : </span><span id=iter8dec>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate8dec();" class="iterbutton">plus d'iterations</button>
                         <p id=pi8dec>bug</p>
                         <p class=pi>3.1415926535897932384626</p>
                    </div>
                 </div>
 
-                <div id=sum14dec>
-                    <p>Cette formule par le mathématicien Indien Srinivasa Ramanujan donne environ 14 écimales exacte supplémentaires à chaque iteration</p>
+                <div id=sum14dec class=formulebox>
+                    <p>Formule du à mathématicien Indien Srinivasa Ramanujan qui donne environ 14 décimales exacte supplémentaires à chaque iteration</p>
                     <p>`pi = (12sum_(n = 0)^oo((-1)^n(6n)!(13591409 + 545140134n))/((3n!)(n!)^(3)640320^(3n + 3/2)))^-1`</p>
                     <button type="button" onclick="iterate14dec(0);" class=testbutton>Tester</button>
-                    <div id=test14dec>
+                    <div id=test14dec class=testbox>
                         <span>nombre d'iteration : </span><span id=iter14dec>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate14dec();" class="iterbutton">plus d'iterations</button>
                         <p id=pi14dec>bug</p>
                         <p class=pi>3.1415926535897932384626</p>
                    </div>
                 </div>
 
-                <div id=sum25dec>
+                <div id=sum25dec class=formulebox>
                     <p>Formule par les frères Borwein, basé sur <a href="#sum8dec" style="color: inherit;">cette formule</a> par Srinivasa Ramanujan. Elle donne environ 25 décimales exacte supplémentaires à chasue iteration</p>
                     <p style="overflow: auto;">`pi = (12sum_(n = 0)^oo((-1)^n(6n)!(212175710912sqrt(61) + 1657145277365 + n(13773980892672sqrt(61) + 107578229802750)))/((3n)!(n!)^(3)(5280(236674 + 30303sqrt(61)))^(3n + 3/2)))^-1`</p>
 
                     <button type="button" onclick="iterate25dec(0);" class=testbutton>Tester</button>
-                    <div id=test25dec>
+                    <div id=test25dec class=testbox>
                         <span>nombre d'iteration : </span><span id=iter25dec>erreur</span><button style="margin-left: 15;" type="button" class=iterbutton onclick="plusIterate25dec();">plus d'iterations</button>
                         <p id=pi25dec>bug</p>
                         <p class=pi>3.1415926535897932384626</p>
                     </div>
                 </div>
 
-                <div id=sum50dec>
+                <div id=sum50dec class=formulebox>
                     <p>`pi = (1/(sqrt(-(C)^3))sum_(n=0)^oo((6n)!(A + nB))/((3n)!(n!)^(3)(C)^(3n)))^(-1)` avec:</p>
                     <p class=longtxt>`A = 63365028312971999585426220 + 28337702140800842046825600sqrt(5)`&nbsp</p>
                     <p class=longtxt style="margin-bottom: 40;">`+ 384sqrt(5)sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040sqrt(5))`</p>
@@ -156,19 +157,27 @@
                     <p class=longtxt style="margin-bottom: 40;">`-1296sqrt(5)sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt(5))`</p>
 
                     <button type="button" onclick="iterate50dec(0);" class=testbutton>Tester</button>
-                    <div id=test50dec>
+                    <div id=test50dec class=testbox>
                         <span>nombre d'iteration : </span><span id=iter50dec>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate50dec();" class="iterbutton">plus d'iterations</button>
                         <p id=pi50dec>bug</p>
                         <p class=pi>3.1415926535897932384626</p>
-                   </div>
-
-                <h3>2/ Formules quadratiques</h3>>
-                
-                <a href="http://www.cecm.sfu.ca/organics/papers/borwein/paper/html/local/omlink9/html/node1.html">plus de formules de ce type et forme général</a>
+                   </div>              
             </div>
                 <!--A=63365028312971999585426220+28337702140800842046825600*sqrt5 + 384*sqrt5sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*sqrt5)
 B=7849910453496627210289749000+3510586678260932028965606400sqrt5 + 2515968*31101/2(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235*51/2)1/2
 C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323713318473 + 4912746253692362754607395912*51/2)-->
+                <a href="http://www.cecm.sfu.ca/organics/papers/borwein/paper/html/local/omlink9/html/node1.html" target=_blank style="font-size: 22; color: inherit;">plus de formules de ce type et forme général</a>
+                <h3>2/ Formules quadratiques</h3>
+                <div id=firstquad class=formulebox>
+                    <p>`a_0 = sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_0 = 0`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`a_(n+1) = sqrt(a_n)/2+1/(2sqrt(a_n))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_(n+1) = (sqrt(a_n)(1 + b_n))/(a_n + b_n)`</p>
+                    <p>`p_0 = 2 + sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`p_(n+1) = p_n b_(n+1) (1 + a_(n+1))/(1 + b_(n+1))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lim_(n->oo) p_n = pi`</p>
+                    <button type="button" onclick=";" class=testbutton>Tester</button>
+                    <div id=test1quad class=testbox>
+                        <span>nombre d' "iteration" : </span><span id=iter1quad>1</span><button style="margin-left: 15;" type="button" onclick=";" class="iterbutton">plus d' "iterations"</button>
+                        <p id=pi1quad>bug</p>
+                        <p class=pi>3.1415926535897932384626</p>
+                    </div>
+                </div>
             </div>
             <div id=settings class=background>
                 <div class=changetheme>
@@ -249,7 +258,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         front = front + dec;
                         back = back.slice(1);
                     }else{
-                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(85, 0, 0, 0.5);'>" + back + "</span>";
+                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
                         break
                     }
                 }
@@ -318,7 +327,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         front = front + dec;
                         back = back.slice(1);
                     }else{
-                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(145, 0, 0, 0.5);'>" + back + "</span>";
+                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
                         break
                     }
                 }
@@ -481,6 +490,92 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             function plusIterate50dec(){
                 const iter = parseInt(document.getElementById('iter50dec').innerHTML);
                 iterate50dec(iter);
+            }
+
+            //------------------------------------------------------------
+            //1st quadratic function
+            //------------------------------------------------------------
+            const calc1quad = (function() {
+                const a0 = BigNumber('2').sqrt();
+                const b0 = BigNumber('0');
+                const p0 = a0.plus(2);
+
+                let cache = {0: [a0, b0, p0]};
+
+                return function (n){
+                    if (n >= 0){
+                        if (cache[n]){
+                            return cache[n];
+                        } else {
+                            c = calc1quad(n - 1);
+                            const an = c[0];
+                            const bn = c[1];
+                            const pn = c[2];
+
+                            console.log(an == a0 && bn == b0 && pn == p0)
+
+                            const an1 = an.sqrt().div(2).plus(BigNumber('1').div(an.sqrt().times(2)))
+                            const bn1 = bn.sqrt().times(bn.plus(1)).div(an + bn);
+                            const pn1 = pn.times(bn1).times(an1.plus(1).div(bn1.plus(1)))
+                            cache[n] = [an1, bn1, pn1];
+                            console.log(pn1.toString())
+                            return cache[n];
+                        }
+                    }
+                }
+            })()
+
+            //const memoizedSum8dec = (function() {
+            //    let cache = {};
+            //    return function(n) {
+            //        if (cache[n]) {
+            //            return cache[n];
+            //        } else {
+            //            let result = 0
+            //            if (n <= 0){
+            //                result = calc8dec(0);
+            //            } else {
+            //                result = calc8dec(n).plus(memoizedSum8dec(n - 1));
+            //            }
+            //            return cache[n] = result;
+            //        }
+            //    }
+            //})()
+
+            function show1quad(value, iter){
+                document.getElementById("test8dec").style.display = "block";
+                let dec = 0;
+                let front = "";
+                let back = value;
+
+                for (let i = 0; i < value.length; i++){
+                    dec = value[i];
+
+                    if (dec == pi[i]){
+                        front = front + dec;
+                        back = back.slice(1);
+                    }else{
+                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                        break
+                    }
+                }
+                document.getElementById("pi8dec").innerHTML = temp;
+                document.getElementById('iter8dec').innerHTML = iter;
+            }
+
+            const iterate1quad = (function() {
+                const sqrt2 = BigNumber('2').sqrt();
+                const D = sqrt2.times(2).div('9801').pow(-1);
+                return function(n) {
+                    const S = memoizedSum8dec(n);
+                    const pi8 = D.times(S.pow(-1)).toPrecision(1002);
+                    show8dec(pi8, n + 1)
+                }
+            })()
+
+            function plusIterate1quad(){
+                const iter = parseInt(document.getElementById('iter8dec').innerHTML);
+                iterate8dec(iter);
             }
             
             //------------------------------------------------------------
