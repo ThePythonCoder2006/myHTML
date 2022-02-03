@@ -178,6 +178,16 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         <p class=pi>3.1415926535897932384626</p>
                     </div>
                 </div>
+                <h3>Formules d'ordre suppérieur</h3>
+                <div id=hexadecimalique class=formulebox>
+                    <p>`a_0 = 1/3`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_1 = sqrt(2) - 1`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_1^x = (1 - (s_1)^4)^(1/4)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_(n+1) = ((1 - s_n^x)^4)/((t + u)^2(t^2 + u^2))` avec `m_1 = ((1 + s_n)/t)^4`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`m_2 = 1/t^4`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`t = 1 + s_n^x`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`u = (8s_n^x(1 + (s_n^x)^2))^(1/4)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_n^x = (1 - (s_n)^4)^(1/4)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`a_n = 16m_1a_(n-1) + (4^(2n-1))/3(1-12m_2 - 4m_1)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lim_(n->oo) a_n = 1/pi`</p>
+                    <button type="button" onclick="calchex(1);" class=testbutton>Tester</button>
+                    <div id=testhex class=testbox>
+                        <span>nombre d' "iteration" : </span><span id=iterhex>1</span><button style="margin-left: 15;" type="button" onclick="plusIteratehex();" class="iterbutton">plus d' "iterations"</button>
+                        <p id=pi1quad>bug</p>
+                        <p class=pi>3.1415926535897932384626</p>
+                    </div>
+                </div>
             </div>
             <div id=settings class=background>
                 <div class=changetheme>
@@ -549,6 +559,69 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             function plusIterate1quad(){
                 const iter = parseInt(document.getElementById('iter1quad').innerHTML);
                 console.log(iter + 1)
+                calc1quad(iter + 1);
+            }
+
+            //------------------------------------------------------------
+            //hexadecimalic function
+            //------------------------------------------------------------
+            const calchex = (function() {
+                const a0 = Decimal('1').div(Decimal('3')) ;
+                const s1 = Decimal('2').sqrt().minus(1);
+                const s1x = Decimal('1').plus(s1.pow(4)).pow(1/4);
+                const t = s1x.pluw(1);
+                const m11 = s1.plus(1).div(t1).pow(4);
+                const m21 = Decimal('1').div(t.pow(4));
+
+                let cache = {0: {a: a0}, 1: {s: s1,sx: s1x}};
+                console.log(cache[0]['a'].toString())
+
+                return function (n){
+                    if (n >= 0){
+                        if (cache[n]){
+                            showhex(cache[n]['a'].toString(1002), n)
+                            return cache[n];
+                        } else {
+                            c = calc1quad(n - 1);
+                            const an1 = c[0];
+                            const bn1 = c[1];
+                            const pn1 = c[2];
+
+                            const an = an1.sqrt().div(2).plus(Decimal('1').div(an1.sqrt().times(2)))
+                            const bn = an1.sqrt().times(bn1.plus(1)).div(an1.plus(bn1));
+                            const pn = pn1.times(bn).times(an.plus(1).div(bn.plus(1)));
+                            cache[n] = [an, bn, pn];
+                            show1quad(pn.toString(1002), n)
+                            return cache[n];
+                        }
+                    }
+                }
+            })()
+
+            function showhex(value, iter){
+                document.getElementById("testhex").style.display = "block";
+                console.log(value)
+                let dec = 0;
+                let front = "";
+                let back = value;
+
+                for (let i = 0; i < value.length; i++){
+                    dec = value[i];
+
+                    if (dec == pi[i]){
+                        front = front + dec;
+                        back = back.slice(1);
+                    }else{
+                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                        break
+                    }
+                }
+                document.getElementById("pihex").innerHTML = temp;
+                document.getElementById('iterhex').innerHTML = iter;
+            }
+
+            function plusIteratehex(){
+                const iter = parseInt(document.getElementById('iterhex').innerHTML);
                 calc1quad(iter + 1);
             }
             
