@@ -1,0 +1,41 @@
+p {
+    font-size: 22;
+    color: black;
+}
+
+.active {
+    background-color: red;
+}
+
+ul#menu{
+    background-color: darkgray;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 150;
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    padding-top: 100;
+}
+
+ul#menu > li > a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: 8px 16px;
+}
+
+.content {
+    padding-left: 200px;
+}
+
+#home {
+    display: block;
+}
+
+#intro {
+    display: none;
+}
