@@ -581,6 +581,8 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         if (cache[n]){
                             showhex(cache[n]['a'].toString(), n)
                             return cache[n];
+                        } else if(n == 1){
+                            s
                         } else {
                             let c = calchex(n - 1);
                             const an1 = c['a'];
@@ -588,7 +590,11 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                             c = calchex(n);
                             const sn = c['s'];
                             const snx = c['sx'];
-                            const m1 = 
+
+                            const t = snx.plus(1);
+                            const m1 = sn.plus(1).div(t).pow(4);
+                            const m2 = t.pow(-4)
+                            const u = 
 
                             cache[n] = [an, bn, pn];
                             show1quad(pn.toString(1002), n)
