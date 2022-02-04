@@ -569,12 +569,9 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                 const a0 = Decimal('1').div(Decimal('3')) ;
                 const s1 = Decimal('2').sqrt().minus(1);
                 const s1x = Decimal('1').plus(s1.pow(4)).pow(1/4);
-                const t1 = s1x.plus(1);
-                const m11 = s1.plus(1).div(t1).pow(4);
-                const m21 = Decimal('1').div(t1.pow(4));
 
-                let cache = {0: {a: a0}, 1: {s: s1, sx: s1x, t: t1, m1: m11, m2: m21}};
-                console.log(cache[0]['a'].toString())
+                let cache = {0: {a: a0}};
+                console.log(cache[0]['a'].toString());
 
                 return function (n){
                     if (n >= 0){
@@ -582,21 +579,28 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                             showhex(cache[n]['a'].toString(), n)
                             return cache[n];
                         } else if(n == 1){
-                            s
-                        } else {
+                            const t1 = s1x.plus(1);
+                            const m11 = s1.plus(1).div(t1).pow(4);
+                            const m21 = Decimal('1').div(t1.pow(4));
+
+
+                            const PLUS = Decimal('4').pow(3).div(3).times(Decimal('1').minus(m21.times(12)).minus(m11.times(4)));
+                            const a1 = m11.times(16).times(a0).plus(PLUS);
+                            return(a1.pow(-1).toString())
+                        } else if(n > 1){
                             let c = calchex(n - 1);
                             const an1 = c['a'];
-
-                            c = calchex(n);
-                            const sn = c['s'];
-                            const snx = c['sx'];
 
                             const t = snx.plus(1);
                             const m1 = sn.plus(1).div(t).pow(4);
                             const m2 = t.pow(-4)
-                            const u = 
+                            const u = Decimal(snx.times(8).times(snx.pow(2).plus(1))).sqrt().sqrt();
 
-                            cache[n] = [an, bn, pn];
+                            const sn = 0;
+
+                            const snx = Decimal(sn.pow(4).plus(1)).sqrt().sqrt();
+
+                            cache[n] = {a: an, s: sn, sx: snx};
                             show1quad(pn.toString(1002), n)
                             return cache[n];
                         }
