@@ -568,7 +568,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
             const calchex = (function() {
                 const a0 = Decimal('1').div(Decimal('3')) ;
                 const s1 = Decimal('2').sqrt().minus(1);
-                const s1x = Decimal('1').plus(s1.pow(4)).pow(1/4);
+                const s1x = Decimal('1').minus(s1.pow(4)).sqrt().sqrt();
 
                 let cache = {0: {a: a0}};
                 console.log(cache[0]['a'].toString());
@@ -581,12 +581,12 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         } else if(n == 1){
                             const t1 = s1x.plus(1);
                             const m11 = s1.plus(1).div(t1).pow(4);
-                            const m21 = Decimal('1').div(t1.pow(4));
+                            const m21 =t1.pow(-4);
 
 
-                            const PLUS = Decimal('4').pow(3).div(3).times(Decimal('1').minus(m21.times(12)).minus(m11.times(4)));
+                            const PLUS = Decimal('64').div(3).times(Decimal('1').minus(m21.times(12)).minus(m11.times(4)));
                             const a1 = m11.times(16).times(a0).plus(PLUS);
-                            return(a1.pow(-1).toString())
+                            return a1.pow(-1).toString();
                         } else if(n > 1){
                             let c = calchex(n - 1);
                             const an1 = c['a'];
