@@ -2,7 +2,9 @@
     "configurations": [
         {
             "name": "Win32",
-            "includePath": [],
+            "includePath": [
+                "C:\\DevSoft\\msys2\\home\\paul\\Builds\\mpir-3.0.0"
+            ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
@@ -11,7 +13,7 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-arm64",
-            "compilerPath": "C:\\MinGW\\bin\\gcc.exe"
+            "compilerPath": "C:\\DevSoft\\msys2\\mingw64\\bin"
         }
     ],
     "version": 4
