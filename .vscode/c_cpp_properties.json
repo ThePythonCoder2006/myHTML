@@ -3,7 +3,11 @@
         {
             "name": "Win32",
             "includePath": [
+<<<<<<< HEAD
                 "C:\\DevSoft\\msys2\\home\\paul\\Builds\\mpir-3.0.0"
+=======
+                "C:/gmp"
+>>>>>>> b4c9acd5190a5ba98e4d0559f07770e6a1cbefe6
             ],
             "defines": [
                 "_DEBUG",
