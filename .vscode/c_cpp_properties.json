@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:\\DevSoft\\msys2\\home\\paul\\Builds\\mpir-3.0.0"
+                "C:\\DevSoft\\msys2\\home\\Elève\\Builds\\mpir-3.0.0"
             ],
             "defines": [
                 "_DEBUG",
