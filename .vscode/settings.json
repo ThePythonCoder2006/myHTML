@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "mpir.h": "c"
+        "mpir.h": "c",
+        "c_mpq.h": "c"
     }
 }
