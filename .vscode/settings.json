@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "mpir.h": "c"
+        "mpir.h": "c",
+        "dy_array.h": "c"
     }
 }
