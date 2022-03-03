@@ -3,5 +3,6 @@
         "stdio.h": "c",
         "mpir.h": "c",
         "dy_array.h": "c"
+        "c_mpq.h": "c"
     }
 }
