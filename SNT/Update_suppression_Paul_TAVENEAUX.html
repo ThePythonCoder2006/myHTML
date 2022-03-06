@@ -6,15 +6,19 @@
 <body>
   <div id="content">
     <img src="logo.png" style="float: left;">
-    <div class=center>
-      <h1>Update suppression</h1>
+    <div class="center title">
+      <h1>Update suppressio<span>n</span></h1>
     </div>
     <br>
+    <p><span class="l_logo">Minecraft</span> est un jeu vidéo créer par Markus Persson, alias Notch, puis par la société Mojang studio. Il existe 4 versions différentes de minecraft, la version éducation, la version chinoise, la version Bedrock et la version Java sur laquelle nous nous interreseront. Aujourd'hui, plus de 200 000 000 (200 millions) de copies de Minecraft (toutes versions confondus) ont été vendu</p>
     <strong><h2>Quel est l'objectif de la suppression de mises à jour ?</h2></strong>
-    <strong><h2>update order</h2></strong>
+    <strong><h2>Comment fonctionne la suppression de mise à jour</h2></strong>
+    <div class="indent1">
+      <strong><h3>ordre de mise à jour (update order)</h3></strong>
+      <p>Minecraft est un jeu codé en java. Dans le jeu toutes les updates ("les mises à jour"), qui sont toutes les actions géré par le serveur, sont stocké dans une pile. En java, les piles ont une valeur maximum. Toutes les actions qui sont présentes dans cette pile seront effectués, mais si il n'y a plus de place dans cette pile, tout action qui ne rentre pas dans cette pile ne seront pas effectués. Donc si on trouve un moyen de créer en 1 tick suffisament d'actions pour provoquer le remplisage de cette pile, nous seront donc capable d'enpècher une mise à jour de se propager vers certain blocs
+      </p>
+    </div>
 
-    <strong><h2>Comment fonctionne l'update suppression ?</h2></strong>
-    <p>Minecraft est un jeu codé en java. Dans le jeu toutes les updates ("les mises à jour"), qui sont toutes les actions géré par le serveur, sont stocké dans une pile. En java, les piles ont une valeur maximum. Toutes les actions qui sont présentes dans cette pile seront effectués, mais si il n'y a plus de place dans cette pile, tout action qui ne rentre pas dans cette pile ne seront pas effectués. Donc si on trouve un moyen de créer en 1 tick suffisament d'actions pour provoquer le remplisage de cette pile, nous seront donc capable d'enpècher une mise à jour de se propager vers certain blocs</p>
-  </div>
+    </div>
   <div id="back"></div>
 </body>
