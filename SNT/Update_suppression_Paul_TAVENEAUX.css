@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'minecraft'; /*a name to be used later*/
+  src: url("Minecraftia-Regular.ttf"); /*URL to font*/
+}
+
 p {
   font-size: 25px;
 }
@@ -12,15 +17,16 @@ p {
   color: black;
 }
 
-.title > h1:not(:hover) > span{
+.title > h1:not(:hover)::after{
+  content: "n";
   color: black;
 }
 
-.title > h1:hover, .title > h1 > span:hover {
+.title > h1:hover {
   text-decoration: overline;
   text-decoration-color: #5eab27;
   color: #62371f;
-  filter: drop-shadow(1px 1px 5px dimgray);
+  filter: drop-shadow(1px 1px 5px dimgray)
 }
 
 .center {
@@ -49,6 +55,43 @@ p {
   margin-left: 20;
 }
 
+.l_logo {
+  margin-left: 25;
+}
+
+.l_logo:hover {
+  margin: 0;
+}
+
 .l_logo:hover::before {
-  src: url("minecraft logo.png");
+  content: url("minecraft logo.png");
+}
+
+.mojang:hover {
+  content: url("mojang-logo.jpg");
+  margin-left: 28;
+  margin-right: 28;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: minecraft;
+}
+
+.suppr:hover span{
+  display: none;
+}
+
+.suppr:hover::after {
+  content: "la suppression de mises à jour";
+}
+
+.order:hover span{
+  display: none;
+}
+
+.order:hover::after {
+  content: "l'ordre de mise à jour";
 }
