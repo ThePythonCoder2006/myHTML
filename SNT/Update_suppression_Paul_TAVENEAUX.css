@@ -155,12 +155,19 @@ h3 {
   -webkit-text-fill-color: transparent;
 }
 
+#preload img {
+  position: absolute;
+  top: -9000px;
+  left: -9000px;
+  opacity: 0;
+}
+
 /*
-<img src="https://i.ibb.co/5jWd9cv/background.jpg" alt="background" border="0">
-<img src="https://i.ibb.co/K6NMKM4/logo.png" alt="logo" border="0">
-<img src="https://i.ibb.co/s5TY12h/minecraft-logo.png" alt="minecraft-logo" border="0">
-<img src="https://i.ibb.co/f4HmTh3/mojang-logo.jpg" alt="mojang-logo" border="0">
-<img src="https://i.ibb.co/3spZJhJ/unnamed.png" alt="unnamed" border="0">
-<img src="https://i.ibb.co/pZrSdz4/full-nether-portal.png" alt="full-nether-portal" border="0">
-<img src="https://i.ibb.co/1nsSBvn/update-suppressor.png" alt="update-suppressor" border="0">
+<img src="https://i.ibb.co/5jWd9cv/background.jpg" alt="background">
+<img src="https://i.ibb.co/K6NMKM4/logo.png" alt="logo">
+<img src="https://i.ibb.co/s5TY12h/minecraft-logo.png" alt="minecraft-logo">
+<img src="https://i.ibb.co/f4HmTh3/mojang-logo.jpg" alt="mojang-logo">
+<img src="https://i.ibb.co/3spZJhJ/unnamed.png" alt="unnamed">
+<img src="https://i.ibb.co/pZrSdz4/full-nether-portal.png" alt="full-nether-portal">
+<img src="https://i.ibb.co/1nsSBvn/update-suppressor.png" alt="update-suppressor">
 */
