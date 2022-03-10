@@ -1,0 +1,166 @@
+p, a {
+  font-size: 25px;
+}
+
+p {
+  text-align: justify;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.title > h1 {
+  display: inline;
+  text-decoration: underline black;
+  color: #881dff;
+  font-size: 40px;
+  transition: color 300ms, text-decoration-color 1s;
+}
+
+.title > h1 > span:not(:hover)::before {
+  content: "U";
+  color: black;
+  transition: color 300ms;
+}
+
+.title > h1 > span:not(:hover)::after{
+  content: "n";
+  color: black;
+  transition: color 300ms;
+}
+
+.title > h1:hover {
+  text-decoration: overline;
+  text-decoration-color: #5eab27;
+  color: #62371f;
+  filter: drop-shadow(1px 1px 5px dimgray);
+}
+
+.center {
+  text-align: center;
+}
+
+#back {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.4)), url(https://i.ibb.co/5jWd9cv/background.jpg);
+  background-position: auto, center;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-color: whitesmoke;
+}
+
+#content {
+  z-index: 5;
+}
+
+.indent1 {
+  margin-left: 20;
+}
+
+.l_logo {
+  margin-left: 25;
+}
+
+.l_logo:hover {
+  margin: 0;
+}
+
+.l_logo:hover::before {
+  content: url("https://i.ibb.co/s5TY12h/minecraft-logo.png");
+}
+
+.mojang:hover {
+  content: url("https://i.ibb.co/f4HmTh3/mojang-logo.jpg");
+  margin-left: 28;
+  margin-right: 28;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Papyrus";
+}
+
+.suppr:hover span, .order:hover span, .update:hover span, .suppressor:hover span{
+  display: none;
+}
+
+.suppr:hover::after {
+  content: "la suppression de mises à jour";
+}
+
+.order:hover::after {
+  content: "l'ordre de mise à jour";
+}
+
+.suppressor:hover::after {
+  content: "suppresseur de mises à jour";
+}
+
+::selection {
+  color: transparent;
+}
+
+.update:hover::after {
+  content: "mises à jour";
+}
+
+.logo {
+  float: left;
+}
+
+.logo:hover {
+  animation: logo_rot 5s ease-in-out forwards;
+}
+
+.title > h1:hover ~ img {
+  animation: logo_rot 5s ease-in-out forwards;
+}
+
+@keyframes logo_rot {
+  33% {
+    transform: translate(850px, 450px) rotate(765deg);
+  }
+
+  66% {
+    transform: translate(850px, 450px) rotate(765000deg);
+  }
+}
+
+h1 {
+  font-size: 45px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 30px;
+  display: inline;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*
+<img src="https://i.ibb.co/5jWd9cv/background.jpg" alt="background" border="0">
+<img src="https://i.ibb.co/K6NMKM4/logo.png" alt="logo" border="0">
+<img src="https://i.ibb.co/s5TY12h/minecraft-logo.png" alt="minecraft-logo" border="0">
+<img src="https://i.ibb.co/f4HmTh3/mojang-logo.jpg" alt="mojang-logo" border="0">
+<img src="https://i.ibb.co/3spZJhJ/unnamed.png" alt="unnamed" border="0">
+<img src="https://i.ibb.co/pZrSdz4/full-nether-portal.png" alt="full-nether-portal" border="0">
+<img src="https://i.ibb.co/1nsSBvn/update-suppressor.png" alt="update-suppressor" border="0">
+*/
