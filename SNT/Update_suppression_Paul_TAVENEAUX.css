@@ -1,5 +1,5 @@
 p, a {
-  font-size: 25px;
+  font-size: 1.5rem;
 }
 
 p {
@@ -17,7 +17,7 @@ a {
   display: inline;
   text-decoration: underline black;
   color: #881dff;
-  font-size: 40px;
+  font-size: 2.5rem;
   transition: color 300ms, text-decoration-color 1s;
 }
 
@@ -138,15 +138,15 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 45px;
+  font-size: 2.5rem;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 2rem;
   display: inline;
   margin-top: 0px;
   margin-bottom: 10px;
@@ -160,6 +160,11 @@ h3 {
   top: -9000px;
   left: -9000px;
   opacity: 0;
+  user-select: none;
+}
+
+div.flex {
+  display: flex;
 }
 
 /*
