@@ -109,6 +109,7 @@ h1, h2, h3 {
 
 ::selection {
   color: transparent;
+  background: none;
 }
 
 .update:hover::after {
@@ -120,6 +121,7 @@ h1, h2, h3 {
 }
 
 .logo:hover {
+  cursor: not-allowed;
   animation: logo_rot 5s ease-in-out forwards;
 }
 
@@ -128,12 +130,12 @@ h1, h2, h3 {
 }
 
 @keyframes logo_rot {
-  33% {
+  20% {
     transform: translate(850px, 450px) rotate(765deg);
   }
 
-  66% {
-    transform: translate(850px, 450px) rotate(765000deg);
+  30% {
+    transform: rotateZ(7650deg) translate(850px, 450px);
   }
 }
 
@@ -142,7 +144,8 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
+  font-family: 'MinecraftiaRegular';
+  font-size: 20px;
 }
 
 h3 {
@@ -160,6 +163,10 @@ h3 {
   top: -9000px;
   left: -9000px;
   opacity: 0;
+}
+
+p:hover {
+  cursor: progress;
 }
 
 /*
