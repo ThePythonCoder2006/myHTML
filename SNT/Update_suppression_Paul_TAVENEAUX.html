@@ -1,12 +1,17 @@
 <!DOCTYPE html public>
+
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minecarft: update suppression</title>
   <link href="http://fonts.cdnfonts.com/css/papyrus" rel="stylesheet">
   <link href="./Update_suppression_Paul_TAVENEAUX.css" rel="stylesheet">
-  <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/minecraftia" type="text/css"/>
-  <link href="https://i.ibb.co/K6NMKM4/logo.png" rel=icon> 
+  <link rel="stylesheet" media="screen"
+    href="https://fontlibrary.org//face/minecraftia" type="text/css" />
+  <link href="https://i.ibb.co/K6NMKM4/logo.png" rel=icon>
 </head>
+
 <body>
   <div id=preload>
     <img src="https://i.ibb.co/5jWd9cv/background.jpg">
@@ -20,36 +25,106 @@
   <div id="content">
     <div class="center title">
       <h1 class="suppr"><span>pdate suppressio</span></h1>
-      <img src="https://i.ibb.co/K6NMKM4/logo.png" alt="logo sliced portal" class="logo">
+      <img src="https://i.ibb.co/K6NMKM4/logo.png"
+        alt="logo sliced portal" class="logo">
     </div>
     <br>
-    <p><span class="l_logo">Minecraft</span> est un jeu vidéo créer par Markus Persson, alias Notch, puis par la société <span class=mojang>Mojang studio</span>. Il existe 4 versions différentes de minecraft, la version éducation, la version chinoise, la version Bedrock et la version Java sur laquelle nous nous interreseront. Aujourd'hui, plus de 200 000 000 (200 millions) de copies de Minecraft (toutes versions confondus) ont été vendus. Pour avoir plus d'information, clicker <a href="https://fr.wikipedia.org/wiki/Minecraft" target="_blank">ici</a></p>
-    <h2>Quel est l'objectif de <span class=suppr><span>l'update supression</span></span> ?</h2>
+    <p><span class="l_logo">Minecraft</span> est un jeu vidéo créer par
+      Markus Persson, alias Notch, puis par la société <span
+        class=mojang>Mojang studio</span>. Il existe 4 versions
+      différentes de minecraft, la version éducation, la version
+      chinoise, la version Bedrock et la version Java sur laquelle nous
+      nous interreseront. Aujourd'hui, plus de 200 000 000 (200
+      millions) de copies de Minecraft (toutes versions confondus) ont
+      été vendus. Pour avoir plus d'information, clicker <a
+        href="https://fr.wikipedia.org/wiki/Minecraft"
+        target="_blank">ici</a></p>
+    <h2>Quel est l'objectif de <span class=suppr><span>l'update
+          supression</span></span> ?</h2>
+    <div class="flex">
+      <p>L'objectif de cette technique est d'obtenir des configuration
+        de blocs qui ne sont pas normalement possible d'obtenir, par
+        exemple :</p>
+      <img src="https://i.ibb.co/K6NMKM4/logo.png" alt="sliced portal">
+    </div>
+
+    <p>Ceci est un poratil du nether qui à été coupé à 1 bloc de haut,
+      normalement c'est cencé ressembler à cela : </p>
+
+    <div class="flex">
+      <img src="https://i.ibb.co/pZrSdz4/full-nether-portal.png"
+        alt="portail du nether"
+        style="width: 75px; margin-right: 20px;">
+      <p>normalement si un des blocs d'obsidienne (le bloc de couleur
+        très foncé sur les bord du portail) le portail (les blocs
+        violet) doivent se casser.</p>
+    </div>
+
+    <h2>Comment fonctionne <span class=suppr><span>l'update
+          supression</span></span> ?</h2>
+    <div class="indent1">
+      <strong>
+        <h3 class="order"><span>Update order</span></h3>
+      </strong>
+      <p>Dans minecraft, il y a un ordre bien spécifique dans lequel les
+        <span class="update"><span>updates</span></span> se propagent.
+        Les updates se déplacent depuis un bloc qui à été modifié par le
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          target="_blank"
+          style="font-weight: normal; font-family:Verdana, Geneva, Tahoma, sans-serif">joueur</a>
+        cela commence par le bloc situé à l'<a
+          href="https://fr.wikipedia.org/wiki/Est">EST</a>, puis à l'<a
+          href="https://fr.wikipedia.org/wiki/Ouest">OUEST</a>, puis au
+        <a href="https://fr.wikipedia.org/wiki/Nord">NORD</a>, ensuite
+        au <a href="https://fr.wikipedia.org/wiki/Sud">SUD</a>, vers le
+        HAUT et finalement vers le BAS</p>
+      <strong>
+        <h3>Le système de pile</h3>
+      </strong>
+      <p>Minecraft est un jeu codé en <a
+          href="https://fr.wikipedia.org/wiki/Java_(langage)"
+          target="_blank" style="text-decoration: underline;">java</a>.
+        Dans le jeu toutes les <span
+          class="update"><span>updates</span></span>, qui sont toutes
+        les actions géré par le serveur, sont stocké dans une pile. En
+        java, les piles ont une valeur maximum. Toutes les actions qui
+        sont présentes dans cette pile seront effectués, mais si il n'y
+        a plus de place dans cette pile, tout action qui ne rentre pas
+        dans cette pile ne seront pas effectués. Donc si on trouve un
+        moyen de créer en 1 tick suffisament d'actions pour provoquer le
+        remplisage de cette pile, nous seront donc capable d'enpècher
+        une mise à jour de se propager vers certain blocs.</p>
+      <strong>
+        <h3>Comment créer plusieurs miliers d'updates ?</h3>
+      </strong>
+      <p>Pour cela, il faut ultiliser une machine appelé un <span
+          class="suppressor"><span>update suppressor</span></span> :</p>
       <div class="flex">
-        <p>L'objectif de cette technique est d'obtenir des configuration de blocs qui ne sont pas normalement possible d'obtenir, par exemple :</p>
-        <img src="https://i.ibb.co/K6NMKM4/logo.png" alt="sliced portal">
+        <a href="https://www.youtube.com/watch?v=IJhZpK-8p54&ab_channel=Xcom6000"
+          target="_blank" style="font-weight: normal;"><img
+            src="https://i.ibb.co/1nsSBvn/update-suppressor.png"
+            alt="update-suppressor"
+            style="float: left; margin-right: 20px; width: 600px;"></a>
+        <p>On peut voir beaucoup de rails (les éléments rouges posées
+          sur des blocs jaunes) qui vont tous se désactiver en même
+          temps, et donc générer beaucoup trop de mises à jour pour la
+          pile java. En utilisant <span class="order"><span>l'update
+              order</span></span> à notre avantage, pour rediriger les
+          mises à jour vers l'<span class="suppressor"><span>update
+              suppressor</span></span> qui se comporte presque comme un
+          syphon à mises à jour, quand une mise à jour arrive dans
+          n'importe quel partie de ce suppresseur, toutes les autres
+          mises à jour des autres directions ne seront pas pris en
+          compte et donc certain blocs seront dans un état qui n'est pas
+          normal.</p>
       </div>
-      
-      <p>Ceci est un poratil du nether qui à été coupé à 1 bloc de haut, normalement c'est cencé ressembler à cela : </p>
-      
-      <div class="flex">
-        <img src="https://i.ibb.co/pZrSdz4/full-nether-portal.png" alt="portail du nether" style="width: 75px; margin-right: 20px;">
-        <p>normalement si un des blocs d'obsidienne (le bloc de couleur très foncé sur les bord du portail) le portail (les blocs violet) doivent se casser.</p></div>
-      
-    <h2>Comment fonctionne <span class=suppr><span>l'update supression</span></span> ?</h2>
-      <div class="indent1">
-        <strong><h3 class="order"><span>Update order</span></h3></strong>
-          <p>Dans minecraft, il y a un ordre bien spécifique dans lequel les <span class="update"><span>updates</span></span> se propagent. Les updates se déplacent depuis un bloc qui à été modifié par le <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="font-weight: normal; font-family:Verdana, Geneva, Tahoma, sans-serif">joueur</a> cela commence par le bloc situé à l'<a href="https://fr.wikipedia.org/wiki/Est">EST</a>, puis à l'<a href="https://fr.wikipedia.org/wiki/Ouest">OUEST</a>, puis au <a href="https://fr.wikipedia.org/wiki/Nord">NORD</a>, ensuite au <a href="https://fr.wikipedia.org/wiki/Sud">SUD</a>, vers le HAUT et finalement vers le BAS</p>
-        <strong><h3>Le système de pile</h3></strong>
-          <p>Minecraft est un jeu codé en <a href="https://fr.wikipedia.org/wiki/Java_(langage)" target="_blank" style="text-decoration: underline;">java</a>. Dans le jeu toutes les <span class="update"><span>updates</span></span>, qui sont toutes les actions géré par le serveur, sont stocké dans une pile. En java, les piles ont une valeur maximum. Toutes les actions qui sont présentes dans cette pile seront effectués, mais si il n'y a plus de place dans cette pile, tout action qui ne rentre pas dans cette pile ne seront pas effectués. Donc si on trouve un moyen de créer en 1 tick suffisament d'actions pour provoquer le remplisage de cette pile, nous seront donc capable d'enpècher une mise à jour de se propager vers certain blocs.</p>
-        <strong><h3>Comment créer plusieurs miliers d'updates ?</h3></strong>
-        <p>Pour cela, il faut ultiliser une machine appelé un <span class="suppressor"><span>update suppressor</span></span> :</p>
-        <div class="flex">
-          <a href="https://www.youtube.com/watch?v=IJhZpK-8p54&ab_channel=Xcom6000" target="_blank" style="font-weight: normal;"><img src="https://i.ibb.co/1nsSBvn/update-suppressor.png" alt="update-suppressor" style="float: left; margin-right: 20px; width: 600px;"></a>
-          <p>On peut voir beaucoup de rails (les éléments rouges posées sur des blocs jaunes) qui vont tous se désactiver en même temps, et donc générer beaucoup trop de mises à jour pour la pile java. En utilisant <span class="order"><span>l'update order</span></span> à notre avantage, pour rediriger les mises à jour vers l'<span class="suppressor"><span>update suppressor</span></span> qui se comporte presque comme un syphon à mises à jour, quand une mise à jour arrive dans n'importe quel partie de ce suppresseur, toutes les autres mises à jour des autres directions ne seront pas pris en compte et donc certain blocs seront dans un état qui n'est pas normal.</p>
-        </div>
-      </div>
-    <p>Pour plus d'information, aller voir la video d'<a href="https://www.youtube.com/channel/UCGhI9Oy4Le2pY7zuDXU8Mlw" target="_blank">Xcom6000</a> (en anglais) sur le sujet : <a href="https://www.youtube.com/watch?v=IJhZpK-8p54&ab_channel=Xcom6000" target="_blank" style="text-decoration: underline;">Update Suppression Explained</a></p>
+    </div>
+    <p>Pour plus d'information, aller voir la video d'<a
+        href="https://www.youtube.com/channel/UCGhI9Oy4Le2pY7zuDXU8Mlw"
+        target="_blank">Xcom6000</a> (en anglais) sur le sujet : <a
+        href="https://www.youtube.com/watch?v=IJhZpK-8p54&ab_channel=Xcom6000"
+        target="_blank" style="text-decoration: underline;">Update
+        Suppression Explained</a></p>
   </div>
   <div id="back"></div>
 </body>
