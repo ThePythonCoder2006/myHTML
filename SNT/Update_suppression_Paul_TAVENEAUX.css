@@ -145,6 +145,7 @@ h3 {
   margin-top: 0px;
   margin-bottom: 10px;
   color: #5eab27;
+  animation: rambo 2s linear 0s infinite forwards;
 }
 
 @supports (-webkit-background-clip: text) {
@@ -153,13 +154,19 @@ h3 {
     background-size: 10%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: rambo 45s linear 0s infinite forwards;
+    animation: raimbo 45s linear 0s infinite forwards;
+  }
+}
+
+@keyframes raimbo {
+  100% {
+    background-position: 1000px 0px;
   }
 }
 
 @keyframes rambo {
   100% {
-    background-position: 1000px 0px;
+    filter: hue-rotate(360deg);
   }
 }
 
@@ -181,8 +188,8 @@ p:hover {
 
 ::selection {
   color: transparent;
-  background: none;
-  background-clip: border-box;
+  opacity: 0;
+  transform: translate(-9000xp -9000px);
 }
 
 /*
