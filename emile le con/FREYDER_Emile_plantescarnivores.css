@@ -1,0 +1,152 @@
+body {
+    background-color: #b5fdf1;
+    width: 98%;
+    height: 100%;
+    margin: 0;
+    cursor: not-allowed;
+}
+
+.prtitre {
+    background-image: radial-gradient(circle, yellow 15%, lightgreen 60%);
+    width: 102%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.unprcent {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+
+h1 {
+    text-align: center;
+    text-decoration: underline overline;
+    filter: drop-shadow(0px 0px 4px rgb(5, 243, 252));
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-family:'Courier New', Courier, monospace;
+    color: fuchsia;
+    letter-spacing: 88px;
+    text-decoration: underline;
+     
+}
+
+@keyframes differentcolor {
+    100% {
+        filter: hue-rotate(36000deg);
+    }
+}
+
+.h3 {
+    font-family: Curlz MT;
+    color: lime;
+}
+
+.h32 {
+    font-family: Curlz MT;
+    color: lime;
+}
+
+.waouh {
+    animation-name: differentcolor;
+    animation-duration: 60s;
+    animation-timing-function: cubic-bezier(1,.21,1,.22);
+}
+
+
+.th3 {
+    text-align: justify;
+    font-family: Agency FB;
+    margin-right: 1%;
+
+}
+
+.th32 {
+    text-align: justify;
+    font-family: Curlz MT;
+
+}
+
+span {
+    font: bold;
+    font-size: 40px;
+}
+
+
+::selection {
+    color: transparent;
+}
+
+.floatleft {
+    float: right;
+}
+
+p {
+    color: lime;
+}
+
+
+div.sameresatourne {
+    animation-name: scale;
+    animation-delay: 60s;
+    animation-fill-mode: forwards;
+    animation-duration: 2.5s;
+}
+
+@keyframes scale {
+    100% {
+        transform: scale(0);
+    }
+}
+
+.image-destruction {
+    position: fixed;
+    top: -1100px;
+    left: -1100px;
+    animation-name: weshlimage;
+    animation-duration: 1s;
+    animation-delay: 62s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes weshlimage {
+    from {
+        top: -1100px;
+        left: -1100px;
+    }
+    to {
+        left: 0px;
+        top: 0px;
+        width: 102%;
+        height: 102%;
+    }   
+}
+
+body img.image-destruction {
+    transition: transform 5s cubic-bezier(.42,0,.44,.3);
+    transition-delay: 3s;
+}
+
+a {
+    text-decoration: none;
+    font-family: Helvetica;
+    font-size: 30px;
+    color: red;
+}
+
+.a {
+    font-family: Bernard MT Condensed;
+}
+
+#dab {
+    width: 200px;
+    height: 200px;
+}
+
+.floatright {
+    float: right;
+}
