@@ -1,0 +1,11 @@
+.grid-container {
+  display: grid;
+
+  .card {
+    border: 1px solid red;
+
+    &__title {
+      color: limegreen;
+    }
+  }
+}
