@@ -43,6 +43,7 @@ a {
   padding: 0.5rem;
 }
 .link-list-container .link-list-element__txt {
+  transform: translate(-9000px, -9000px);
   height: 0;
   width: 0;
   opacity: 0;
@@ -50,7 +51,9 @@ a {
   padding: 0;
   transition: height, width ease-in-out 300ms;
 }
-.link-list-container .link-list-element:hover p, .link-list-container .link-list-element:focus p, .link-list-container .link-list-element:focus-visible p, .link-list-container .link-list-element:focus-within p {
+.link-list-container .link-list-element:hover p, .link-list-container .link-list-element:focus p, .link-list-container .link-list-element:focus-within p {
+  transform: translate(0px, 0px);
+  display: block;
   height: auto;
   width: auto;
   opacity: 1;

@@ -43,6 +43,7 @@ a {
     padding: 0.5rem;
 
     &__txt {
+      transform: translate(-9000px, -9000px);
       height: 0;
       width: 0;
       opacity: 0;
@@ -53,9 +54,10 @@ a {
 
     &:hover,
     &:focus,
-    &:focus-visible,
     &:focus-within {
       p {
+        transform: translate(0px, 0px);
+        display: block;
         height: auto;
         width: auto;
         opacity: 1;
