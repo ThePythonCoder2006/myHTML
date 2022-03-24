@@ -10,756 +10,928 @@
     <button type="button" onclick="playRickRoll();">lancer le meme</button><button type="button" onclick="stopRickRoll();">arrèter ce meme</button>
 -->
 <html>
-    <head>
-        <title>πphile</title>
-        <link href="style.css" rel=stylesheet>
-        <link href=icon.png rel=icon>
-        <script>
-            MathJax = {
-              loader: {load: ['input/asciimath', 'output/chtml', 'ui/menu']},
-            };
-            </script>
-            <script type="text/javascript" id="MathJax-script" async
-              src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
+
+<head>
+    <title>πphile</title>
+    <link href="style.css" rel=stylesheet>
+    <link href=icon.png rel=icon>
+    <script>
+        MathJax = {
+            loader: { load: ['input/asciimath', 'output/chtml', 'ui/menu'] },
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
         </script>
-        <script src='decimal.js'></script>
-        <script src="values.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class=navbar>
-            <img src=icon_rect.png>
-            <ul id=menu>
-                <li><a onclick="show_content('home');make_active(this);" class=active href=#>Accueil</a></li>
-                <li><a onclick="show_content('intro');make_active(this);" href=#>Introduction</a></li>
-                <li><a onclick="show_content('quadrature_du_cercle');make_active(this);" href=#>Quadrature du cercle</a></li>
-                <li><a onclick="show_content('calculPi');make_active(this);" href=#>calcule pratique de &#960</a></li>
-                <li><a onclick="show_content('settings');make_active(this);" href=#>paramètres</a></li>
-            </ul>
+    <script src='decimal.js'></script>
+    <script src="values.js"></script>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class=navbar>
+        <img src=icon_rect.png>
+        <ul id=menu>
+            <li><a onclick="show_content('home');make_active(this);"
+                    class=active href=#>Accueil</a></li>
+            <li><a onclick="show_content('intro');make_active(this);"
+                    href=#>Introduction</a></li>
+            <li><a onclick="show_content('quadrature_du_cercle');make_active(this);"
+                    href=#>Quadrature du cercle</a></li>
+            <li><a onclick="show_content('calculPi');make_active(this);"
+                    href=#>calcule pratique de &#960</a></li>
+            <li><a onclick="show_content('settings');make_active(this);"
+                    href=#>paramètres</a></li>
+        </ul>
+    </div>
+    <div class="content color">
+        <div id=home class=background>
+            <h1 class=title>Bienvenue sur &#960phile</h1><br>
+            <div id="Jean-Paul_Delahaye">
+                <p>Ceci est un simple site internet dédié au nombre pi.
+                </p><br>
+                <p>J'utiliserais tout au long de ce site le symbole "π"
+                    ou "pi" de manière indiférente.</p>
+                <p>Je dois remercier très chaleureusement Jean-Paul
+                    delahaye pour son livre : "Le fascinant nombre
+                    &#960" qui a été pour moi a la fois une ressource
+                    comme une inspiration pour ce projet. Beaucoup de
+                    démonstarations et d'illustrations proviennent de
+                    cette ouvrage.</p>
+                <p>Vous verrez tout au long de ce site, des
+                    bouton<button type="button" class=testbutton
+                        style="margin-left: 10;">Tester</button>, ils
+                    lanceront des calculs qui correspondent à la somme,
+                    la manipulation de nombres, etc... Ces calculs
+                    seront effectués directement sur votre machine,
+                    depuis votre navigateur internet, cela veut donc
+                    dire que, spécialement sur des machines plus lentes,
+                    il pourrait y avoir un long temps de latence durant
+                    lequel, tout le site serait incapable de répondre et
+                    votre navigateur pourrait planter, il pourrait y
+                    avoir des ralentissement dans tout votre système. Je
+                    vous prierais donc de faire attention à ce que vous
+                    cliquez et d'être conscient de ce que vous faites,
+                    et d'être patient.</p>
+                <p>Beaucoup de formules proviennent de <a
+                        href="http://www.pi314.net/fr/borwein.php"
+                        style="color: inherit;"
+                        target="_blank">pi314</a></p>
+            </div>
+            <div class="overlay-image">
+                <div class="normal">
+                    <img class="image" src="le fascinant nombre pi.png"
+                        alt='image couverture du livre "le fascinant nombre pi"' />
+                    <div class="text" id=txt_couverture></div>
+                </div>
+                <div class="hover">
+                    <img class="image"
+                        src="1200px-Jean-Paul_Delahaye_2008_2.jpg"
+                        alt="image de Monsieur Jean-Paul Delahaye" />
+                    <div class="text">M. Jean-Paul Delahaye</div>
+                </div>
+            </div>
+
         </div>
-        <div class="content color">
-            <div id=home class=background>
-                <h1 class=title>Bienvenue sur &#960phile</h1><br>
-                <div id="Jean-Paul_Delahaye">
-                    <p>Ceci est un simple site internet dédié au nombre pi.</p><br>
-                    <p>J'utiliserais tout au long de ce site le symbole "π" ou "pi" de manière indiférente.</p>
-                    <p>Je dois remercier très chaleureusement Jean-Paul delahaye pour son livre : "Le fascinant nombre &#960" qui a été pour moi a la fois une ressource comme une inspiration pour ce projet. Beaucoup de démonstarations et d'illustrations proviennent de cette ouvrage.</p>
-                    <p>Vous verrez tout au long de ce site, des bouton<button type="button" class=testbutton style="margin-left: 10;">Tester</button>, ils lanceront des calculs qui correspondent à la somme, la manipulation de nombres, etc... Ces calculs seront effectués directement sur votre machine, depuis votre navigateur internet, cela veut donc dire que, spécialement sur des machines plus lentes, il pourrait y avoir un long temps de latence durant lequel, tout le site serait incapable de répondre et votre navigateur pourrait planter, il pourrait y avoir des ralentissement dans tout votre système. Je vous prierais donc de faire attention à ce que vous cliquez et d'être conscient de ce que vous faites, et d'être patient.</p>
-                    <p>Beaucoup de formules proviennent de <a href="http://www.pi314.net/fr/borwein.php" style="color: inherit;" target="_blank">pi314</a></p>
-                </div>
-                <div class="overlay-image">
-                    <div class="normal">
-                        <img class="image" src="le fascinant nombre pi.png" alt='image couverture du livre "le fascinant nombre pi"' />
-                        <div class="text" id=txt_couverture></div>
-                    </div>
-                    <div class="hover">
-                        <img class="image" src="1200px-Jean-Paul_Delahaye_2008_2.jpg" alt="image de Monsieur Jean-Paul Delahaye" />
-                        <div class="text">M. Jean-Paul Delahaye</div>
-                    </div>
-                </div>
-                
+        <div id=intro class=background>
+            <h1 class=title>Introduction: Qu'est ce que pi</h1>
+            <div id=Pcerclepi>
+                <h3>Définition :</h3>
+                <p>La définition la plus simple de &#960 est la suivante
+                    :</p>
+                <p>π est le rapport entre le périmetre, `cc "P"`, et le
+                    diametre, `D = 2r` :</p>
+                <p>`π = cc "P"/D = cc "P"/(2r)`</p>
+                <p>La longueur d'un cercle de diametre 1 est donc égale
+                    à π :</p>
             </div>
-            <div id=intro class=background>
-                <h1 class=title>Introduction: Qu'est ce que pi</h1>
-                <div id=Pcerclepi>
-                    <h3>Définition :</h3>
-                    <p>La définition la plus simple de &#960 est la suivante :</p>
-                    <p>π est le rapport entre le périmetre, `cc "P"`, et le diametre, `D = 2r` :</p>
-                    <p>`π = cc "P"/D = cc "P"/(2r)`</p>
-                    <p>La longueur d'un cercle de diametre 1 est donc égale à π :</p>
-                </div>
-                <div id=Pi-unrolled>
-                    <img src="Pi-unrolled.gif" alt="cercle de diametre 1 qui se fait dérouler, le périmetre vaut pi" id=imgPiunrolled><br>
-                    <p class=source>source :&nbsp</p><a href=https://fr.wikipedia.org/wiki/Pi class=source>wikipedia.org/wiki/Pi</a>
-                </div>
-                <h3>Constance de pi :</h3>
-                <p>&#960 est une constante, il ne dépend pas du cercle que l'on choisi.</p>
-                <div>
-                    <span>Plaçons nous dans un plan qui respecte</span>
-                    <button onclick="theoremeThales()" type="button" id=buttonThales>théorème de Thalès</button>
-                    <span>, un plan euclidien</span>
-                </div>
-                <div id=explicationtheoremethales>
-                    <p>si `A`, `B` et `C` alignés et `A`, `D` et `E` aussi et que `(BD)` // `(CE)` (voir schéma) alors :</p>
-                    <p>`(AD)/(AE) = (AB)/(AC) = (BD)/(CE)`</p>
-                    <img src="theorême de thalès.png" alt="dessin du théorème de Thalès" width="350" id="theoremeThales">
-                </div>
-                <p>On pose : (voir schéma)</p>
-                <p>`r_1` et `r_2` respectivement le rayon de `cc "C"_1` et `cc "C"_2`</p>
-                <p>`l_1` et `l_2` respectivement la longueur des côtés des polygones régulier insrcits à `cc "C"_1` et `cc "C"_2` et `n` le nombre de côté de ces dit polygones et `cc "P"_(p1)` et `cc "P"_(p2)` le périmètre de ces dit polygones. `cc "P"_(p1) = n xx l_1` et `cc "P"_(p2) = n xx l_2`</p>
-                <p>`cc "P"_1` et `cc "P"_2` respectivement le périmètre de `cc "C"_1` et `cc "C"_2`.</p>
-                <p>Quand n tend vers l'infini, `cc "P"_(p1)` et `cc "P"_(p2)` tendent respectivement  vers `cc "P"_1` et `cc "P"_2`:</p>
-                <p>`cc "P"_1 = lim_(n->oo) cc "P"_(p1)` et &nbsp&nbsp&nbsp&nbsp `cc "P"_2 = lim_(n->oo) cc "P"_(p2)`</p>
-                <img src="preuve constance pi.png" height="400" id="constancePi">
-                <p>d'après le théorème de Thalès :</p>
-                <p style="margin-left: 35;">`(r_1)/(r_2) = (l_1)/(l_2)`</p>
-                <p>`<=> (r_1 xx r_2)/(r_2) = (l_1 xx r_2)/(l_2)`</p>
-                <p>`<=> (r_1)/(l_1) = (l_1 xx r_2)/(l_1 xx l_2)`</p>
-                <p>`<=> (r_1)/(l_1) = (r_2)/(l_2)`</p>
-                <p>`<=> (r_1)/(n xx l_1) = (r_2)/(n xx l_2)`</p>
-                <p>`<=> (r_1)/(cc "P"_(p1)) = (r_2)/(cc "P"_(p2))`</p>
-                <p>`<=> lim_(n->oo) ((r_1)/(cc "P"_(p1))) = lim_(n->oo) ((r_2)/(cc "P"_(p2)))`</p>
-                <p>`<=> (r_1)/(cc "P"_1) = (r_2)/(cc "P"_2) = 2pi`</p>
-                <p>donc &#960 est le même pour tout les cercle en géométrie euclidienne</p>
+            <div id=Pi-unrolled>
+                <img src="Pi-unrolled.gif"
+                    alt="cercle de diametre 1 qui se fait dérouler, le périmetre vaut pi"
+                    id=imgPiunrolled><br>
+                <p class=source>source :&nbsp</p><a
+                    href=https://fr.wikipedia.org/wiki/Pi
+                    class=source>wikipedia.org/wiki/Pi</a>
             </div>
-            <div id=quadrature_du_cercle class=background>
-                <h3>La quadrature du cercle</h3>
-                <p>La quadrature du cercle est un problème vieux de l'Antiquité dont l'objectif ets de construire, en un nombre d'opération fini avec uniquement une règle non-graduée et un compas, un carré ayant la même surface qu'un cercle, ce qui revient à construire `sqrt(pi)`&nbsp à la règle et au compas.</p>
-                <p>Un autre problème est celui de la rectification du cercle, qui est de construire un segment dont la longueur est égal au périmètre d'un cercle, ce qui revient à construire &#960 à la règle et au compas.</p>
-                <p>Puisqu'il est possible de multiplier des longueurs et d'extraire des racines carrés, les 2 problèmes sont équivalent. L'imposibilité de ces problèmes sera prouvé en 1882</p>
-
+            <h3>Constance de pi :</h3>
+            <p>&#960 est une constante, il ne dépend pas du cercle que
+                l'on choisi.</p>
+            <div>
+                <span>Plaçons nous dans un plan qui respecte</span>
+                <button onclick="theoremeThales()" type="button"
+                    id=buttonThales>théorème de Thalès</button>
+                <span>, un plan euclidien</span>
             </div>
-            <div id=calculPi class=background>
-                <h1 class=title>Le calcul de &#960</h1>
-                <p>Dans cette partie, je vais présenter des formule plus ou moins actulles pour le calcule de &#960 </p>
-                <h3>1/ Formules à convevergence linéaire</h3>
-                <div id=sum8dec class=formulebox>
-                    <p>Cette formule par le mathématicien Indien Srinivasa Ramanujanest la première de son genre, elle furent une révolution dans le calcul de &#960. Là où les précedentes avaient une convergente terrible, de moins en moins de décimales par iteration, et seulement 1 ou 2 au maximum, celle ci est donne environ 8 décimales exacte supplémentaires à chaque iteration</p>
-                    <p>`pi = ((2sqrt(2))/9801sum_(n=0)^oo((4n)!(1103 + 26390n))/((n!)^4 396^(4n)))^-1`</p>
-                    <button type="button" onclick="iterate8dec(0);" class=testbutton>Tester</button>
-                    <div id=test8dec class=testbox>
-                        <span>nombre d'iteration : </span><span id=iter8dec>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate8dec();" class="iterbutton">plus d'iterations</button>
-                        <p id=pi8dec>bug</p>
-                        <p class=pi>3.1415926535897932384626</p>
-                   </div>
-                </div>
-
-                <div id=sum14dec class=formulebox>
-                    <p>Formule du à mathématicien Indien Srinivasa Ramanujan qui donne environ 14 décimales exacte supplémentaires à chaque iteration</p>
-                    <p>`pi = (12sum_(n = 0)^oo((-1)^n(6n)!(13591409 + 545140134n))/((3n!)(n!)^(3)640320^(3n + 3/2)))^-1`</p>
-                    <button type="button" onclick="iterate14dec(0);" class=testbutton>Tester</button>
-                    <div id=test14dec class=testbox>
-                        <span>nombre d'iteration : </span><span id=iter14dec>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate14dec();" class="iterbutton">plus d'iterations</button>
-                        <p id=pi14dec>bug</p>
-                        <p class=pi>3.1415926535897932384626</p>
-                   </div>
-                </div>
-
-                <div id=sum25dec class=formulebox>
-                    <p>Formule par les frères Borwein, basé sur <a href="#sum8dec" style="color: inherit;">cette formule</a> par Srinivasa Ramanujan. Elle donne environ 25 décimales exacte supplémentaires à chasue iteration</p>
-                    <p style="overflow: auto;">`pi = (12sum_(n = 0)^oo((-1)^n(6n)!(212175710912sqrt(61) + 1657145277365 + n(13773980892672sqrt(61) + 107578229802750)))/((3n)!(n!)^(3)(5280(236674 + 30303sqrt(61)))^(3n + 3/2)))^-1`</p>
-
-                    <button type="button" onclick="iterate25dec(0);" class=testbutton>Tester</button>
-                    <div id=test25dec class=testbox>
-                        <span>nombre d'iteration : </span><span id=iter25dec>erreur</span><button style="margin-left: 15;" type="button" class=iterbutton onclick="plusIterate25dec();">plus d'iterations</button>
-                        <p id=pi25dec>bug</p>
-                        <p class=pi>3.1415926535897932384626</p>
-                    </div>
-                </div>
-
-                <div id=sum50dec class=formulebox>
-                    <p>`pi = (1/(sqrt(-(C)^3))sum_(n=0)^oo((6n)!(A + nB))/((3n)!(n!)^(3)(C)^(3n)))^(-1)` avec:</p>
-                    <p class=longtxt>`A = 63365028312971999585426220 + 28337702140800842046825600sqrt(5)`&nbsp</p>
-                    <p class=longtxt style="margin-bottom: 40;">`+ 384sqrt(5)sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040sqrt(5))`</p>
-                    <p class=longtxt>`B = 7849910453496627210289749000 + 3510586678260932028965606400sqrt5`&nbsp</p>
-                    <p class=longtxt  style="margin-bottom: 40;">` + 2515968sqrt(3110)sqrt(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235 sqrt5)`</p>
-                    <p class=longtxt>`C=-214772995063512240-96049403338648032sqrt(5)`&nbsp</p>
-                    <p class=longtxt style="margin-bottom: 40;">`-1296sqrt(5)sqrt(10985234579463550323713318473 + 4912746253692362754607395912sqrt(5))`</p>
-
-                    <button type="button" onclick="iterate50dec(0);" class=testbutton>Tester</button>
-                    <div id=test50dec class=testbox>
-                        <span>nombre d'iteration : </span><span id=iter50dec>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate50dec();" class="iterbutton">plus d'iterations</button>
-                        <p id=pi50dec>bug</p>
-                        <p class=pi>3.1415926535897932384626</p>
-                   </div>              
+            <div id=explicationtheoremethales>
+                <p>si `A`, `B` et `C` alignés et `A`, `D` et `E` aussi
+                    et que `(BD)` // `(CE)` (voir schéma) alors :</p>
+                <p>`(AD)/(AE) = (AB)/(AC) = (BD)/(CE)`</p>
+                <img src="theorême de thalès.png"
+                    alt="dessin du théorème de Thalès" width="350"
+                    id="theoremeThales">
             </div>
-                <!--A=63365028312971999585426220+28337702140800842046825600*sqrt5 + 384*sqrt5sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*sqrt5)
+            <p>On pose : (voir schéma)</p>
+            <p>`r_1` et `r_2` respectivement le rayon de `cc "C"_1` et
+                `cc "C"_2`</p>
+            <p>`l_1` et `l_2` respectivement la longueur des côtés des
+                polygones régulier insrcits à `cc "C"_1` et `cc "C"_2`
+                et `n` le nombre de côté de ces dit polygones et `cc
+                "P"_(p1)` et `cc "P"_(p2)` le périmètre de ces dit
+                polygones. `cc "P"_(p1) = n xx l_1` et `cc "P"_(p2) = n
+                xx l_2`</p>
+            <p>`cc "P"_1` et `cc "P"_2` respectivement le périmètre de
+                `cc "C"_1` et `cc "C"_2`.</p>
+            <p>Quand n tend vers l'infini, `cc "P"_(p1)` et `cc
+                "P"_(p2)` tendent respectivement vers `cc "P"_1` et `cc
+                "P"_2`:</p>
+            <p>`cc "P"_1 = lim_(n->oo) cc "P"_(p1)` et
+                &nbsp&nbsp&nbsp&nbsp `cc "P"_2 = lim_(n->oo) cc
+                "P"_(p2)`</p>
+            <img src="preuve constance pi.png" height="400"
+                id="constancePi">
+            <p>d'après le théorème de Thalès :</p>
+            <p style="margin-left: 35;">`(r_1)/(r_2) = (l_1)/(l_2)`</p>
+            <p>`<=> (r_1 xx r_2)/(r_2) = (l_1 xx r_2)/(l_2)`</p>
+            <p>`<=> (r_1)/(l_1) = (l_1 xx r_2)/(l_1 xx l_2)`</p>
+            <p>`<=> (r_1)/(l_1) = (r_2)/(l_2)`</p>
+            <p>`<=> (r_1)/(n xx l_1) = (r_2)/(n xx l_2)`</p>
+            <p>`<=> (r_1)/(cc "P"_(p1)) = (r_2)/(cc "P"_(p2))`</p>
+            <p>`<=> lim_(n->oo) ((r_1)/(cc "P"_(p1))) = lim_(n->oo)
+                    ((r_2)/(cc "P"_(p2)))`</p>
+            <p>`<=> (r_1)/(cc "P"_1) = (r_2)/(cc "P"_2) = 2pi`</p>
+            <p>donc &#960 est le même pour tout les cercle en géométrie
+                euclidienne</p>
+        </div>
+        <div id=quadrature_du_cercle class=background>
+            <h3>La quadrature du cercle</h3>
+            <p>La quadrature du cercle est un problème vieux de
+                l'Antiquité dont l'objectif ets de construire, en un
+                nombre d'opération fini avec uniquement une règle
+                non-graduée et un compas, un carré ayant la même surface
+                qu'un cercle, ce qui revient à construire
+                `sqrt(pi)`&nbsp à la règle et au compas.</p>
+            <p>Un autre problème est celui de la rectification du
+                cercle, qui est de construire un segment dont la
+                longueur est égal au périmètre d'un cercle, ce qui
+                revient à construire &#960 à la règle et au compas.</p>
+            <p>Puisqu'il est possible de multiplier des longueurs et
+                d'extraire des racines carrés, les 2 problèmes sont
+                équivalent. L'imposibilité de ces problèmes sera prouvé
+                en 1882</p>
+
+        </div>
+        <div id=calculPi class=background>
+            <h1 class=title>Le calcul de &#960</h1>
+            <p>Dans cette partie, je vais présenter des formule plus ou
+                moins actulles pour le calcule de &#960 </p>
+            <h3>1/ Formules à convevergence linéaire</h3>
+            <div id=sum8dec class=formulebox>
+                <p>Cette formule par le mathématicien Indien Srinivasa
+                    Ramanujanest la première de son genre, elle furent
+                    une révolution dans le calcul de &#960. Là où les
+                    précedentes avaient une convergente terrible, de
+                    moins en moins de décimales par iteration, et
+                    seulement 1 ou 2 au maximum, celle ci est donne
+                    environ 8 décimales exacte supplémentaires à chaque
+                    iteration</p>
+                <p>`pi = ((2sqrt(2))/9801sum_(n=0)^oo((4n)!(1103 +
+                    26390n))/((n!)^4 396^(4n)))^-1`</p>
+                <button type="button" onclick="iterate8dec(0);"
+                    class=testbutton>Tester</button>
+                <div id=test8dec class=testbox>
+                    <span>nombre d'iteration : </span><span
+                        id=iter8dec>1</span><button
+                        style="margin-left: 15;" type="button"
+                        onclick="plusIterate8dec();"
+                        class="iterbutton">plus d'iterations</button>
+                    <p id=pi8dec>bug</p>
+                    <p class=pi>3.1415926535897932384626</p>
+                </div>
+            </div>
+
+            <div id=sum14dec class=formulebox>
+                <p>Formule du à mathématicien Indien Srinivasa Ramanujan
+                    qui donne environ 14 décimales exacte
+                    supplémentaires à chaque iteration</p>
+                <p>`pi = (12sum_(n = 0)^oo((-1)^n(6n)!(13591409 +
+                    545140134n))/((3n!)(n!)^(3)640320^(3n + 3/2)))^-1`
+                </p>
+                <button type="button" onclick="iterate14dec(0);"
+                    class=testbutton>Tester</button>
+                <div id=test14dec class=testbox>
+                    <span>nombre d'iteration : </span><span
+                        id=iter14dec>1</span><button
+                        style="margin-left: 15;" type="button"
+                        onclick="plusIterate14dec();"
+                        class="iterbutton">plus d'iterations</button>
+                    <p id=pi14dec>bug</p>
+                    <p class=pi>3.1415926535897932384626</p>
+                </div>
+            </div>
+
+            <div id=sum25dec class=formulebox>
+                <p>Formule par les frères Borwein, basé sur <a
+                        href="#sum8dec" style="color: inherit;">cette
+                        formule</a> par Srinivasa Ramanujan. Elle donne
+                    environ 25 décimales exacte supplémentaires à chasue
+                    iteration</p>
+                <p style="overflow: auto;">`pi = (12sum_(n =
+                    0)^oo((-1)^n(6n)!(212175710912sqrt(61) +
+                    1657145277365 + n(13773980892672sqrt(61) +
+                    107578229802750)))/((3n)!(n!)^(3)(5280(236674 +
+                    30303sqrt(61)))^(3n + 3/2)))^-1`</p>
+
+                <button type="button" onclick="iterate25dec(0);"
+                    class=testbutton>Tester</button>
+                <div id=test25dec class=testbox>
+                    <span>nombre d'iteration : </span><span
+                        id=iter25dec>erreur</span><button
+                        style="margin-left: 15;" type="button"
+                        class=iterbutton
+                        onclick="plusIterate25dec();">plus
+                        d'iterations</button>
+                    <p id=pi25dec>bug</p>
+                    <p class=pi>3.1415926535897932384626</p>
+                </div>
+            </div>
+
+            <div id=sum50dec class=formulebox>
+                <p>`pi = (1/(sqrt(-(C)^3))sum_(n=0)^oo((6n)!(A +
+                    nB))/((3n)!(n!)^(3)(C)^(3n)))^(-1)` avec:</p>
+                <p class=longtxt>`A = 63365028312971999585426220 +
+                    28337702140800842046825600sqrt(5)`&nbsp</p>
+                <p class=longtxt style="margin-bottom: 40;">`+
+                    384sqrt(5)sqrt(10891728551171178200467436212395209160385656017
+                    +
+                    4870929086578810225077338534541688721351255040sqrt(5))`
+                </p>
+                <p class=longtxt>`B = 7849910453496627210289749000 +
+                    3510586678260932028965606400sqrt5`&nbsp</p>
+                <p class=longtxt style="margin-bottom: 40;">` +
+                    2515968sqrt(3110)sqrt(6260208323789001636993322654444020882161
+                    + 2799650273060444296577206890718825190235 sqrt5)`
+                </p>
+                <p class=longtxt>
+                    `C=-214772995063512240-96049403338648032sqrt(5)`&nbsp
+                </p>
+                <p class=longtxt style="margin-bottom: 40;">
+                    `-1296sqrt(5)sqrt(10985234579463550323713318473 +
+                    4912746253692362754607395912sqrt(5))`</p>
+
+                <button type="button" onclick="iterate50dec(0);"
+                    class=testbutton>Tester</button>
+                <div id=test50dec class=testbox>
+                    <span>nombre d'iteration : </span><span
+                        id=iter50dec>1</span><button
+                        style="margin-left: 15;" type="button"
+                        onclick="plusIterate50dec();"
+                        class="iterbutton">plus d'iterations</button>
+                    <p id=pi50dec>bug</p>
+                    <p class=pi>3.1415926535897932384626</p>
+                </div>
+            </div>
+            <!--A=63365028312971999585426220+28337702140800842046825600*sqrt5 + 384*sqrt5sqrt(10891728551171178200467436212395209160385656017 + 4870929086578810225077338534541688721351255040*sqrt5)
 B=7849910453496627210289749000+3510586678260932028965606400sqrt5 + 2515968*31101/2(6260208323789001636993322654444020882161 + 2799650273060444296577206890718825190235*51/2)1/2
 C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323713318473 + 4912746253692362754607395912*51/2)-->
-                <a href="http://www.cecm.sfu.ca/organics/papers/borwein/paper/html/local/omlink9/html/node1.html" target=_blank style="font-size: 22; color: inherit;">plus de formules de ce type et forme général</a>
-                <h3>2/ Formules quadratiques</h3>
-                <div id=firstquad class=formulebox>
-                    <p>`a_0 = sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_0 = 0`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`a_n = sqrt(a_(n-1))/2+1/(2sqrt(a_(n-1)))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_n = (sqrt(a_(n-1))(1 + b_(n-1)))/(a_(n-1) + b_(n-1))`</p>
-                    <p>`p_0 = 2 + sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`p_n = p_(n-1) b_n (1 + a_n)/(1 + b_n)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lim_(n->oo) p_n = pi`</p>
-                    <button type="button" onclick="calc1quad(1);" class=testbutton>Tester</button>
-                    <div id=test1quad class=testbox>
-                        <span>nombre d' "iteration" : </span><span id=iter1quad>1</span><button style="margin-left: 15;" type="button" onclick="plusIterate1quad();" class="iterbutton">plus d' "iterations"</button>
-                        <p id=pi1quad>bug</p>
-                        <p class=pi>3.1415926535897932384626</p>
-                    </div>
-                </div>
-                <h3>Formules d'ordre suppérieur</h3>
-                <div id=hexadecimalique class=formulebox>
-                    <p>`a_0 = 1/3`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_1 = sqrt(2) - 1`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_1^x = root(4)(1 - (s_1)^4)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_(n+1) = ((1 - s_n^x)^4)/((t + u)^2(t^2 + u^2))` avec `m_1 = ((1 + s_n)/t)^4`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`m_2 = 1/t^4`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`t = 1 + s_n^x`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`u = root(4)(8s_n^x(1 + (s_n^x)^2))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_n^x = root(4)(1 - (s_n)^4)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`a_n = 16m_1a_(n-1) + (4^(2n-1))/3(1-12m_2 - 4m_1)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lim_(n->oo) a_n = 1/pi`</p>
-                    <button type="button" onclick="calchex(1);" class=testbutton>Tester</button>
-                    <div id=testhex class=testbox>
-                        <span>nombre d' "iteration" : </span><span id=iterhex>1</span><button style="margin-left: 15;" type="button" onclick="plusIteratehex();" class="iterbutton">plus d' "iterations"</button>
-                        <p id=pihex>bug</p>
-                        <p class=pi>3.1415926535897932384626</p>
-                    </div>
+            <a href="http://www.cecm.sfu.ca/organics/papers/borwein/paper/html/local/omlink9/html/node1.html"
+                target=_blank
+                style="font-size: 22; color: inherit;">plus de formules
+                de ce type et forme général</a>
+            <h3>2/ Formules quadratiques</h3>
+            <div id=firstquad class=formulebox>
+                <p>`a_0 =
+                    sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_0 =
+                    0`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`a_n =
+                    sqrt(a_(n-1))/2+1/(2sqrt(a_(n-1)))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`b_n
+                    = (sqrt(a_(n-1))(1 + b_(n-1)))/(a_(n-1) + b_(n-1))`
+                </p>
+                <p>`p_0 = 2 +
+                    sqrt(2)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`p_n =
+                    p_(n-1) b_n (1 + a_n)/(1 +
+                    b_n)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lim_(n->oo)
+                    p_n = pi`</p>
+                <button type="button" onclick="calc1quad(1);"
+                    class=testbutton>Tester</button>
+                <div id=test1quad class=testbox>
+                    <span>nombre d' "iteration" : </span><span
+                        id=iter1quad>1</span><button
+                        style="margin-left: 15;" type="button"
+                        onclick="plusIterate1quad();"
+                        class="iterbutton">plus d' "iterations"</button>
+                    <p id=pi1quad>bug</p>
+                    <p class=pi>3.1415926535897932384626</p>
                 </div>
             </div>
-            <div id=settings class=background>
-                <div class=changetheme>
-                    <h3>Quel mode de couleur souhaitez vous utiliser ?</h3>
-                    <button id=dark class=theme onclick="darktheme()">Mode sombre</button><button id=light class=theme onclick="lighttheme()">Mode clair</button>
+            <h3>Formules d'ordre suppérieur</h3>
+            <div id=hexadecimalique class=formulebox>
+                <p>`a_0 = 1/3`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_1 =
+                    sqrt(2) -
+                    1`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_1^x =
+                    root(4)(1 -
+                    (s_1)^4)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_(n+1)
+                    = ((1 - s_n^x)^4)/((t + u)^2(t^2 + u^2))` avec `m_1
+                    = ((1 +
+                    s_n)/t)^4`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`m_2 =
+                    1/t^4`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`t = 1 +
+                    s_n^x`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`u =
+                    root(4)(8s_n^x(1 +
+                    (s_n^x)^2))`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`s_n^x
+                    = root(4)(1 -
+                    (s_n)^4)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`a_n =
+                    16m_1a_(n-1) + (4^(2n-1))/3(1-12m_2 -
+                    4m_1)`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lim_(n->oo)
+                    a_n = 1/pi`</p>
+                <button type="button" onclick="calchex(1);"
+                    class=testbutton>Tester</button>
+                <div id=testhex class=testbox>
+                    <span>nombre d' "iteration" : </span><span
+                        id=iterhex>1</span><button
+                        style="margin-left: 15;" type="button"
+                        onclick="plusIteratehex();"
+                        class="iterbutton">plus d' "iterations"</button>
+                    <p id=pihex>bug</p>
+                    <p class=pi>3.1415926535897932384626</p>
                 </div>
             </div>
         </div>
-        <div class="themepopup color">
-            <button class=close onclick="close_popup()">x</button>
-            <h3>Quel mode de couleur souhaitez vous utiliser ?</h3>
-            <button id=dark class=theme onclick="darktheme()">Mode sombre</button><button id=light class=theme onclick="lighttheme()">Mode clair</button><br>
-            <small>Ne vous inquiétez pas vous pourrez toujours changer cela dans les paramètre</small>
+        <div id=settings class=background>
+            <div class=changetheme>
+                <h3>Quel mode de couleur souhaitez vous utiliser ?</h3>
+                <button id=dark class=theme onclick="darktheme()">Mode
+                    sombre</button><button id=light class=theme
+                    onclick="lighttheme()">Mode clair</button>
+            </div>
         </div>
-        <script>
-            const pi = '3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989';
+    </div>
+    <div class="themepopup color">
+        <button class=close onclick="close_popup()">x</button>
+        <h3>Quel mode de couleur souhaitez vous utiliser ?</h3>
+        <button id=dark class=theme onclick="darktheme()">Mode
+            sombre</button><button id=light class=theme
+            onclick="lighttheme()">Mode clair</button><br>
+        <small>Ne vous inquiétez pas vous pourrez toujours changer cela
+            dans les paramètre</small>
+    </div>
+    <script>
+        const pi = '3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989';
 
-            Decimal.set({ precision: 1002 })
+        Decimal.set({ precision: 1002 })
 
-            const memoize = (fn) => {
-                let cache = {};
-                return (...args) => {
-                    let n = args[0];  // just taking one argument here
-                    if (n in cache) {
-                        return cache[n];
-                    }
-                    else {
-                        let result = fn(n);
-                        cache[n] = result;
-                        return result;
-                    }
+        const memoize = (fn) => {
+            let cache = {};
+            return (...args) => {
+                let n = args[0];  // just taking one argument here
+                if (n in cache) {
+                    return cache[n];
+                }
+                else {
+                    let result = fn(n);
+                    cache[n] = result;
+                    return result;
                 }
             }
+        }
 
-            //------------------------------------------------------------
-            //8 decimals / iteration sum
-            //------------------------------------------------------------
-            const calc8dec = (function() {
-                const A = Decimal('1103');
-                const B = Decimal('26390');
-                const C = Decimal('396').pow(4);
-                
-                return function (n){
-                    const Snum = fact(4 * n).times(A.plus(B.times(n)));
-                    const Cpow = C.pow(n);
-                    const Sden = fact(n).pow(4).times(Cpow);
+        //------------------------------------------------------------
+        //8 decimals / iteration sum
+        //------------------------------------------------------------
+        const calc8dec = (function () {
+            const A = Decimal('1103');
+            const B = Decimal('26390');
+            const C = Decimal('396').pow(4);
+
+            return function (n) {
+                const Snum = fact(4 * n).times(A.plus(B.times(n)));
+                const Cpow = C.pow(n);
+                const Sden = fact(n).pow(4).times(Cpow);
+                return Snum.div(Sden);
+            }
+        })()
+
+        const memoizedSum8dec = (function () {
+            let cache = {};
+            return function (n) {
+                if (cache[n]) {
+                    return cache[n];
+                } else {
+                    let result = 0
+                    if (n <= 0) {
+                        result = calc8dec(0);
+                    } else {
+                        result = calc8dec(n).plus(memoizedSum8dec(n - 1));
+                    }
+                    return cache[n] = result;
+                }
+            }
+        })()
+
+        function show8dec(value, iter) {
+            document.getElementById("test8dec").style.display = "block";
+            let dec = 0;
+            let front = "";
+            let back = value;
+
+            for (let i = 0; i < value.length; i++) {
+                dec = value[i];
+
+                if (dec == pi[i]) {
+                    front = front + dec;
+                    back = back.slice(1);
+                } else {
+                    temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                    break
+                }
+            }
+            document.getElementById("pi8dec").innerHTML = temp;
+            document.getElementById('iter8dec').innerHTML = iter;
+        }
+
+        const iterate8dec = (function () {
+            const sqrt2 = Decimal('2').sqrt();
+            const D = sqrt2.times(2).div('9801').pow(-1);
+            return function (n) {
+                const S = memoizedSum8dec(n);
+                const pi8 = D.times(S.pow(-1)).toString();
+                show8dec(pi8, n + 1)
+            }
+        })()
+
+        function plusIterate8dec() {
+            const iter = parseInt(document.getElementById('iter8dec').innerHTML);
+            iterate8dec(iter);
+        }
+
+        //------------------------------------------------------------
+        //14 decimals / iteration sum
+        //------------------------------------------------------------
+        const calc14dec = (function () {
+            const A = Decimal('13591409');
+            const B = Decimal('545140134');
+            const C = Decimal('640320').pow(3);
+
+            return function (n) {
+                const Snum = Decimal('-1').pow(n).times(fact(6 * n)).times(A.plus(B.times(n)));
+                const Cpow = C.pow(2 * n + 1).sqrt();
+                const Sden = fact(3 * n).times(fact(n).pow(3)).times(Cpow);
+                return Snum.div(Sden);
+            }
+        })()
+
+        const memoizedSum14dec = (function () {
+            let cache = {};
+            return function (n) {
+                if (cache[n]) {
+                    return cache[n];
+                } else {
+                    let result = 0
+                    if (n <= 0) {
+                        result = calc14dec(0);
+                    } else {
+                        result = calc14dec(n).plus(memoizedSum14dec(n - 1));
+                    }
+                    return cache[n] = result;
+                }
+            }
+        })()
+
+        function show14dec(value, iter) {
+            document.getElementById("test14dec").style.display = "block";
+            let dec = 0;
+            let front = "";
+            let back = value;
+
+            for (let i = 0; i < value.length; i++) {
+                dec = value[i];
+
+                if (dec == pi[i]) {
+                    front = front + dec;
+                    back = back.slice(1);
+                } else {
+                    temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                    break
+                }
+            }
+            document.getElementById("pi14dec").innerHTML = temp;
+            document.getElementById('iter14dec').innerHTML = iter;
+        }
+
+        const iterate14dec = (function () {
+            const D = Decimal('12').pow(-1);
+            return function (n) {
+                const S = memoizedSum14dec(n);
+                const pi14 = D.times(S.pow(-1)).toString();
+                show14dec(pi14, n + 1)
+            }
+        })()
+
+        function plusIterate14dec() {
+            const iter = parseInt(document.getElementById('iter14dec').innerHTML);
+            iterate14dec(iter);
+        }
+
+        //------------------------------------------------------------
+        //25 decimals / iteration sum
+        //------------------------------------------------------------
+        const calc25dec = (function () {
+            const sqrt61 = Decimal('61').sqrt()
+            const A = Decimal('212175710912').times(sqrt61).plus(Decimal('1657145277365'));
+            const B1 = Decimal('13773980892672').times(sqrt61);
+            const B = B1.plus('107578229802750');
+
+            const C1 = Decimal(5280 * 236674).plus(sqrt61.times(Decimal(5280 * 30303)));
+            const C = C1.pow(3);
+
+            return function (n) {
+                const Snum = Decimal('-1').pow(n).times(fact(6 * n)).times(A.plus(B.times(n)));
+                const Cpow = C.pow(2 * n + 1).sqrt();
+                const Sden = fact(3 * n).times(fact(n).pow(3)).times(Cpow);
+                return Snum.div(Sden);
+            }
+        })()
+
+        const memoizedSum25dec = (function () {
+            let cache = {};
+            return function (n) {
+                if (cache[n]) {
+                    return cache[n];
+                } else {
+                    let result = 0
+                    if (n <= 0) {
+                        result = calc25dec(0);
+                    } else {
+                        result = calc25dec(n).plus(memoizedSum25dec(n - 1));
+                    }
+                    return cache[n] = result;
+                }
+            }
+        })()
+
+        function show25dec(value, iter) {
+            document.getElementById("test25dec").style.display = "block";
+            let dec = 0;
+            let front = "";
+            let back = value;
+
+            for (let i = 0; i < value.length; i++) {
+                dec = value[i];
+
+                if (dec == pi[i]) {
+                    front = front + dec;
+                    back = back.slice(1);
+                } else {
+                    temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                    break
+                }
+            }
+            document.getElementById("pi25dec").innerHTML = temp;
+            document.getElementById('iter25dec').innerHTML = iter;
+        }
+
+        const iterate25dec = (function () {
+            const D = Decimal('12').pow(-1);
+            return function (n) {
+                const S = memoizedSum25dec(n);
+                const pi25 = D.times(S.pow(-1)).toString();
+                show25dec(pi25, n + 1)
+            }
+        })()
+
+        function plusIterate25dec() {
+            const iter = parseInt(document.getElementById('iter25dec').innerHTML);
+            iterate25dec(iter);
+        }
+
+        //------------------------------------------------------------
+        //50 decimals / iteration sum
+        //------------------------------------------------------------
+        const calc50dec = (function () {
+            const A = Decimal(vA)
+            const B = Decimal(vB)
+            const C = Decimal(vC)
+            return function (n) {
+                if (n == 0) {
+                    return A;
+                } else {
+                    const Snum = fact(Decimal('6').times(n)).times(A.plus(B.times(n)));
+                    const Sden = fact(Decimal('3').times(n)).times(fact(n).pow(3)).times(C.pow(Decimal('3').times(n)));
                     return Snum.div(Sden);
                 }
-            })()
+            }
+        })();
 
-            const memoizedSum8dec = (function() {
-                let cache = {};
-                return function(n) {
+        const memoizedSum50dec = (function () {
+            let cache = {};
+            return function (n) {
+                if (cache[n]) {
+                    return cache[n];
+                } else {
+                    let result = 0;
+                    if (n <= 0) {
+                        result = calc50dec(0);
+                    } else {
+                        result = calc50dec(n).plus(memoizedSum50dec(n - 1));
+                    }
+                    return cache[n] = result;
+
+                }
+            }
+        })();
+
+        function show50dec(value, iter) {
+            document.getElementById("test50dec").style.display = "block";
+            let dec = 0;
+            let front = "";
+            let back = value;
+
+            for (let i = 0; i < value.length; i++) {
+                dec = value[i];
+
+                if (dec == pi[i]) {
+                    front = front + dec;
+                    back = back.slice(1);
+                } else {
+                    temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                    break
+                }
+            }
+            document.getElementById("pi50dec").innerHTML = temp;
+            document.getElementById('iter50dec').innerHTML = iter;
+        }
+
+        const iterate50dec = (function () {
+            const D = Decimal(vD)
+            return function (n) {
+                const S = memoizedSum50dec(n)
+                const pi50 = Decimal(D.times(S)).pow('-1').toString();
+                show50dec(pi50, n + 1)
+            }
+        })();
+
+        function plusIterate50dec() {
+            const iter = parseInt(document.getElementById('iter50dec').innerHTML);
+            iterate50dec(iter);
+        }
+
+        //------------------------------------------------------------
+        //1st quadratic function
+        //------------------------------------------------------------
+        const calc1quad = (function () {
+            const a0 = Decimal('2').sqrt();
+            const b0 = Decimal('0');
+            const p0 = a0.plus(2);
+
+            let cache = { 0: [a0, b0, p0] };
+
+            return function (n, dev = 0) {
+                if (n >= 0) {
+                    if (dev) {
+                        return cache[n];
+                    }
                     if (cache[n]) {
+                        show1quad(cache[n][2].toString(1002), n)
                         return cache[n];
                     } else {
-                        let result = 0
-                        if (n <= 0){
-                            result = calc8dec(0);
-                        } else {
-                            result = calc8dec(n).plus(memoizedSum8dec(n - 1));
-                        }
-                        return cache[n] = result;
-                    }
-                }
-            })()
+                        c = calc1quad(n - 1);
+                        const an1 = c[0];
+                        const bn1 = c[1];
+                        const pn1 = c[2];
 
-            function show8dec(value, iter){
-                document.getElementById("test8dec").style.display = "block";
-                let dec = 0;
-                let front = "";
-                let back = value;
-
-                for (let i = 0; i < value.length; i++){
-                    dec = value[i];
-
-                    if (dec == pi[i]){
-                        front = front + dec;
-                        back = back.slice(1);
-                    }else{
-                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
-                        break
-                    }
-                }
-                document.getElementById("pi8dec").innerHTML = temp;
-                document.getElementById('iter8dec').innerHTML = iter;
-            }
-
-            const iterate8dec = (function() {
-                const sqrt2 = Decimal('2').sqrt();
-                const D = sqrt2.times(2).div('9801').pow(-1);
-                return function(n) {
-                    const S = memoizedSum8dec(n);
-                    const pi8 = D.times(S.pow(-1)).toString();
-                    show8dec(pi8, n + 1)
-                }
-            })()
-
-            function plusIterate8dec(){
-                const iter = parseInt(document.getElementById('iter8dec').innerHTML);
-                iterate8dec(iter);
-            }
-
-            //------------------------------------------------------------
-            //14 decimals / iteration sum
-            //------------------------------------------------------------
-            const calc14dec = (function() {
-                const A = Decimal('13591409');
-                const B = Decimal('545140134');
-                const C = Decimal('640320').pow(3);
-                
-                return function (n){
-                    const Snum = Decimal('-1').pow(n).times(fact(6 * n)).times(A.plus(B.times(n)));
-                    const Cpow = C.pow(2*n + 1).sqrt();
-                    const Sden = fact(3 * n).times(fact(n).pow(3)).times(Cpow);
-                    return Snum.div(Sden);
-                }
-            })()
-
-            const memoizedSum14dec = (function() {
-                let cache = {};
-                return function(n) {
-                    if (cache[n]) {
+                        const an = an1.sqrt().div(2).plus(Decimal('1').div(an1.sqrt().times(2)))
+                        const bn = an1.sqrt().times(bn1.plus(1)).div(an1.plus(bn1));
+                        const pn = pn1.times(bn).times(an.plus(1).div(bn.plus(1)));
+                        cache[n] = [an, bn, pn];
+                        show1quad(pn.toString(1002), n)
                         return cache[n];
-                    } else {
-                        let result = 0
-                        if (n <= 0){
-                            result = calc14dec(0);
-                        } else {
-                            result = calc14dec(n).plus(memoizedSum14dec(n - 1));
-                        }
-                        return cache[n] = result;
                     }
                 }
-            })()
-
-            function show14dec(value, iter){
-                document.getElementById("test14dec").style.display = "block";
-                let dec = 0;
-                let front = "";
-                let back = value;
-
-                for (let i = 0; i < value.length; i++){
-                    dec = value[i];
-
-                    if (dec == pi[i]){
-                        front = front + dec;
-                        back = back.slice(1);
-                    }else{
-                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
-                        break
-                    }
-                }
-                document.getElementById("pi14dec").innerHTML = temp;
-                document.getElementById('iter14dec').innerHTML = iter;
             }
+        })()
 
-            const iterate14dec = (function() {
-                const D = Decimal('12').pow(-1);
-                return function(n) {
-                    const S = memoizedSum14dec(n);
-                    const pi14 = D.times(S.pow(-1)).toString();
-                    show14dec(pi14, n + 1)
+        function show1quad(value, iter) {
+            document.getElementById("test1quad").style.display = "block";
+            let dec = 0;
+            let front = "";
+            let back = value;
+
+            for (let i = 0; i < value.length; i++) {
+                dec = value[i];
+
+                if (dec == pi[i]) {
+                    front = front + dec;
+                    back = back.slice(1);
+                } else {
+                    temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                    break
                 }
-            })()
-
-            function plusIterate14dec(){
-                const iter = parseInt(document.getElementById('iter14dec').innerHTML);
-                iterate14dec(iter);
             }
+            document.getElementById("pi1quad").innerHTML = temp;
+            document.getElementById('iter1quad').innerHTML = iter;
+        }
 
-            //------------------------------------------------------------
-            //25 decimals / iteration sum
-            //------------------------------------------------------------
-            const calc25dec = (function() {
-                const sqrt61 = Decimal('61').sqrt()
-                const A = Decimal('212175710912').times(sqrt61).plus(Decimal('1657145277365'));
-                const B1 = Decimal('13773980892672').times(sqrt61);
-                const B = B1.plus('107578229802750');
-    
-                const C1 = Decimal(5280 * 236674).plus(sqrt61.times(Decimal(5280*30303)));
-                const C = C1.pow(3);
-                
-                return function (n){
-                    const Snum = Decimal('-1').pow(n).times(fact(6 * n)).times(A.plus(B.times(n)));
-                    const Cpow = C.pow(2 * n + 1).sqrt();
-                    const Sden = fact(3 * n).times(fact(n).pow(3)).times(Cpow);
-                    return Snum.div(Sden);
-                }
-            })()
+        function plusIterate1quad() {
+            const iter = parseInt(document.getElementById('iter1quad').innerHTML);
+            calc1quad(iter + 1);
+        }
 
-            const memoizedSum25dec = (function() {
-                let cache = {};
-                return function(n) {
-                    if (cache[n]) {
-                        return cache[n];
-                    } else {
-                        let result = 0
-                        if (n <= 0){
-                            result = calc25dec(0);
-                        } else {
-                            result = calc25dec(n).plus(memoizedSum25dec(n - 1));
-                        }
-                        return cache[n] = result;
-                    }
-                }
-            })()
+        //------------------------------------------------------------
+        //hexadecimalic function
+        //------------------------------------------------------------
+        const calchex = (function () {
+            const a0 = Decimal('1').div(Decimal('3'));
+            const s1 = Decimal('2').sqrt().minus(1);
 
-            function show25dec(value, iter){
-                document.getElementById("test25dec").style.display = "block";
-                let dec = 0;
-                let front = "";
-                let back = value;
+            let cache = { 0: { a: a0, sp1: s1 } };
+            //console.log(cache);
 
-                for (let i = 0; i < value.length; i++){
-                    dec = value[i];
-
-                    if (dec == pi[i]){
-                        front = front + dec;
-                        back = back.slice(1);
-                    }else{
-                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
-                        break
-                    }
-                }
-                document.getElementById("pi25dec").innerHTML = temp;
-                document.getElementById('iter25dec').innerHTML = iter;
-            }
-
-            const iterate25dec = (function() {
-                const D = Decimal('12').pow(-1);
-                return function(n) {
-                    const S = memoizedSum25dec(n);
-                    const pi25 = D.times(S.pow(-1)).toString();
-                    show25dec(pi25, n + 1)
-                }
-            })()
-
-            function plusIterate25dec(){
-                const iter = parseInt(document.getElementById('iter25dec').innerHTML);
-                iterate25dec(iter);
-            }
-
-            //------------------------------------------------------------
-            //50 decimals / iteration sum
-            //------------------------------------------------------------
-            const calc50dec = (function() {
-                const A = Decimal(vA)
-                const B = Decimal(vB)
-                const C = Decimal(vC)
-                return function(n) {
-                    if (n == 0){
-                        return A;
-                    } else {
-                        const Snum = fact(Decimal('6').times(n)).times(A.plus(B.times(n)));
-                        const Sden = fact(Decimal('3').times(n)).times(fact(n).pow(3)).times(C.pow(Decimal('3').times(n)));
-                        return Snum.div(Sden);
-                    }
-            }
-            })();
-
-            const memoizedSum50dec = (function() {
-                let cache = {};
-                return function(n) {
-                    if (cache[n]){
-                        return cache[n];
-                    }else{
-                        let result = 0;
-                        if (n <= 0){
-                            result = calc50dec(0);
-                        }else{
-                            result = calc50dec(n).plus(memoizedSum50dec(n - 1));
-                        }
-                        return cache[n] = result;
-                        
-                    }
-                }
-            })();
-
-            function show50dec(value, iter){
-                document.getElementById("test50dec").style.display = "block";
-                let dec = 0;
-                let front = "";
-                let back = value;
-
-                for (let i = 0; i < value.length; i++){
-                    dec = value[i];
-
-                    if (dec == pi[i]){
-                        front = front + dec;
-                        back = back.slice(1);
-                    }else{
-                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
-                        break
-                    }
-                }
-                document.getElementById("pi50dec").innerHTML = temp;
-                document.getElementById('iter50dec').innerHTML = iter;
-            }
-
-            const iterate50dec = (function() {
-                const D = Decimal(vD)
-                return function(n) {
-                    const S = memoizedSum50dec(n)
-                    const pi50 = Decimal(D.times(S)).pow('-1').toString();
-                    show50dec(pi50, n + 1)
-                }
-            })();
-
-            function plusIterate50dec(){
-                const iter = parseInt(document.getElementById('iter50dec').innerHTML);
-                iterate50dec(iter);
-            }
-
-            //------------------------------------------------------------
-            //1st quadratic function
-            //------------------------------------------------------------
-            const calc1quad = (function() {
-                const a0 = Decimal('2').sqrt();
-                const b0 = Decimal('0');
-                const p0 = a0.plus(2);
-
-                let cache = {0: [a0, b0, p0]};
-
-                return function (n, dev = 0){
-                    if (n >= 0){
-                        if (dev){
-                            return cache[n];
-                        }
-                        if (cache[n]){
-                            show1quad(cache[n][2].toString(1002), n)
+            return function (n, dev = 0) {
+                if (n >= 0) {
+                    if (dev) {
+                        if (cache[n]) {
                             return cache[n];
                         } else {
-                            c = calc1quad(n - 1);
-                            const an1 = c[0];
-                            const bn1 = c[1];
-                            const pn1 = c[2];
-
-                            const an = an1.sqrt().div(2).plus(Decimal('1').div(an1.sqrt().times(2)))
-                            const bn = an1.sqrt().times(bn1.plus(1)).div(an1.plus(bn1));
-                            const pn = pn1.times(bn).times(an.plus(1).div(bn.plus(1)));
-                            cache[n] = [an, bn, pn];
-                            show1quad(pn.toString(1002), n)
-                            return cache[n];
+                            return calchex(n)
                         }
                     }
-                }
-            })()
-
-            function show1quad(value, iter){
-                document.getElementById("test1quad").style.display = "block";
-                let dec = 0;
-                let front = "";
-                let back = value;
-
-                for (let i = 0; i < value.length; i++){
-                    dec = value[i];
-
-                    if (dec == pi[i]){
-                        front = front + dec;
-                        back = back.slice(1);
-                    }else{
-                        temp = "<span style='font-weight: bold; text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
-                        break
-                    }
-                }
-                document.getElementById("pi1quad").innerHTML = temp;
-                document.getElementById('iter1quad').innerHTML = iter;
-            }
-
-            function plusIterate1quad(){
-                const iter = parseInt(document.getElementById('iter1quad').innerHTML);
-                calc1quad(iter + 1);
-            }
-
-            //------------------------------------------------------------
-            //hexadecimalic function
-            //------------------------------------------------------------
-            const calchex = (function() {
-                const a0 = Decimal('1').div(Decimal('3')) ;
-                const s1 = Decimal('2').sqrt().minus(1);
-
-                let cache = {0: {a: a0, sp1: s1}};
-                //console.log(cache[0]['a'].toString());
-
-                return function (n, dev = 0){
-                    if (n >= 0){
-                        if (dev){
-                            if (cache[n]){
-                                return cache[n];
-                            } else {
-                                return calchex(n)
-                            }
-                        }
-                        if (cache[n]){
-                            showhex(cache[n]['a'].pow(-1).toString(), n);
-                            return cache[n]['a'];
+                    if (cache[n]) {
+                        showhex(cache[n]['a'].pow(-1).toString(), n);
+                        return cache[n]['a'];
                         //} else if(n == 1){
                         //    const t1 = s1x.plus(1);
                         //    const m11 = s1.plus(1).div(t1).pow(4);
                         //    const m21 = t1.pow(-4);
-//
+                        //
                         //    const u = ( s1x.times(8).times( s1x.pow(2).plus(1) ) ).pow(1/4);
                         //    const s2 = ( Decimal('1').minus(s1x) ).pow(4).div( (t.plus(u)).pow(2).times( (t.pow(2).plus(u.pow(2))) ) );
-//
+                        //
                         //    const PLUS = Decimal('4').div(3).times(Decimal('1').minus(m21.times(12)).minus(m11.times(4)));
                         //    const a1 = m11.times(16).times(a0).plus(PLUS);
                         //    cache[1] = {a: a1, s: s1, sp1: s2};
                         //    return a1.pow(-1).toString();
-                        } else {
-                            const tmp = calchex(n - 1, true);
-                            const an1 = tmp['a'];
-                            const sn = tmp['sp1'];
+                    } else {
+                        const tmp = calchex(n - 1, true);
+                        const an1 = tmp['a'];
+                        const sn = tmp['sp1'];
 
-                            const snx = ( Decimal('1').minus(sn.pow(4)) ).sqrt().sqrt();
+                        const snx = (Decimal('1').minus(sn.pow(4))).sqrt().sqrt();
 
-                            const t = snx.plus(1);
-                            const m1 = ( sn.plus(1)).div(t ).pow(4);
-                            const m2 = t.pow(-4)
-                            const u = ( snx.times(8).times( snx.pow(2).plus(1) ) ).sqrt().sqrt();
-                            //console.log(snx.toString());
+                        const t = snx.plus(1);
+                        const m1 = (sn.plus(1)).div(t).pow(4);
+                        const m2 = t.pow(-4)
+                        const u = (snx.times(8).times(snx.pow(2).plus(1))).sqrt().sqrt();
+                        //console.log(snx.toString());
 
-                            const snp1 = ( Decimal('1').minus(snx) ).pow(4).div( (t.plus(u)).pow(2).times( (t.pow(2).plus(u.pow(2))) ) );
+                        const snp1 = (Decimal('1').minus(snx)).pow(4).div((t.plus(u)).pow(2).times((t.pow(2).plus(u.pow(2)))));
 
-                            const PLUS1 = Decimal('4').pow((2*n) - 1).div(3);
-                            const PLUS2 = Decimal('1').minus(m2.times(12)).minus(m1.times(4));
-                            const PLUS = PLUS1.times(PLUS2);
+                        const PLUS1 = Decimal('4').pow((2 * n) - 1).div(3);
+                        const PLUS2 = Decimal('1').minus(m2.times(12)).minus(m1.times(4));
+                        const PLUS = PLUS1.times(PLUS2);
 
-                            const an = m1.times(16).times(an1).plus(PLUS);
+                        const an = m1.times(16).times(an1).plus(PLUS);
 
-                            cache[n] = {a: an, s: sn, sp1: snp1};
-                            showhex(an.pow(-1).toString(), n);
-                            return an;
-                        }
+                        cache[n] = { a: an, s: sn, sp1: snp1 };
+                        showhex(an.pow(-1).toString(), n);
+                        console.log(cache[n]["sp1"].toString());
+                        return an;
                     }
                 }
-            })()
-
-            function showhex(value, iter){
-                document.getElementById("testhex").style.display = "block";
-                let dec = 0;
-                let front = "";
-                let back = value;
-                let temp;
-
-                for (let i = 0; i < value.length; i++){
-                    dec = value[i];
-
-                    if (dec == pi[i]){
-                        front = front + dec;
-                        back = back.slice(1);
-                    }else{
-                        temp = "<span style='text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
-                        break
-                    }
-                }
-                document.getElementById("pihex").innerHTML = temp;
-                document.getElementById('iterhex').innerHTML = iter;
             }
+        })()
 
-            function plusIteratehex(){
-                const iter = parseInt(document.getElementById('iterhex').innerHTML);
-                calchex(iter + 1);
-            }
-            
-            //------------------------------------------------------------
-            //show functions
-            //------------------------------------------------------------
+        function showhex(value, iter) {
+            document.getElementById("testhex").style.display = "block";
+            let dec = 0;
+            let front = "";
+            let back = value;
+            let temp;
 
-            const pis = document.getElementsByClassName('pi');
-            for (let i = 0; i < pis.length; i++){
-                pis[i].innerHTML = pi;
-            }
+            for (let i = 0; i < value.length; i++) {
+                dec = value[i];
 
-            function darktheme(){
-                const dark = document.getElementById("dark").style;
-                dark.boxShadow = "5px 5px 5px #232323";
-                dark.borderColor = "white";
-                const light = document.getElementById("light").style;
-                light.boxShadow = "5px 5px 5px #232323";
-                light.borderColor = "white";
-                const content = document.getElementsByClassName("color");
-                for (let i = 0; i < content.length; i++){
-                    let modif = content[i].style
-                    modif.backgroundColor = "#36393f";
-                    modif.color = "white";
-                    modif.boxShadow = "10px 10px 8px #232323";
-                    modif.borderColor = "white";
+                if (dec == pi[i]) {
+                    front = front + dec;
+                    back = back.slice(1);
+                } else {
+                    temp = "<span style='text-decoration: underline;'>" + front + "</span><span style='background-color: rgba(255, 0, 0, 0.5);'>" + back + "</span>";
+                    break
                 }
             }
+            document.getElementById("pihex").innerHTML = temp;
+            document.getElementById('iterhex').innerHTML = iter;
+        }
 
-            function lighttheme(){
-                const dark = document.getElementById("dark").style;
-                dark.boxShadow = "5px 5px 5px dimgray";
-                dark.borderColor = "black";
-                const light = document.getElementById("light").style;
-                light.boxShadow = "5px 5px 5px dimgray";
-                light.borderColor = "black";
-                const content = document.getElementsByClassName("color");
-                for (let i = 0; i < content.length; i++){
-                    let modif = content[i].style
-                    modif.backgroundColor = "#F5F5DC";
-                    modif.color = "black";
-                    modif.boxShadow = "10px 10px 8px dimgray";
-                    modif.borderColor = "black";
-                }
+        function plusIteratehex() {
+            const iter = parseInt(document.getElementById('iterhex').innerHTML);
+            calchex(iter + 1);
+        }
+
+        //------------------------------------------------------------
+        //show functions
+        //------------------------------------------------------------
+
+        const pis = document.getElementsByClassName('pi');
+        for (let i = 0; i < pis.length; i++) {
+            pis[i].innerHTML = pi;
+        }
+
+        function darktheme() {
+            const dark = document.getElementById("dark").style;
+            dark.boxShadow = "5px 5px 5px #232323";
+            dark.borderColor = "white";
+            const light = document.getElementById("light").style;
+            light.boxShadow = "5px 5px 5px #232323";
+            light.borderColor = "white";
+            const content = document.getElementsByClassName("color");
+            for (let i = 0; i < content.length; i++) {
+                let modif = content[i].style
+                modif.backgroundColor = "#36393f";
+                modif.color = "white";
+                modif.boxShadow = "10px 10px 8px #232323";
+                modif.borderColor = "white";
             }
+        }
 
-            function close_popup(){
-                document.getElementsByClassName("themepopup")[0].style.display = "none";
+        function lighttheme() {
+            const dark = document.getElementById("dark").style;
+            dark.boxShadow = "5px 5px 5px dimgray";
+            dark.borderColor = "black";
+            const light = document.getElementById("light").style;
+            light.boxShadow = "5px 5px 5px dimgray";
+            light.borderColor = "black";
+            const content = document.getElementsByClassName("color");
+            for (let i = 0; i < content.length; i++) {
+                let modif = content[i].style
+                modif.backgroundColor = "#F5F5DC";
+                modif.color = "black";
+                modif.boxShadow = "10px 10px 8px dimgray";
+                modif.borderColor = "black";
             }
+        }
 
-            function make_active(ele){
-                const list = document.getElementById("menu").children;
-                for(let i = 0;i < list.length; i++){
-                    list[i].children[0].classList.remove("active");
-                }
-                ele.classList.add("active")
+        function close_popup() {
+            document.getElementsByClassName("themepopup")[0].style.display = "none";
+        }
+
+        function make_active(ele) {
+            const list = document.getElementById("menu").children;
+            for (let i = 0; i < list.length; i++) {
+                list[i].children[0].classList.remove("active");
             }
-            
-            function hide_content(){
-                const contentChild = document.getElementsByClassName("content")[0].children;
-                for (let i = 0;i < contentChild.length; i++){
-                    contentChild[i].style.display = "none";    
-                }
+            ele.classList.add("active")
+        }
+
+        function hide_content() {
+            const contentChild = document.getElementsByClassName("content")[0].children;
+            for (let i = 0; i < contentChild.length; i++) {
+                contentChild[i].style.display = "none";
             }
+        }
 
-            function show_content(id){
-                hide_content()
-                document.getElementById(id).style.display = "block"
+        function show_content(id) {
+            hide_content()
+            document.getElementById(id).style.display = "block"
+        }
+
+        function playRickRoll() {
+            document.getElementById("rickRoll").play();
+        }
+
+        function stopRickRoll() {
+            document.getElementById("rickRoll").pause()
+        }
+
+        function theoremeThales() {
+            document.getElementById("explicationtheoremethales").style.display = "inline-block";
+        }
+
+        function runtime(func, arg) {
+            var startTime = performance.now();
+            func(arg);
+            var endTime = performance.now();
+            time = (endTime - startTime).toString();
+            console.log("it took " + time + " ms");
+            return time;
+        }
+
+        const fact = (function () {
+            var f = [Decimal("1"), Decimal("1")];
+            var i = 2;
+            return function (n) {
+                if (typeof f[n] != 'undefined')
+                    return f[n];
+                var result = f[i - 1];
+                for (; i <= n; i++)
+                    f[i] = result = result.times(i.toString());
+                return result;
             }
+        })()
+        var cache = 1000;
+        // Due to memoization, following line will cache first 1000 elements.
+        fact(cache)
 
-            function playRickRoll(){
-                document.getElementById("rickRoll").play();
-            }
+        darktheme();
+        close_popup();
+    </script>
+</body>
 
-            function stopRickRoll(){
-                document.getElementById("rickRoll").pause()
-            }
-
-            function theoremeThales(){
-                document.getElementById("explicationtheoremethales").style.display = "inline-block";
-            }
-
-            function runtime(func, arg){
-                var startTime = performance.now();
-                func(arg);
-                var endTime = performance.now();
-                time = (endTime - startTime).toString();
-                console.log("it took " + time + " ms");
-                return time;
-            }
-
-            const fact = (function(){
-                var f = [Decimal("1"), Decimal("1")];
-                var i = 2;
-                return function(n)
-                {
-                    if (typeof f[n] != 'undefined')
-                        return f[n];
-                    var result = f[i-1];
-                    for (; i <= n; i++)
-                        f[i] = result = result.times(i.toString());
-                    return result;
-                }
-            })()
-            var cache = 1000;
-            // Due to memoization, following line will cache first 1000 elements.
-            fact(cache)
-
-            darktheme();
-            close_popup();
-        </script>
-    </body>
 </html>
