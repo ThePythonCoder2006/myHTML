@@ -769,29 +769,42 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
                         //    cache[1] = {a: a1, s: s1, sp1: s2};
                         //    return a1.pow(-1).toString();
                     } else {
+                        console.log(n);
                         const tmp = calchex(n - 1, true);
                         const an1 = tmp['a'];
+                        console.log("an1: " + an1.toString());
                         const sn = tmp['sp1'];
 
                         const snx = (Decimal('1').minus(sn.pow(4))).sqrt().sqrt();
+                        console.log(snx.toString());
 
                         const t = snx.plus(1);
+                        console.log("t: " + t.toString());
+
                         const m1 = (sn.plus(1)).div(t).pow(4);
-                        const m2 = t.pow(-4)
+                        console.log("m1: " + m1.toString());
+
+                        const m2 = t.pow(-4);
+                        console.log("m2: " + m2.toString());
+
                         const u = (snx.times(8).times(snx.pow(2).plus(1))).sqrt().sqrt();
-                        //console.log(snx.toString());
+                        console.log("u: " + u.toString());
 
                         const snp1 = (Decimal('1').minus(snx)).pow(4).div((t.plus(u)).pow(2).times((t.pow(2).plus(u.pow(2)))));
 
                         const PLUS1 = Decimal('4').pow((2 * n) - 1).div(3);
                         const PLUS2 = Decimal('1').minus(m2.times(12)).minus(m1.times(4));
                         const PLUS = PLUS1.times(PLUS2);
+                        console.log("PLUS1: " + PLUS1.toString());
+                        console.log("PLUS2: " + PLUS2.toString());
+                        console.log("PLUS: " + PLUS.toString());
 
                         const an = m1.times(16).times(an1).plus(PLUS);
+                        console.log("start: " + m1.times(16).times(an1).toString());
 
                         cache[n] = { a: an, s: sn, sp1: snp1 };
                         showhex(an.pow(-1).toString(), n);
-                        console.log(cache[n]["sp1"].toString());
+                        //console.log(cache[n]["sp1"].toString());
                         return an;
                     }
                 }
