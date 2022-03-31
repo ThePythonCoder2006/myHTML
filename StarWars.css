@@ -4,6 +4,14 @@ body {
     padding: 0;
 }
 
+body {
+    background-image: url(Fond.webp);
+    font-weight: bold;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
 p,
 h1,
 h2 {
@@ -28,6 +36,15 @@ h2 {
     animation: disapear 1ms forwards calc(var(--intro-screen-time) + 200ms);
 }
 
+.intro>p {
+    position: relative;
+    top: 42%;
+    width: 32ch;
+    font-size: 3rem;
+    margin: auto;
+    animation: fade-out calc(var(--intro-screen-time) - var(--intro-text-time)) forwards var(--intro-text-time);
+}
+
 @keyframes disapear {
     100% {
         background-color: transparent;
@@ -39,15 +56,6 @@ h2 {
         opacity: 0;
     }
 
-}
-
-.intro>p {
-    position: relative;
-    top: 42%;
-    width: 32ch;
-    font-size: 3rem;
-    margin: auto;
-    animation: fade-out calc(var(--intro-screen-time) - var(--intro-text-time)) forwards var(--intro-text-time);
 }
 
 .text-container {
@@ -64,6 +72,15 @@ h2 {
     padding-top: 1200px;
 }
 
+.text-container> :first-child {
+    padding-top: 500px;
+    margin-bottom: 0.5em;
+}
+
+.text-container> :nth-child(2) {
+    margin-bottom: 1em;
+}
+
 @keyframes perspective {
     100% {
         transform: perspective(50px) rotateX(8deg);
@@ -71,7 +88,7 @@ h2 {
 }
 
 .skewed-text {
-    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 1s) linear;
+    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 4s) linear;
     /*transform: translate(0px, 50px);*/
 }
 
@@ -90,40 +107,29 @@ h2 {
     }
 }
 
-body {
-    background-image: url(Fond.webp);
-    font-weight: bold;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-
-h1:first-child {
-    padding-top: 500px;
-}
-
 #h2 {
     text-align: center;
-    font-family: 'Agency FB';
+    font-family: 'Agency FB', arial;
     font-size: 150%;
     letter-spacing: -3px;
 }
 
-.logo {
+.logo img {
     position: absolute;
-    animation: logo var(--logo-time) ease forwards calc(var(--intro-screen-time) + 1s);
-    top: 40%;
-    margin-left: 40%;
+    animation: logo var(--logo-time) ease forwards calc(var(--intro-screen-time) - 500ms);
+    top: 45%;
+    left: 42.5%;
     opacity: 0;
 }
 
 @keyframes logo {
     0% {
-        transform: scale(10);
+        transform: scale(7.5);
     }
 
     5% {
         opacity: 0;
+        transform: scale(7.5);
     }
 
     6% {
