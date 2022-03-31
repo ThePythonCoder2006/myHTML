@@ -1,0 +1,158 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p,
+h1,
+h2 {
+    font-family: calibri;
+    width: 50%;
+    margin: auto;
+}
+
+:root {
+    --intro-text-time: 3s;
+    --intro-screen-time: 5s;
+    --logo-time: 12s;
+    font-size: 16px;
+}
+
+.intro {
+    color: #1cdce9;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    animation: disapear 1ms forwards calc(var(--intro-screen-time) + 200ms);
+}
+
+@keyframes disapear {
+    100% {
+        background-color: transparent;
+    }
+}
+
+@keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
+
+}
+
+.intro>p {
+    position: relative;
+    top: 42%;
+    width: 32ch;
+    font-size: 3rem;
+    margin: auto;
+    animation: fade-out calc(var(--intro-screen-time) - var(--intro-text-time)) forwards var(--intro-text-time);
+}
+
+.text-container {
+    position: absolute;
+    text-align: justify;
+    color: #ffca00;
+    animation: perspective 0s forwards -2s;
+    margin: auto;
+    font-size: 1.5rem;
+    width: 100vw;
+    height: 200vh;
+    overflow: hidden;
+    top: -850px;
+    padding-top: 1200px;
+}
+
+@keyframes perspective {
+    100% {
+        transform: perspective(50px) rotateX(8deg);
+    }
+}
+
+.skewed-text {
+    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 1s) linear;
+    /*transform: translate(0px, 50px);*/
+}
+
+@keyframes stgenerique {
+    35% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(0) translate(0px, -5000px);
+        opacity: 0;
+    }
+}
+
+body {
+    background-image: url(Fond.webp);
+    font-weight: bold;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1:first-child {
+    padding-top: 500px;
+}
+
+#h2 {
+    text-align: center;
+    font-family: 'Agency FB';
+    font-size: 150%;
+    letter-spacing: -3px;
+}
+
+.logo {
+    position: absolute;
+    animation: logo var(--logo-time) ease forwards calc(var(--intro-screen-time) + 1s);
+    top: 40%;
+    margin-left: 40%;
+    opacity: 0;
+}
+
+@keyframes logo {
+    0% {
+        transform: scale(10);
+    }
+
+    5% {
+        opacity: 0;
+    }
+
+    6% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+}
+
+audio {
+    animation: audio 12s forwards 11s;
+    position: absolute;
+    top: 0;
+}
+
+@keyframes audio {
+    90% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
