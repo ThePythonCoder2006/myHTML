@@ -69,7 +69,7 @@ h2 {
     height: 200vh;
     overflow: hidden;
     top: -850px;
-    padding-top: 1200px;
+    padding-top: 75%;
 }
 
 .text-container> :first-child {
