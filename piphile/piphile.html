@@ -31,7 +31,7 @@
 
 <body>
     <div class=navbar>
-        <img src=icon_rect.png>
+        <img src=files/icon_rect.png>
         <ul id=menu>
             <li><a onclick="show_content('home');make_active(this);"
                     class=active href=#>Accueil</a></li>
@@ -81,13 +81,14 @@
             </div>
             <div class="overlay-image">
                 <div class="normal">
-                    <img class="image" src="le fascinant nombre pi.png"
+                    <img class="image"
+                        src="files/le fascinant nombre pi.png"
                         alt='image couverture du livre "le fascinant nombre pi"' />
                     <div class="text" id=txt_couverture></div>
                 </div>
                 <div class="hover">
                     <img class="image"
-                        src="1200px-Jean-Paul_Delahaye_2008_2.jpg"
+                        src="files/1200px-Jean-Paul_Delahaye_2008_2.jpg"
                         alt="image de Monsieur Jean-Paul Delahaye" />
                     <div class="text">M. Jean-Paul Delahaye</div>
                 </div>
@@ -107,7 +108,7 @@
                     à π :</p>
             </div>
             <div id=Pi-unrolled>
-                <img src="Pi-unrolled.gif"
+                <img src="files/Pi-unrolled.gif"
                     alt="cercle de diametre 1 qui se fait dérouler, le périmetre vaut pi"
                     id=imgPiunrolled><br>
                 <p class=source>source :&nbsp</p><a
@@ -127,7 +128,7 @@
                 <p>si `A`, `B` et `C` alignés et `A`, `D` et `E` aussi
                     et que `(BD)` // `(CE)` (voir schéma) alors :</p>
                 <p>`(AD)/(AE) = (AB)/(AC) = (BD)/(CE)`</p>
-                <img src="theorême de thalès.png"
+                <img src="files/theorême de thalès.png"
                     alt="dessin du théorème de Thalès" width="350"
                     id="theoremeThales">
             </div>
@@ -148,7 +149,7 @@
             <p>`cc "P"_1 = lim_(n->oo) cc "P"_(p1)` et
                 &nbsp&nbsp&nbsp&nbsp `cc "P"_2 = lim_(n->oo) cc
                 "P"_(p2)`</p>
-            <img src="preuve constance pi.png" height="400"
+            <img src="files/preuve constance pi.png" height="400"
                 id="constancePi">
             <p>d'après le théorème de Thalès :</p>
             <p style="margin-left: 35;">`(r_1)/(r_2) = (l_1)/(l_2)`</p>
@@ -906,7 +907,8 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
         }
 
         function playRickRoll() {
-            document.getElementById("rickRoll").play();
+            let promise = document.getElementById("rickRoll").play();
+            console.log(promise)
         }
 
         function stopRickRoll() {
@@ -944,6 +946,7 @@ C=-214772995063512240-96049403338648032*51/2-1296*51/2 sqrt(10985234579463550323
 
         darktheme();
         close_popup();
+        playRickRoll();
     </script>
 </body>
 
