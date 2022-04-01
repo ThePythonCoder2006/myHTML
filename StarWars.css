@@ -16,7 +16,7 @@ p,
 h1,
 h2 {
     font-family: calibri;
-    width: 50%;
+    width: 40%;
     margin: auto;
 }
 
@@ -33,7 +33,7 @@ h2 {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    animation: disapear 1ms forwards calc(var(--intro-screen-time) + 200ms);
+    animation: disapear 0ms forwards calc(var(--intro-screen-time) + 200ms);
 }
 
 .intro>p {
@@ -47,13 +47,14 @@ h2 {
 
 @keyframes disapear {
     100% {
-        background-color: transparent;
+        transform: translate(-9000px, -9000px);
     }
 }
 
 @keyframes fade-out {
     100% {
         opacity: 0;
+        display: none;
     }
 
 }
@@ -61,7 +62,7 @@ h2 {
 .text-container {
     position: absolute;
     text-align: justify;
-    color: #ffca00;
+    color: #ffc902;
     animation: perspective 0s forwards -2s;
     margin: auto;
     font-size: 1.5rem;
@@ -69,7 +70,7 @@ h2 {
     height: 200vh;
     overflow: hidden;
     top: -850px;
-    padding-top: 75%;
+    padding-top: 115vh;
 }
 
 .text-container> :first-child {
@@ -91,7 +92,6 @@ h2 {
     animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 4s) linear;
     /*transform: translate(0px, 50px);*/
 }
-
 @keyframes stgenerique {
     35% {
         opacity: 1;
@@ -111,7 +111,7 @@ h2 {
     text-align: center;
     font-family: 'Agency FB', arial;
     font-size: 150%;
-    letter-spacing: -3px;
+    letter-spacing: 2px;
 }
 
 .logo img {
