@@ -89,7 +89,7 @@ h2 {
 }
 
 .skewed-text {
-    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 7s) linear;
+    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 8s) linear;
     /*transform: translate(0px, 50px);*/
 }
 
@@ -163,3 +163,5 @@ audio {
         opacity: 1;
     }
 }
+
+/*pétard ça marche ?*/
