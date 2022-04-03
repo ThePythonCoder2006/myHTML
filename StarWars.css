@@ -24,7 +24,7 @@ h2 {
     --intro-text-time: 3s;
     --intro-screen-time: 5s;
     --logo-time: 12s;
-    font-size: 3vw;
+    font-size: 16px;
 }
 
 .intro {
@@ -89,7 +89,7 @@ h2 {
 }
 
 .skewed-text {
-    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 30s) linear;
+    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 23s) linear;
     /*transform: translate(0px, 50px);*/
 }
 
@@ -111,7 +111,7 @@ h2 {
 #h2 {
     text-align: center;
     font-family: 'Agency FB', arial;
-    font-size: 2rem;
+    font-size: 150%;
     letter-spacing: 2px;
 }
 
