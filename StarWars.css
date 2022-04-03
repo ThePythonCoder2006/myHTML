@@ -47,7 +47,7 @@ h2 {
 
 @keyframes disapear {
     100% {
-        transform: translate(-9000px, -9000px);
+        transform: translate(-9000px, -9001px);
     }
 }
 
@@ -70,16 +70,16 @@ h2 {
     height: 200vh;
     overflow: hidden;
     top: -850px;
-    padding-top: 115vh;
+    padding-top: 200vh;
 }
 
 .text-container> :first-child {
     padding-top: 500px;
-    margin-bottom: 0.5em;
+    margin-bottom: 0;
 }
 
 .text-container> :nth-child(2) {
-    margin-bottom: 1em;
+    margin-bottom: 0;
 }
 
 @keyframes perspective {
@@ -89,7 +89,7 @@ h2 {
 }
 
 .skewed-text {
-    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 7s) linear;
+    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 23s) linear;
     /*transform: translate(0px, 50px);*/
 }
 
