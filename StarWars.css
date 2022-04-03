@@ -103,7 +103,7 @@ h2 {
     }
 
     100% {
-        transform: scale(0) translate(0px, -5000px);
+        transform: scale(0) translate(0px, -5003px);
         opacity: 0;
     }
 }
