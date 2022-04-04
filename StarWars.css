@@ -23,7 +23,7 @@ h2 {
 :root {
     --intro-text-time: 3s;
     --intro-screen-time: 5s;
-    --logo-time: 12s;
+    --logo-time: 15s;
     font-size: 16px;
 }
 
@@ -89,7 +89,7 @@ h2 {
 }
 
 .skewed-text {
-    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 23s) linear;
+    animation: stgenerique 250s forwards calc(var(--intro-screen-time) + var(--logo-time) - 26s) linear;
     /*transform: translate(0px, 50px);*/
 }
 
