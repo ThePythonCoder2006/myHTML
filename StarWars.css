@@ -48,7 +48,7 @@ h2 {
 
 @keyframes disapear {
     100% {
-        transform: translate(-9000px, -9001px);
+        transform: translate(-9000px, -9000px);
     }
 }
 
