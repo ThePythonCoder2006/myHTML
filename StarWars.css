@@ -95,12 +95,13 @@ h2 {
 
 @keyframes perspective {
     100% {
-        transform: perspective(50px) rotateX(2deg);
+        transform: perspective(500px) rotateX(25deg);
+
     }
 }
 
 .skewed-text {
-    animation: stgenerique 150s forwards calc(var(--intro-screen-time) + var(--logo-time) - 5s) linear;
+    animation: stgenerique 75s forwards calc(var(--intro-screen-time) + var(--logo-time) - 5s) linear;
     font-size: var(--text-font-size);
     width: 100%;
     /*transform: translate(0px, 50px);*/
